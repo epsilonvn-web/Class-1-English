@@ -9,7 +9,7 @@
   <!-- Google Fonts: Quicksand & Nunito -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Quicksand:wght@600;700;800&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Canvas Confetti -->
@@ -23,6 +23,10 @@
       --blue: #3B82F6;
       --purple: #8B5CF6;
       --dark: #1E293B;
+      --candy1: #FFD6E8;
+      --candy2: #C9F4E5;
+      --candy3: #FFF3C4;
+      --candy4: #D9E4FF;
     }
     * {
       box-sizing: border-box;
@@ -31,30 +35,110 @@
     }
     body {
       font-family: 'Nunito', 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #FFE4E6 0%, #E0F2FE 50%, #EDE9FE 100%);
+      background: linear-gradient(135deg, #FFE4E6 0%, #E0F2FE 45%, #FFF7D6 75%, #EDE9FE 100%);
+      background-size: 300% 300%;
+      animation: candySwirl 22s ease-in-out infinite;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 6px;
       color: var(--dark);
+      overflow: hidden;
+      position: relative;
+    }
+    @keyframes candySwirl {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     .font-cute {
-      font-family: 'Quicksand', cursive, sans-serif;
+      font-family: 'Baloo 2', 'Quicksand', cursive, sans-serif;
     }
+    /* ---------- Floating background decorations ---------- */
+    .bg-decor {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      font-size: 34px;
+      opacity: 0.55;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+      animation: floatDrift 9s ease-in-out infinite;
+    }
+    @keyframes floatDrift {
+      0%, 100% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(-24px) rotate(6deg); }
+    }
+    .bg-decor.d1 { top: 6%;  left: 5%;  animation-duration: 8s; }
+    .bg-decor.d2 { top: 15%; right: 7%; animation-duration: 10s; animation-delay: 1s; font-size: 42px; }
+    .bg-decor.d3 { bottom: 10%; left: 8%; animation-duration: 11s; animation-delay: 0.5s; }
+    .bg-decor.d4 { bottom: 8%;  right: 10%; animation-duration: 9.5s; animation-delay: 1.5s; font-size: 30px; }
+    .bg-decor.d5 { top: 45%; left: 2%; animation-duration: 12s; animation-delay: 2s; font-size: 26px; }
+    .bg-decor.d6 { top: 40%; right: 3%; animation-duration: 10.5s; animation-delay: 0.8s; font-size: 26px; }
+    @media (max-width: 768px) { .bg-decor { display: none; } }
+
     #app-container {
       background: rgba(255, 255, 255, 0.98);
       width: 100%;
       max-width: 1200px;
       min-height: 700px;
       max-height: 96vh;
-      border-radius: 28px;
-      box-shadow: 0 20px 50px rgba(244, 114, 182, 0.2);
-      border: 4px solid #FFF;
+      border-radius: 32px;
+      box-shadow: 0 20px 55px rgba(244, 114, 182, 0.25), 0 0 0 6px rgba(255,255,255,0.9);
+      border: 4px dashed #FFC2D9;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      z-index: 1;
+    }
+    /* Cute scrollbar */
+    .custom-scrollbar::-webkit-scrollbar { width: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #FFF0F5; border-radius: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #FF9EC4, #A78BFA, #7DD3FC);
+      border-radius: 10px;
+      border: 2px solid #FFF0F5;
+    }
+    /* Sparkle accents around section titles */
+    h2.font-cute { position: relative; }
+    h2.font-cute::before, h2.font-cute::after {
+      content: '✨';
+      display: inline-block;
+      font-size: 0.75em;
+      opacity: 0.85;
+      animation: sparkleSpin 2.4s ease-in-out infinite;
+    }
+    h2.font-cute::before { margin-right: 6px; }
+    h2.font-cute::after { margin-left: 6px; }
+    @keyframes sparkleSpin {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      50% { transform: scale(1.25) rotate(15deg); opacity: 1; }
+    }
+    /* Gentle wiggle for icons/emoji inside interactive cards */
+    .card-hover .text-3xl, .card-hover .text-5xl, .card-hover .text-2xl {
+      display: inline-block;
+      animation: iconWiggle 3.2s ease-in-out infinite;
+    }
+    @keyframes iconWiggle {
+      0%, 100% { transform: rotate(-4deg) scale(1); }
+      50% { transform: rotate(4deg) scale(1.08); }
+    }
+    /* Cuter card shape + candy corner sticker */
+    .card-hover {
+      border-radius: 22px !important;
+      position: relative;
+      background-image: radial-gradient(circle at 100% 0%, rgba(255,214,232,0.5) 0%, rgba(255,255,255,0) 55%);
+    }
+    .card-hover:hover {
+      box-shadow: 0 10px 22px rgba(244, 114, 182, 0.22);
+    }
+    .mascot-bounce {
+      animation: mascotBounce 2.4s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes mascotBounce {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-6px) rotate(4deg); }
     }
     .card-hover {
       transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -156,21 +240,32 @@
 </head>
 <body>
 
+  <span class="bg-decor d1">☁️</span>
+  <span class="bg-decor d2">🌈</span>
+  <span class="bg-decor d3">⭐</span>
+  <span class="bg-decor d4">🍭</span>
+  <span class="bg-decor d5">🦋</span>
+  <span class="bg-decor d6">🎈</span>
+
   <div id="app-container">
 
     <!-- 0. WELCOME OVERLAY SCREEN -->
     <div id="start-overlay" class="absolute inset-0 bg-gradient-to-br from-pink-500/95 via-rose-400/95 to-purple-600/95 z-50 flex flex-col items-center justify-center p-6 text-center text-white">
-      <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-5xl shadow-2xl mb-3 transform -rotate-6 animate-bounce">
-        🐰
+      <div class="flex items-end justify-center gap-3 mb-3">
+        <span class="text-4xl mascot-bounce" style="animation-delay:0.3s;">🐝</span>
+        <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-5xl shadow-2xl transform -rotate-6 animate-bounce">
+          🐰
+        </div>
+        <span class="text-4xl mascot-bounce" style="animation-delay:0.6s;">🦋</span>
       </div>
-      
+
       <div id="greeting-badge" class="bg-white/20 backdrop-blur-md px-5 py-1.5 rounded-full text-base md:text-lg font-black tracking-wide border border-white/40 mb-2.5 shadow-sm">
         🌅 Good morning, little princess!
       </div>
 
       <h1 class="text-2xl md:text-3xl font-black font-cute mb-2">🌸 ENGLISH GRADE 1 LEARNING PARK 🌸</h1>
       <p class="text-sm md:text-base font-bold max-w-lg mb-5 leading-relaxed text-pink-100">
-        Explore 12 Learning Sections, 16 Unit Topics (70 words), 44 IPA Sounds, Sentence Patterns, Numbers & 20 Reading Stories! ✨
+        Explore 12 Learning Sections, 20 Unit Topics (100 words), 44 IPA Sounds, 63 Sentence Patterns, 31 Dialogues & 20 Reading Stories! ✨
       </p>
       
       <button id="btn-start-app" onclick="initAppAudio()" class="btn-bounce bg-amber-300 hover:bg-amber-200 text-amber-900 text-lg md:text-xl font-black px-8 py-3.5 rounded-full shadow-2xl border-4 border-white transition flex items-center space-x-2.5 cursor-pointer">
@@ -185,9 +280,9 @@
 
       <div class="flex items-center justify-center flex-1">
         <h1 class="text-xs sm:text-base md:text-lg font-black font-cute text-pink-600 tracking-wide drop-shadow-sm flex items-center gap-1.5 cursor-pointer line-clamp-1" onclick="openEngMenu()">
-          <span>🌍</span>
+          <span class="mascot-bounce">🐝</span>
           <span class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">ENGLISH GRADE 1</span>
-          <span>🌍</span>
+          <span class="mascot-bounce" style="animation-delay:0.4s;">🦋</span>
         </h1>
       </div>
 
@@ -484,7 +579,10 @@
       { id: 'u14', title: '14. In the Toy Shop', viTitle: 'Trong cửa hàng đồ chơi', icon: '🧸' },
       { id: 'u15', title: '15. At the Football Match', viTitle: 'Ở trận bóng đá', icon: '⚽' },
       { id: 'u16', title: '16. At Home', viTitle: 'Ở nhà', icon: '🏠' },
-      { id: 'numbers', title: '17. Numbers 1-10', viTitle: 'Số đếm 1 đến 10', icon: '🔢' }
+      { id: 'numbers', title: '17. Numbers 1-10', viTitle: 'Số đếm 1 đến 10', icon: '🔢' },
+      { id: 'colors', title: '18. Colors', viTitle: 'Màu sắc', icon: '🎨' },
+      { id: 'family', title: '19. Greetings & Family', viTitle: 'Chào hỏi & Gia đình', icon: '👨‍👩‍👧‍👦' },
+      { id: 'school', title: '20. More School Words', viTitle: 'Thêm từ về trường học', icon: '🎒' }
     ];
 
     function createVocabItem(topicId, word, pos, ipa, vi, emoji, ex_en, ex_vi) {
@@ -614,7 +712,43 @@
       createVocabItem('numbers', 'Seven', 'Noun', '/ˈsev.n/', 'Bảy (7)', '7️⃣', 'I can see seven windows.', 'Tôi thấy bảy cửa sổ.'),
       createVocabItem('numbers', 'Eight', 'Noun', '/eɪt/', 'Tám (8)', '8️⃣', 'I can see eight windows.', 'Tôi thấy tám cửa sổ.'),
       createVocabItem('numbers', 'Nine', 'Noun', '/naɪn/', 'Chín (9)', '9️⃣', 'I can see nine windows.', 'Tôi thấy chín cửa sổ.'),
-      createVocabItem('numbers', 'Ten', 'Noun', '/ten/', 'Mười (10)', '🔟', 'I can see ten windows.', 'Tôi thấy mười cửa sổ.')
+      createVocabItem('numbers', 'Ten', 'Noun', '/ten/', 'Mười (10)', '🔟', 'I can see ten windows.', 'Tôi thấy mười cửa sổ.'),
+
+      // Bonus Topic 18: Colors
+      createVocabItem('colors', 'Blue', 'Adj', '/bluː/', 'Màu xanh dương', '🔵', "It's blue.", 'Nó màu xanh dương.'),
+      createVocabItem('colors', 'Yellow', 'Adj', '/ˈjel.əʊ/', 'Màu vàng', '🟡', "It's yellow.", 'Nó màu vàng.'),
+      createVocabItem('colors', 'Green', 'Adj', '/griːn/', 'Màu xanh lá', '🟢', "It's green.", 'Nó màu xanh lá.'),
+      createVocabItem('colors', 'Orange', 'Adj', '/ˈɒr.ɪndʒ/', 'Màu cam', '🟠', "It's orange.", 'Nó màu cam.'),
+      createVocabItem('colors', 'Black', 'Adj', '/blæk/', 'Màu đen', '⚫', "It's black.", 'Nó màu đen.'),
+      createVocabItem('colors', 'White', 'Adj', '/waɪt/', 'Màu trắng', '⚪', "It's white.", 'Nó màu trắng.'),
+      createVocabItem('colors', 'Pink', 'Adj', '/pɪŋk/', 'Màu hồng', '🌸', "It's pink.", 'Nó màu hồng.'),
+      createVocabItem('colors', 'Purple', 'Adj', '/ˈpɜː.pəl/', 'Màu tím', '🟣', "It's purple.", 'Nó màu tím.'),
+
+      // Bonus Topic 19: Greetings & Family
+      createVocabItem('family', 'Hello', 'Noun', '/həˈləʊ/', 'Xin chào', '👋', 'Hello, I am Bill.', 'Xin chào, mình là Bill.'),
+      createVocabItem('family', 'Goodbye', 'Noun', '/ˌgʊdˈbaɪ/', 'Tạm biệt', '🙋', 'Goodbye, Lucy!', 'Tạm biệt, Lucy!'),
+      createVocabItem('family', 'Friend', 'Noun', '/frend/', 'Bạn bè', '🧑‍🤝‍🧑', 'This is my friend.', 'Đây là bạn của tôi.'),
+      createVocabItem('family', 'Teacher', 'Noun', '/ˈtiː.tʃər/', 'Giáo viên', '👩‍🏫', 'This is my teacher.', 'Đây là cô giáo của tôi.'),
+      createVocabItem('family', 'Sister', 'Noun', '/ˈsɪs.tər/', 'Chị/em gái', '👧', 'This is my sister.', 'Đây là chị/em gái của tôi.'),
+      createVocabItem('family', 'Brother', 'Noun', '/ˈbrʌð.ər/', 'Anh/em trai', '👦', 'This is my brother.', 'Đây là anh/em trai của tôi.'),
+      createVocabItem('family', 'Grandma', 'Noun', '/ˈgræn.mɑː/', 'Bà', '👵', 'This is my grandma.', 'Đây là bà của tôi.'),
+      createVocabItem('family', 'Grandpa', 'Noun', '/ˈgræn.pɑː/', 'Ông', '👴', 'This is my grandpa.', 'Đây là ông của tôi.'),
+      createVocabItem('family', 'Baby', 'Noun', '/ˈbeɪ.bi/', 'Em bé', '👶', 'This is my baby sister.', 'Đây là em bé của tôi.'),
+      createVocabItem('family', 'Family', 'Noun', '/ˈfæm.ɪ.li/', 'Gia đình', '👨‍👩‍👧‍👦', 'I love my family.', 'Tôi yêu gia đình của tôi.'),
+
+      // Bonus Topic 20: More School Words
+      createVocabItem('school', 'Ruler', 'Noun', '/ˈruː.lər/', 'Thước kẻ', '📏', 'This is my ruler.', 'Đây là thước kẻ của tôi.'),
+      createVocabItem('school', 'Rubber', 'Noun', '/ˈrʌb.ər/', 'Cục tẩy', '🧼', 'This is my rubber.', 'Đây là cục tẩy của tôi.'),
+      createVocabItem('school', 'Chair', 'Noun', '/tʃeər/', 'Cái ghế', '🪑', 'This is a chair.', 'Đây là cái ghế.'),
+      createVocabItem('school', 'Table', 'Noun', '/ˈteɪ.bl/', 'Cái bàn', '🍽️', 'This is a table.', 'Đây là cái bàn.'),
+      createVocabItem('school', 'Balloon', 'Noun', '/bəˈluːn/', 'Bong bóng', '🎈', 'I have a balloon.', 'Tôi có một quả bong bóng.'),
+      createVocabItem('school', 'Birthday', 'Noun', '/ˈbɜːθ.deɪ/', 'Sinh nhật', '🎂', 'Happy birthday!', 'Chúc mừng sinh nhật!'),
+      createVocabItem('school', 'Please', 'Noun', '/pliːz/', 'Làm ơn', '🙏', 'A pen, please.', 'Cho mình xin cây bút.'),
+      createVocabItem('school', 'Thank you', 'Noun', '/ˈθæŋk.juː/', 'Cảm ơn', '😊', 'Thank you very much.', 'Cảm ơn bạn rất nhiều.'),
+      createVocabItem('school', 'Sorry', 'Noun', '/ˈsɒr.i/', 'Xin lỗi', '🙇', "I'm sorry.", 'Con xin lỗi.'),
+      createVocabItem('school', 'Yes', 'Noun', '/jes/', 'Vâng, đúng', '✅', 'Yes, it is.', 'Vâng, đúng vậy.'),
+      createVocabItem('school', 'No', 'Noun', '/nəʊ/', 'Không, sai', '❌', "No, it isn't.", 'Không, không phải vậy.'),
+      createVocabItem('school', 'Sit down', 'Noun', '/sɪt daʊn/', 'Ngồi xuống', '🪑', 'Sit down, please.', 'Mời con ngồi xuống.')
     ];
 
     /* =========================================================================
@@ -1447,12 +1581,12 @@
       currentTopicId = null;
       updateBreadcrumbs([
         { label: '⬅️ Main Menu', action: 'openEngMenu()' },
-        { label: '📚 2. 16 Unit Vocabulary', action: 'openEngTopicsMenu()' }
+        { label: '📚 2. 20 Unit Vocabulary', action: 'openEngTopicsMenu()' }
       ]);
 
       container.innerHTML = `
         <div class="mb-3">
-          <h2 class="text-xl md:text-2xl font-black text-pink-600 font-cute">📚 16 UNIT VOCABULARY (70 WORDS)</h2>
+          <h2 class="text-xl md:text-2xl font-black text-pink-600 font-cute">📚 19 TOPICS - 100 WORDS</h2>
           <p class="text-xs md:text-sm font-bold text-gray-500">Tap a topic to explore its words!</p>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 w-full max-w-6xl">
@@ -1483,7 +1617,7 @@
 
       updateBreadcrumbs([
         { label: '⬅️ Main Menu', action: 'openEngMenu()' },
-        { label: '📚 2. 16 Unit Vocabulary', action: 'openEngTopicsMenu()' },
+        { label: '📚 2. 20 Unit Vocabulary', action: 'openEngTopicsMenu()' },
         { label: `${topic.icon} ${topic.title}`, action: `openVocabTopic('${topicId}', 0)` }
       ]);
 
@@ -1634,9 +1768,9 @@
             <h3 class="text-xs md:text-sm font-black text-purple-700">1. Alphabet & IPA</h3>
           </div>
           <div onclick="openEngTopicsMenu()" class="card-hover bg-white border-2 border-pink-300 hover:border-pink-500 rounded-2xl p-2.5 text-center cursor-pointer shadow-sm relative">
-            <span class="absolute top-1.5 right-1.5 bg-pink-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full">70 Words</span>
+            <span class="absolute top-1.5 right-1.5 bg-pink-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full">100 Words</span>
             <div class="text-3xl mb-1">📚</div>
-            <h3 class="text-xs md:text-sm font-black text-pink-600">2. 16 Unit Vocabulary</h3>
+            <h3 class="text-xs md:text-sm font-black text-pink-600">2. 20 Unit Vocabulary</h3>
           </div>
           <div onclick="startEngSpellingFixerGame()" class="card-hover bg-white border-2 border-rose-300 hover:border-rose-500 rounded-2xl p-2.5 text-center cursor-pointer shadow-sm relative">
             <span class="absolute top-1.5 right-1.5 bg-rose-500 text-white text-[9px] font-black px-1.5 py-0.2 rounded-full">Practice</span>
@@ -2881,7 +3015,40 @@
       { targetSentence: "Point to your hand", meaning: "Hãy chỉ vào bàn tay", emoji: "✋" },
       { targetSentence: "Point to your foot", meaning: "Hãy chỉ vào bàn chân", emoji: "🦶" },
       { targetSentence: "How many windows can you see", meaning: "Bạn thấy bao nhiêu cửa sổ?", emoji: "🪟" },
-      { targetSentence: "I can see six", meaning: "Tôi thấy sáu cái", emoji: "6️⃣" }
+      { targetSentence: "I can see six", meaning: "Tôi thấy sáu cái", emoji: "6️⃣" },
+      { targetSentence: "I have a book", meaning: "Tôi có một quyển sách", emoji: "📖" },
+      { targetSentence: "I have a ball", meaning: "Tôi có một quả bóng", emoji: "⚽" },
+      { targetSentence: "This is my hat", meaning: "Đây là mũ của tôi", emoji: "👒" },
+      { targetSentence: "This is my can", meaning: "Đây là lon đồ uống của tôi", emoji: "🥫" },
+      { targetSentence: "This is a duck", meaning: "Đây là con vịt", emoji: "🦆" },
+      { targetSentence: "It is a red bell", meaning: "Đó là cái chuông màu đỏ", emoji: "🔔" },
+      { targetSentence: "It is a red pencil", meaning: "Đó là bút chì màu đỏ", emoji: "✏️" },
+      { targetSentence: "There is a gate", meaning: "Có một cái cổng", emoji: "🚧" },
+      { targetSentence: "There is a girl", meaning: "Có một cô bé", emoji: "👧" },
+      { targetSentence: "Touch your hand", meaning: "Hãy chạm vào bàn tay", emoji: "✋" },
+      { targetSentence: "Touch your horse", meaning: "Hãy chạm vào con ngựa", emoji: "🐴" },
+      { targetSentence: "How many locks", meaning: "Có bao nhiêu ổ khoá?", emoji: "🔒" },
+      { targetSentence: "How many pots", meaning: "Có bao nhiêu cái nồi?", emoji: "🍲" },
+      { targetSentence: "That is a mouse", meaning: "Đó là con chuột", emoji: "🐭" },
+      { targetSentence: "That is a mango", meaning: "Đó là quả xoài", emoji: "🥭" },
+      { targetSentence: "He is having nuts", meaning: "Cậu ấy đang ăn hạt lạc", emoji: "🥜" },
+      { targetSentence: "She is having bananas", meaning: "Bạn ấy đang ăn chuối", emoji: "🍌" },
+      { targetSentence: "I can see a top", meaning: "Tôi thấy một con quay", emoji: "🌀" },
+      { targetSentence: "I can see a teddy bear", meaning: "Tôi thấy một chú gấu bông", emoji: "🧸" },
+      { targetSentence: "Point to your face", meaning: "Hãy chỉ vào mặt", emoji: "😊" },
+      { targetSentence: "Point to your hair", meaning: "Hãy chỉ vào tóc", emoji: "💇" },
+      { targetSentence: "How many pencils can you see", meaning: "Bạn thấy bao nhiêu cây bút chì?", emoji: "✏️" },
+      { targetSentence: "I can see five", meaning: "Tôi thấy năm cái", emoji: "5️⃣" },
+      { targetSentence: "Hi I am Ba", meaning: "Chào, mình là Ba", emoji: "👋" },
+      { targetSentence: "Hello my name is Lan", meaning: "Xin chào, tên mình là Lan", emoji: "👋" },
+      { targetSentence: "This is my friend", meaning: "Đây là bạn của tôi", emoji: "🧑‍🤝‍🧑" },
+      { targetSentence: "This is my sister", meaning: "Đây là chị/em gái của tôi", emoji: "👧" },
+      { targetSentence: "This is my grandma", meaning: "Đây là bà của tôi", emoji: "👵" },
+      { targetSentence: "Thank you very much", meaning: "Cảm ơn bạn rất nhiều", emoji: "😊" },
+      { targetSentence: "A pen please", meaning: "Cho mình xin cây bút", emoji: "🙏" },
+      { targetSentence: "Sit down please", meaning: "Mời con ngồi xuống", emoji: "🪑" },
+      { targetSentence: "It is blue", meaning: "Nó màu xanh dương", emoji: "🔵" },
+      { targetSentence: "It is yellow", meaning: "Nó màu vàng", emoji: "🟡" }
     ];
 
     let currentBuiltWords = [];
@@ -3037,7 +3204,27 @@
       { displaySentence: "Point to your ______.", missingWord: "hand", fullSentence: "Point to your hand.", meaning: "Hãy chỉ vào bàn tay.", choices: ["hand", "cake", "bus", "leaf"] },
       { displaySentence: "How many windows can you see? I can see ______.", missingWord: "six", fullSentence: "How many windows can you see? I can see six.", meaning: "Bạn thấy bao nhiêu cửa sổ? Tôi thấy sáu cái.", choices: ["six", "cat", "red", "bag"] },
       { displaySentence: "I have a ______ and a book.", missingWord: "ball", fullSentence: "I have a ball and a book.", meaning: "Tôi có một quả bóng và một quyển sách.", choices: ["ball", "goat", "window", "clock"] },
-      { displaySentence: "This is my ______.", missingWord: "apple", fullSentence: "This is my apple.", meaning: "Đây là quả táo của tôi.", choices: ["apple", "monkey", "hair", "sun"] }
+      { displaySentence: "This is my ______.", missingWord: "apple", fullSentence: "This is my apple.", meaning: "Đây là quả táo của tôi.", choices: ["apple", "monkey", "hair", "sun"] },
+      { displaySentence: "I ______ a book.", missingWord: "have", fullSentence: "I have a book.", meaning: "Tôi có một quyển sách.", choices: ["have", "like", "can", "am"] },
+      { displaySentence: "This is my ______.", missingWord: "hat", fullSentence: "This is my hat.", meaning: "Đây là mũ của tôi.", choices: ["hat", "duck", "bell", "lock"] },
+      { displaySentence: "This is a ______.", missingWord: "duck", fullSentence: "This is a duck.", meaning: "Đây là con vịt.", choices: ["duck", "cake", "top", "gate"] },
+      { displaySentence: "I ______ chips.", missingWord: "like", fullSentence: "I like chips.", meaning: "Tôi thích khoai tây chiên.", choices: ["like", "have", "am", "can"] },
+      { displaySentence: "It's a red ______.", missingWord: "bell", fullSentence: "It's a red bell.", meaning: "Đó là cái chuông màu đỏ.", choices: ["bell", "big", "old", "long"] },
+      { displaySentence: "There's a ______.", missingWord: "gate", fullSentence: "There's a gate.", meaning: "Có một cái cổng.", choices: ["gate", "clock", "pen", "bus"] },
+      { displaySentence: "Touch your ______.", missingWord: "hand", fullSentence: "Touch your hand.", meaning: "Hãy chạm vào bàn tay.", choices: ["hand", "car", "duck", "pot"] },
+      { displaySentence: "How many locks? ______.", missingWord: "Three", fullSentence: "How many locks? Three.", meaning: "Có bao nhiêu ổ khoá? Ba cái.", choices: ["Three", "Cat", "Red", "Yes"] },
+      { displaySentence: "That's a ______.", missingWord: "mouse", fullSentence: "That's a mouse.", meaning: "Đó là con chuột.", choices: ["mouse", "duck", "bag", "desk"] },
+      { displaySentence: "She's ______.", missingWord: "running", fullSentence: "She's running.", meaning: "Bạn ấy đang chạy.", choices: ["running", "having", "washing", "touching"] },
+      { displaySentence: "Look at the ______.", missingWord: "leaf", fullSentence: "Look at the leaf.", meaning: "Nhìn chiếc lá kìa.", choices: ["leaf", "clocks", "windows", "hats"] },
+      { displaySentence: "He's having ______.", missingWord: "nuts", fullSentence: "He's having nuts.", meaning: "Cậu ấy đang ăn hạt lạc.", choices: ["nuts", "milk", "chips", "noodles"] },
+      { displaySentence: "I can see a ______.", missingWord: "turtle", fullSentence: "I can see a turtle.", meaning: "Tôi thấy một con rùa.", choices: ["turtle", "goat", "duck", "mop"] },
+      { displaySentence: "Point to your ______.", missingWord: "face", fullSentence: "Point to your face.", meaning: "Hãy chỉ vào mặt.", choices: ["face", "cake", "bus", "leaf"] },
+      { displaySentence: "How many pencils can you see? I can see ______.", missingWord: "five", fullSentence: "How many pencils can you see? I can see five.", meaning: "Bạn thấy bao nhiêu cây bút chì? Tôi thấy năm cái.", choices: ["five", "cat", "red", "bag"] },
+      { displaySentence: "Hello, ______ name is Lan.", missingWord: "my", fullSentence: "Hello, my name is Lan.", meaning: "Xin chào, tên mình là Lan.", choices: ["my", "your", "his", "her"] },
+      { displaySentence: "This is my ______.", missingWord: "friend", fullSentence: "This is my friend.", meaning: "Đây là bạn của tôi.", choices: ["friend", "monkey", "leaf", "sun"] },
+      { displaySentence: "This is my ______.", missingWord: "grandma", fullSentence: "This is my grandma.", meaning: "Đây là bà của tôi.", choices: ["grandma", "car", "duck", "pot"] },
+      { displaySentence: "A pen, ______.", missingWord: "please", fullSentence: "A pen, please.", meaning: "Cho mình xin cây bút.", choices: ["please", "yes", "no", "bye"] },
+      { displaySentence: "It's ______.", missingWord: "blue", fullSentence: "It's blue.", meaning: "Nó màu xanh dương.", choices: ["blue", "big", "old", "fast"] }
     ];
 
     let currentFillBlankObj = null;
@@ -3156,7 +3343,20 @@
       { question: "What's she having?", answer: "She's having noodles.", meaning: "Bạn ấy đang ăn gì? - Bạn ấy đang ăn mì.", choices: ["She's having noodles.", "She has a bag.", "It's a monkey.", "Yes, please."] },
       { question: "What's he having?", answer: "He's having nuts.", meaning: "Cậu ấy đang ăn gì? - Cậu ấy đang ăn hạt lạc.", choices: ["He's having nuts.", "He has a dog.", "It's a tiger.", "Six windows."] },
       { question: "Touch your what?", answer: "Touch your hair.", meaning: "Hãy chạm vào cái gì? - Hãy chạm vào tóc.", choices: ["Touch your hair.", "It's a horse.", "I have a hat.", "Two locks."] },
-      { question: "Point to your what?", answer: "Point to your hand.", meaning: "Hãy chỉ vào cái gì? - Hãy chỉ vào bàn tay.", choices: ["Point to your hand.", "It's a football.", "I like chips.", "Five mops."] }
+      { question: "Point to your what?", answer: "Point to your hand.", meaning: "Hãy chỉ vào cái gì? - Hãy chỉ vào bàn tay.", choices: ["Point to your hand.", "It's a football.", "I like chips.", "Five mops."] },
+      { question: "How many mops?", answer: "Four.", meaning: "Có bao nhiêu cây lau nhà? - Bốn cái.", choices: ["Four.", "A monkey.", "Yes.", "It's red."] },
+      { question: "How many pots?", answer: "Five.", meaning: "Có bao nhiêu cái nồi? - Năm cái.", choices: ["Five.", "A dog.", "No.", "A duck."] },
+      { question: "What do you have?", answer: "I have a book.", meaning: "Bạn có gì? - Tôi có một quyển sách.", choices: ["I have a book.", "It's a garden.", "Two, please.", "I like milk."] },
+      { question: "What do you have?", answer: "I have a ball.", meaning: "Bạn có gì? - Tôi có một quả bóng.", choices: ["I have a ball.", "It's a car.", "I like fish.", "Six windows."] },
+      { question: "What's your name?", answer: "Hello, my name is Lan.", meaning: "Bạn tên gì? - Xin chào, tên mình là Lan.", choices: ["Hello, my name is Lan.", "It's a red pen.", "I have a hat.", "Two clocks."] },
+      { question: "Who's your friend?", answer: "This is my friend.", meaning: "Bạn của bạn là ai? - Đây là bạn của tôi.", choices: ["This is my friend.", "It's a duck.", "I like it.", "Five pots."] },
+      { question: "Is this your grandma?", answer: "Yes, this is my grandma.", meaning: "Đó có phải bà bạn không? - Vâng, đây là bà của tôi.", choices: ["Yes, this is my grandma.", "It's a monkey.", "I have milk.", "It's red."] },
+      { question: "How do you say thanks?", answer: "Thank you very much.", meaning: "Nói cảm ơn thế nào? - Cảm ơn bạn rất nhiều.", choices: ["Thank you very much.", "Sorry.", "Bye.", "It's red."] },
+      { question: "What can you say if you make a mistake?", answer: "I'm sorry.", meaning: "Bạn nói gì khi mắc lỗi? - Con xin lỗi.", choices: ["I'm sorry.", "Thank you.", "Yes, please.", "Hello."] },
+      { question: "Is the pen red?", answer: "Yes, it is.", meaning: "Bút có màu đỏ không? - Vâng, đúng vậy.", choices: ["Yes, it is.", "No, it isn't.", "I have a cat.", "Two clocks."] },
+      { question: "What color is the sky?", answer: "It's blue.", meaning: "Bầu trời màu gì? - Nó màu xanh dương.", choices: ["It's blue.", "It's red.", "I have it.", "Five pots."] },
+      { question: "What color is the sun?", answer: "It's yellow.", meaning: "Mặt trời màu gì? - Nó màu vàng.", choices: ["It's yellow.", "It's blue.", "I like it.", "Six windows."] },
+      { question: "What color is the leaf?", answer: "It's green.", meaning: "Chiếc lá màu gì? - Nó màu xanh lá.", choices: ["It's green.", "It's black.", "I have it.", "Yes, please."] }
     ];
 
     let currentQAObj = null;
