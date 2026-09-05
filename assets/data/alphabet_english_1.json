@@ -1,0 +1,782 @@
+[
+ {
+  "letter": "A",
+  "name": "A a",
+  "ipaName": "/eɪ/",
+  "sound": "/æ/",
+  "word1": {
+   "en": "Apple",
+   "ipa": "/ˈæp.əl/",
+   "vi": "Quả táo",
+   "emoji": "🍎",
+   "pos": "Noun",
+   "ex": "An apple a day."
+  },
+  "word2": {
+   "en": "Ant",
+   "ipa": "/ænt/",
+   "vi": "Con kiến",
+   "emoji": "🐜",
+   "pos": "Noun",
+   "ex": "A tiny ant."
+  },
+  "word3": {
+   "en": "Alligator",
+   "ipa": "/ˈæl.ɪ.ɡeɪ.tər/",
+   "vi": "Cá sấu",
+   "emoji": "🐊",
+   "pos": "Noun",
+   "ex": "Green alligator."
+  }
+ },
+ {
+  "letter": "B",
+  "name": "B b",
+  "ipaName": "/biː/",
+  "sound": "/b/",
+  "word1": {
+   "en": "Ball",
+   "ipa": "/bɔːl/",
+   "vi": "Quả bóng",
+   "emoji": "⚽",
+   "pos": "Noun",
+   "ex": "Play with a ball."
+  },
+  "word2": {
+   "en": "Bear",
+   "ipa": "/beər/",
+   "vi": "Con gấu",
+   "emoji": "🐻",
+   "pos": "Noun",
+   "ex": "A brown bear."
+  },
+  "word3": {
+   "en": "Book",
+   "ipa": "/bʊk/",
+   "vi": "Quyển sách",
+   "emoji": "📖",
+   "pos": "Noun",
+   "ex": "Open your book."
+  }
+ },
+ {
+  "letter": "C",
+  "name": "C c",
+  "ipaName": "/siː/",
+  "sound": "/k/",
+  "word1": {
+   "en": "Cat",
+   "ipa": "/kæt/",
+   "vi": "Con mèo",
+   "emoji": "🐱",
+   "pos": "Noun",
+   "ex": "The cat sleeps."
+  },
+  "word2": {
+   "en": "Car",
+   "ipa": "/kɑːr/",
+   "vi": "Xe ô tô",
+   "emoji": "🚗",
+   "pos": "Noun",
+   "ex": "A red fast car."
+  },
+  "word3": {
+   "en": "Cup",
+   "ipa": "/kʌp/",
+   "vi": "Cái chén/cốc",
+   "emoji": "☕",
+   "pos": "Noun",
+   "ex": "A tea cup."
+  }
+ },
+ {
+  "letter": "D",
+  "name": "D d",
+  "ipaName": "/diː/",
+  "sound": "/d/",
+  "word1": {
+   "en": "Dog",
+   "ipa": "/dɒɡ/",
+   "vi": "Con chó",
+   "emoji": "🐶",
+   "pos": "Noun",
+   "ex": "The dog barks."
+  },
+  "word2": {
+   "en": "Duck",
+   "ipa": "/dʌk/",
+   "vi": "Con vịt",
+   "emoji": "🦆",
+   "pos": "Noun",
+   "ex": "Yellow duck."
+  },
+  "word3": {
+   "en": "Door",
+   "ipa": "/dɔːr/",
+   "vi": "Cửa ra vào",
+   "emoji": "🚪",
+   "pos": "Noun",
+   "ex": "Close the door."
+  }
+ },
+ {
+  "letter": "E",
+  "name": "E e",
+  "ipaName": "/iː/",
+  "sound": "/e/",
+  "word1": {
+   "en": "Elephant",
+   "ipa": "/ˈel.ɪ.fənt/",
+   "vi": "Con voi",
+   "emoji": "🐘",
+   "pos": "Noun",
+   "ex": "Big gray elephant."
+  },
+  "word2": {
+   "en": "Egg",
+   "ipa": "/eɡ/",
+   "vi": "Quả trứng",
+   "emoji": "🥚",
+   "pos": "Noun",
+   "ex": "Eat an egg."
+  },
+  "word3": {
+   "en": "Eraser",
+   "ipa": "/ɪˈreɪ.zər/",
+   "vi": "Cục tẩy",
+   "emoji": "🧼",
+   "pos": "Noun",
+   "ex": "Pick up your eraser."
+  }
+ },
+ {
+  "letter": "F",
+  "name": "F f",
+  "ipaName": "/ef/",
+  "sound": "/f/",
+  "word1": {
+   "en": "Fish",
+   "ipa": "/fɪʃ/",
+   "vi": "Con cá",
+   "emoji": "🐟",
+   "pos": "Noun",
+   "ex": "Fish swims fast."
+  },
+  "word2": {
+   "en": "Fox",
+   "ipa": "/fɒks/",
+   "vi": "Con cáo",
+   "emoji": "🦊",
+   "pos": "Noun",
+   "ex": "An orange fox."
+  },
+  "word3": {
+   "en": "Frog",
+   "ipa": "/frɒɡ/",
+   "vi": "Con ếch",
+   "emoji": "🐸",
+   "pos": "Noun",
+   "ex": "Green frog hops."
+  }
+ },
+ {
+  "letter": "G",
+  "name": "G g",
+  "ipaName": "/dʒiː/",
+  "sound": "/ɡ/",
+  "word1": {
+   "en": "Giraffe",
+   "ipa": "/dʒɪˈrɑːf/",
+   "vi": "Hươu cao cổ",
+   "emoji": "🦒",
+   "pos": "Noun",
+   "ex": "Giraffe has long neck."
+  },
+  "word2": {
+   "en": "Goat",
+   "ipa": "/ɡəʊt/",
+   "vi": "Con dê",
+   "emoji": "🐐",
+   "pos": "Noun",
+   "ex": "A lovely goat."
+  },
+  "word3": {
+   "en": "Grape",
+   "ipa": "/ɡreɪp/",
+   "vi": "Quả nho",
+   "emoji": "🍇",
+   "pos": "Noun",
+   "ex": "Sweet purple grape."
+  }
+ },
+ {
+  "letter": "H",
+  "name": "H h",
+  "ipaName": "/eɪtʃ/",
+  "sound": "/h/",
+  "word1": {
+   "en": "Hat",
+   "ipa": "/hæt/",
+   "vi": "Cái mũ",
+   "emoji": "👒",
+   "pos": "Noun",
+   "ex": "Wear yellow hat."
+  },
+  "word2": {
+   "en": "Horse",
+   "ipa": "/hɔːs/",
+   "vi": "Con ngựa",
+   "emoji": "🐴",
+   "pos": "Noun",
+   "ex": "The horse runs."
+  },
+  "word3": {
+   "en": "Hand",
+   "ipa": "/hænd/",
+   "vi": "Bàn tay",
+   "emoji": "✋",
+   "pos": "Noun",
+   "ex": "Hands up!"
+  }
+ },
+ {
+  "letter": "I",
+  "name": "I i",
+  "ipaName": "/aɪ/",
+  "sound": "/ɪ/",
+  "word1": {
+   "en": "Igloo",
+   "ipa": "/ˈɪɡ.luː/",
+   "vi": "Lều tuyết",
+   "emoji": "🏔️",
+   "pos": "Noun",
+   "ex": "Cold ice igloo."
+  },
+  "word2": {
+   "en": "Ink",
+   "ipa": "/ɪŋk/",
+   "vi": "Mực viết",
+   "emoji": "🖋️",
+   "pos": "Noun",
+   "ex": "Blue pen ink."
+  },
+  "word3": {
+   "en": "Insect",
+   "ipa": "/ˈɪn.sekt/",
+   "vi": "Côn trùng",
+   "emoji": "🐞",
+   "pos": "Noun",
+   "ex": "Tiny insect."
+  }
+ },
+ {
+  "letter": "J",
+  "name": "J j",
+  "ipaName": "/dʒeɪ/",
+  "sound": "/dʒ/",
+  "word1": {
+   "en": "Jacket",
+   "ipa": "/ˈdʒæk.ɪt/",
+   "vi": "Áo khoác",
+   "emoji": "🧥",
+   "pos": "Noun",
+   "ex": "Zip your jacket."
+  },
+  "word2": {
+   "en": "Juice",
+   "ipa": "/dʒuːs/",
+   "vi": "Nước ép",
+   "emoji": "🧃",
+   "pos": "Noun",
+   "ex": "Drink orange juice."
+  },
+  "word3": {
+   "en": "Jellyfish",
+   "ipa": "/ˈdʒel.i.fɪʃ/",
+   "vi": "Con sứa",
+   "emoji": "🪼",
+   "pos": "Noun",
+   "ex": "Colorful jellyfish."
+  }
+ },
+ {
+  "letter": "K",
+  "name": "K k",
+  "ipaName": "/keɪ/",
+  "sound": "/k/",
+  "word1": {
+   "en": "Kangaroo",
+   "ipa": "/ˌkæŋ.ɡərˈuː/",
+   "vi": "Chuột túi",
+   "emoji": "🦘",
+   "pos": "Noun",
+   "ex": "Kangaroo jumps high."
+  },
+  "word2": {
+   "en": "Kite",
+   "ipa": "/kaɪt/",
+   "vi": "Cái diều",
+   "emoji": "🪁",
+   "pos": "Noun",
+   "ex": "Fly a kite."
+  },
+  "word3": {
+   "en": "Kiwi",
+   "ipa": "/ˈkiː.wiː/",
+   "vi": "Quả kiwi",
+   "emoji": "🥝",
+   "pos": "Noun",
+   "ex": "Sweet green kiwi."
+  }
+ },
+ {
+  "letter": "L",
+  "name": "L l",
+  "ipaName": "/el/",
+  "sound": "/l/",
+  "word1": {
+   "en": "Lion",
+   "ipa": "/ˈlaɪ.ən/",
+   "vi": "Sư tử",
+   "emoji": "🦁",
+   "pos": "Noun",
+   "ex": "Lion is strong."
+  },
+  "word2": {
+   "en": "Lemon",
+   "ipa": "/ˈlem.ən/",
+   "vi": "Quả chanh vàng",
+   "emoji": "🍋",
+   "pos": "Noun",
+   "ex": "Sour yellow lemon."
+  },
+  "word3": {
+   "en": "Leg",
+   "ipa": "/leɡ/",
+   "vi": "Cái chân",
+   "emoji": "🦵",
+   "pos": "Noun",
+   "ex": "Two strong legs."
+  }
+ },
+ {
+  "letter": "M",
+  "name": "M m",
+  "ipaName": "/em/",
+  "sound": "/m/",
+  "word1": {
+   "en": "Monkey",
+   "ipa": "/ˈmʌŋ.ki/",
+   "vi": "Con khỉ",
+   "emoji": "🐒",
+   "pos": "Noun",
+   "ex": "Monkey climbs trees."
+  },
+  "word2": {
+   "en": "Mother",
+   "ipa": "/ˈmʌð.ər/",
+   "vi": "Mẹ",
+   "emoji": "👩",
+   "pos": "Noun",
+   "ex": "I love my mother."
+  },
+  "word3": {
+   "en": "Map",
+   "ipa": "/mæp/",
+   "vi": "Bản đồ",
+   "emoji": "🗺️",
+   "pos": "Noun",
+   "ex": "Look at the map."
+  }
+ },
+ {
+  "letter": "N",
+  "name": "N n",
+  "ipaName": "/en/",
+  "sound": "/n/",
+  "word1": {
+   "en": "Nose",
+   "ipa": "/nəʊz/",
+   "vi": "Cái mũi",
+   "emoji": "👃",
+   "pos": "Noun",
+   "ex": "Touch your nose."
+  },
+  "word2": {
+   "en": "Notebook",
+   "ipa": "/ˈnəʊt.bʊk/",
+   "vi": "Quyển vở",
+   "emoji": "📓",
+   "pos": "Noun",
+   "ex": "Write in notebook."
+  },
+  "word3": {
+   "en": "Noodles",
+   "ipa": "/ˈnuː.dəl/",
+   "vi": "Mì sợi",
+   "emoji": "🍜",
+   "pos": "Noun",
+   "ex": "Yummy hot noodles."
+  }
+ },
+ {
+  "letter": "O",
+  "name": "O o",
+  "ipaName": "/əʊ/",
+  "sound": "/ɒ/",
+  "word1": {
+   "en": "Octopus",
+   "ipa": "/ˈɒk.tə.pəs/",
+   "vi": "Bạch tuộc",
+   "emoji": "🐙",
+   "pos": "Noun",
+   "ex": "This is an octopus."
+  },
+  "word2": {
+   "en": "Orange",
+   "ipa": "/ˈɒr.ɪndʒ/",
+   "vi": "Quả cam",
+   "emoji": "🍊",
+   "pos": "Noun",
+   "ex": "An orange is round."
+  },
+  "word3": {
+   "en": "Owl",
+   "ipa": "/aʊl/",
+   "vi": "Con cú",
+   "emoji": "🦉",
+   "pos": "Noun",
+   "ex": "Wise night owl."
+  }
+ },
+ {
+  "letter": "P",
+  "name": "P p",
+  "ipaName": "/piː/",
+  "sound": "/p/",
+  "word1": {
+   "en": "Pencil",
+   "ipa": "/ˈpen.səl/",
+   "vi": "Bút chì",
+   "emoji": "✏️",
+   "pos": "Noun",
+   "ex": "Write with pencil."
+  },
+  "word2": {
+   "en": "Panda",
+   "ipa": "/ˈpæn.də/",
+   "vi": "Gấu trúc",
+   "emoji": "🐼",
+   "pos": "Noun",
+   "ex": "Panda eats bamboo."
+  },
+  "word3": {
+   "en": "Pig",
+   "ipa": "/pɪɡ/",
+   "vi": "Con lợn",
+   "emoji": "🐷",
+   "pos": "Noun",
+   "ex": "Pink little pig."
+  }
+ },
+ {
+  "letter": "Q",
+  "name": "Q q",
+  "ipaName": "/kjuː/",
+  "sound": "/kw/",
+  "word1": {
+   "en": "Queen",
+   "ipa": "/kwiːn/",
+   "vi": "Nữ hoàng",
+   "emoji": "👸",
+   "pos": "Noun",
+   "ex": "Beautiful queen."
+  },
+  "word2": {
+   "en": "Quiet",
+   "ipa": "/ˈkwaɪ.ət/",
+   "vi": "Yên lặng",
+   "emoji": "🤫",
+   "pos": "Adj",
+   "ex": "Be quiet in class."
+  },
+  "word3": {
+   "en": "Quilt",
+   "ipa": "/kwɪlt/",
+   "vi": "Cái chăn bông",
+   "emoji": "🛏️",
+   "pos": "Noun",
+   "ex": "Warm soft quilt."
+  }
+ },
+ {
+  "letter": "R",
+  "name": "R r",
+  "ipaName": "/ɑːr/",
+  "sound": "/r/",
+  "word1": {
+   "en": "Rabbit",
+   "ipa": "/ˈræb.ɪt/",
+   "vi": "Con thỏ",
+   "emoji": "🐰",
+   "pos": "Noun",
+   "ex": "The rabbit hops."
+  },
+  "word2": {
+   "en": "Ruler",
+   "ipa": "/ˈruː.lər/",
+   "vi": "Thước kẻ",
+   "emoji": "📏",
+   "pos": "Noun",
+   "ex": "A straight ruler."
+  },
+  "word3": {
+   "en": "Red",
+   "ipa": "/red/",
+   "vi": "Màu đỏ",
+   "emoji": "🔴",
+   "pos": "Adj",
+   "ex": "Red juicy apple."
+  }
+ },
+ {
+  "letter": "S",
+  "name": "S s",
+  "ipaName": "/es/",
+  "sound": "/s/",
+  "word1": {
+   "en": "Sun",
+   "ipa": "/sʌn/",
+   "vi": "Mặt trời",
+   "emoji": "☀️",
+   "pos": "Noun",
+   "ex": "The sun shines."
+  },
+  "word2": {
+   "en": "School",
+   "ipa": "/skuːl/",
+   "vi": "Trường học",
+   "emoji": "🏫",
+   "pos": "Noun",
+   "ex": "I go to school."
+  },
+  "word3": {
+   "en": "Shoes",
+   "ipa": "/ʃuːz/",
+   "vi": "Đôi giày",
+   "emoji": "👟",
+   "pos": "Noun",
+   "ex": "Wear new shoes."
+  }
+ },
+ {
+  "letter": "T",
+  "name": "T t",
+  "ipaName": "/tiː/",
+  "sound": "/t/",
+  "word1": {
+   "en": "Tiger",
+   "ipa": "/ˈtaɪ.ɡər/",
+   "vi": "Con hổ",
+   "emoji": "🐯",
+   "pos": "Noun",
+   "ex": "Tiger is strong."
+  },
+  "word2": {
+   "en": "Teacher",
+   "ipa": "/ˈtiː.tʃər/",
+   "vi": "Giáo viên",
+   "emoji": "👩‍🏫",
+   "pos": "Noun",
+   "ex": "Good morning teacher."
+  },
+  "word3": {
+   "en": "Tree",
+   "ipa": "/triː/",
+   "vi": "Cái cây",
+   "emoji": "🌳",
+   "pos": "Noun",
+   "ex": "Tall green tree."
+  }
+ },
+ {
+  "letter": "U",
+  "name": "U u",
+  "ipaName": "/juː/",
+  "sound": "/ʌ/",
+  "word1": {
+   "en": "Umbrella",
+   "ipa": "/ʌmˈbrel.ə/",
+   "vi": "Cây dù / ô",
+   "emoji": "☂️",
+   "pos": "Noun",
+   "ex": "Open the umbrella."
+  },
+  "word2": {
+   "en": "Uncle",
+   "ipa": "/ˈʌŋ.kəl/",
+   "vi": "Chú / Bác",
+   "emoji": "👨",
+   "pos": "Noun",
+   "ex": "My kind uncle."
+  },
+  "word3": {
+   "en": "Under",
+   "ipa": "/ˈʌn.dər/",
+   "vi": "Ở dưới",
+   "emoji": "⬇️",
+   "pos": "Prep",
+   "ex": "Under the table."
+  }
+ },
+ {
+  "letter": "V",
+  "name": "V v",
+  "ipaName": "/viː/",
+  "sound": "/v/",
+  "word1": {
+   "en": "Violin",
+   "ipa": "/ˌvaɪəˈlɪn/",
+   "vi": "Đàn vĩ cầm",
+   "emoji": "🎻",
+   "pos": "Noun",
+   "ex": "Play the violin."
+  },
+  "word2": {
+   "en": "Vest",
+   "ipa": "/vest/",
+   "vi": "Áo ghi-lê",
+   "emoji": "🦺",
+   "pos": "Noun",
+   "ex": "A smart vest."
+  },
+  "word3": {
+   "en": "Van",
+   "ipa": "/væn/",
+   "vi": "Xe tải nhỏ",
+   "emoji": "🚐",
+   "pos": "Noun",
+   "ex": "A yellow van."
+  }
+ },
+ {
+  "letter": "W",
+  "name": "W w",
+  "ipaName": "/ˈdʌb.əl.juː/",
+  "sound": "/w/",
+  "word1": {
+   "en": "Water",
+   "ipa": "/ˈwɔː.tər/",
+   "vi": "Nước uống",
+   "emoji": "💧",
+   "pos": "Noun",
+   "ex": "Drink fresh water."
+  },
+  "word2": {
+   "en": "Watch",
+   "ipa": "/wɒtʃ/",
+   "vi": "Đồng hồ đeo tay",
+   "emoji": "⌚",
+   "pos": "Noun",
+   "ex": "Look at my watch."
+  },
+  "word3": {
+   "en": "Window",
+   "ipa": "/ˈwɪn.dəʊ/",
+   "vi": "Cửa sổ",
+   "emoji": "🪟",
+   "pos": "Noun",
+   "ex": "Open the window."
+  }
+ },
+ {
+  "letter": "X",
+  "name": "X x",
+  "ipaName": "/eks/",
+  "sound": "/ks/",
+  "word1": {
+   "en": "Box",
+   "ipa": "/bɒks/",
+   "vi": "Cái hộp",
+   "emoji": "📦",
+   "pos": "Noun",
+   "ex": "A yellow toy box."
+  },
+  "word2": {
+   "en": "Fox",
+   "ipa": "/fɒks/",
+   "vi": "Con cáo",
+   "emoji": "🦊",
+   "pos": "Noun",
+   "ex": "Fox in the woods."
+  },
+  "word3": {
+   "en": "Xylophone",
+   "ipa": "/ˈzaɪ.lə.fəʊn/",
+   "vi": "Đàn mộc cầm",
+   "emoji": "🎹",
+   "pos": "Noun",
+   "ex": "Play xylophone."
+  }
+ },
+ {
+  "letter": "Y",
+  "name": "Y y",
+  "ipaName": "/waɪ/",
+  "sound": "/j/",
+  "word1": {
+   "en": "Yellow",
+   "ipa": "/ˈjel.əʊ/",
+   "vi": "Màu vàng",
+   "emoji": "🟡",
+   "pos": "Adj",
+   "ex": "Bright yellow sun."
+  },
+  "word2": {
+   "en": "Yo-yo",
+   "ipa": "/ˈjəʊ.jəʊ/",
+   "vi": "Đồ chơi Yo-yo",
+   "emoji": "🪀",
+   "pos": "Noun",
+   "ex": "Play with yo-yo."
+  },
+  "word3": {
+   "en": "Yogurt",
+   "ipa": "/ˈjɒɡ.ət/",
+   "vi": "Sữa chua",
+   "emoji": "🍧",
+   "pos": "Noun",
+   "ex": "Eat sweet yogurt."
+  }
+ },
+ {
+  "letter": "Z",
+  "name": "Z z",
+  "ipaName": "/zed/",
+  "sound": "/z/",
+  "word1": {
+   "en": "Zebra",
+   "ipa": "/ˈzeb.rə/",
+   "vi": "Con ngựa vằn",
+   "emoji": "🦓",
+   "pos": "Noun",
+   "ex": "Zebra in the zoo."
+  },
+  "word2": {
+   "en": "Zoo",
+   "ipa": "/zuː/",
+   "vi": "Sở thú",
+   "emoji": "🦁",
+   "pos": "Noun",
+   "ex": "Visit the zoo."
+  },
+  "word3": {
+   "en": "Zipper",
+   "ipa": "/ˈzɪp.ər/",
+   "vi": "Khóa kéo",
+   "emoji": "🤐",
+   "pos": "Noun",
+   "ex": "Zip the jacket."
+  }
+ }
+]
