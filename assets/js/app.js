@@ -185,6 +185,9 @@ function normalizeQuestion(q) {
         sub_topic_label: String(q.sub ?? q.sub_code ?? q.sub_topic ?? 'Câu hỏi chung').trim(),
         week: q.week ?? q.w ?? null,
         paired_group: q.pg ?? q.paired_group ?? '',
+        // Phiên âm IPA cho từng đáp án (mảng cùng thứ tự với "options") — JSON mới của anh
+        // gắn sẵn dưới tên "o_ipa"/"options_ipa" (2 tên trùng nội dung, chỉ cần đọc 1 trong 2).
+        options_ipa: q.o_ipa ?? q.options_ipa ?? q.oipa ?? null,
         question_text: q.q ?? q.question_text ?? '',
         options: Array.isArray(q.o) ? q.o : (Array.isArray(q.options) ? q.options : []),
         answer: q.a ?? q.answer ?? '',
@@ -1608,20 +1611,24 @@ function loadQuestion() {
     q.options.forEach((opt, idx) => {
         const formattedOpt = capitalizeFirstLetter(opt);
         const letter = String.fromCharCode(65 + idx);
+        // Chỉ hiện phiên âm khi JSON thật sự có field "options_ipa" (mảng cùng thứ tự với "options") —
+        // không tự bịa phiên âm để tránh sai, chờ dữ liệu thật bổ sung.
+        const ipaText = q.options_ipa && q.options_ipa[idx] ? q.options_ipa[idx] : '';
+        const ipaHtml = ipaText ? `<span class="text-sm md:text-base text-gray-500 font-semibold ml-1.5 whitespace-nowrap">/${escapeHtml(ipaText.replace(/^\/|\/$/g, ''))}/</span>` : '';
 
         if (activeExamContext) {
             html += `
                 <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs">
                     <div class="flex items-center space-x-2.5">
                         <span class="opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-sm shrink-0">${letter}</span>
-                        <span class="opt-text">${escapeHtml(formattedOpt)}</span>
+                        <span class="opt-text">${escapeHtml(formattedOpt)}${ipaHtml}</span>
                     </div>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         } else {
             html += `
                 <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-2 border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs pastel-btn">
-                    <span><strong class="text-pink-600 mr-2 text-base md:text-lg">${letter}.</strong> ${escapeHtml(formattedOpt)}</span>
+                    <span><strong class="text-pink-600 mr-2 text-base md:text-lg">${letter}.</strong> ${escapeHtml(formattedOpt)}${ipaHtml}</span>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         }
