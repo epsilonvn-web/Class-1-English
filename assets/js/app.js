@@ -1534,13 +1534,33 @@ function loadQuestion() {
         if (stepEl) stepEl.textContent = `Câu ${currentQIndex + 1} / ${activeQuestionsList.length}`;
     }
 
+// Trích ký tự Emoji ĐẦU TIÊN xuất hiện trong 1 chuỗi văn bản (VD trong question_text) —
+// dùng làm ảnh minh hoạ dự phòng khi ảnh thật (image_url) chưa có hoặc bị lỗi link.
+function extractFirstEmoji(text) {
+    if (!text) return null;
+    const match = String(text).match(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}]/u);
+    return match ? match[0] : null;
+}
+
     let mediaHtml = '';
-    if (q.emoji && !activeExamContext) {
-        // Chỉ dùng Emoji có sẵn trong dữ liệu, không tải ảnh thật (assets/images/) nữa —
-        // vừa nhanh hơn (không mất thời gian chờ ảnh lỗi), vừa không bao giờ bị vỡ layout.
-        mediaHtml = `<div class="w-14 h-14 md:w-16 md:h-16 mb-1 flex items-center justify-center">
-            <div class="text-4xl md:text-5xl floating">${q.emoji}</div>
-        </div>`;
+    if (!activeExamContext) {
+        // Ưu tiên 1: ảnh thật từ kho học liệu (image_url/img) — nếu link lỗi/chưa có file,
+        // tự động rớt xuống dùng Emoji (trong field "emoji" hoặc trích từ chính câu hỏi) thay thế,
+        // không bao giờ để trống khung hay vỡ layout vì ảnh 404.
+        const fallbackEmoji = q.emoji || extractFirstEmoji(q.question_text) || '📘';
+        const fallbackEmojiHtml = `<div class="text-4xl md:text-5xl floating">${fallbackEmoji}</div>`;
+        if (q.image_url) {
+            // fallbackEmojiHtml sẽ được nhúng làm giá trị thuộc tính onerror="..." (delimiter nháy kép) —
+            // nên phải escape dấu nháy kép bên trong thành &quot; để không làm vỡ cấu trúc thẻ <img>,
+            // trình duyệt sẽ tự giải mã lại &quot; -> " trước khi thực thi đoạn JS trong onerror.
+            const fallbackForOnerror = fallbackEmojiHtml.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            mediaHtml = `<div class="w-20 h-20 md:w-24 md:h-24 mb-1 flex items-center justify-center">
+                <img src="${escapeHtml(q.image_url)}" alt="" class="w-full h-full object-contain drop-shadow-sm floating"
+                     onerror="this.onerror=null; this.outerHTML='${fallbackForOnerror}';">
+            </div>`;
+        } else if (fallbackEmoji) {
+            mediaHtml = `<div class="w-14 h-14 md:w-16 md:h-16 mb-1 flex items-center justify-center">${fallbackEmojiHtml}</div>`;
+        }
     }
 
     const pText = q.reading_passage;
