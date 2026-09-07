@@ -315,7 +315,7 @@
                                 </button>
 
                                 <div id="practice-step-indicator" class="px-5 py-1.5 bg-pink-50 border border-pink-200 text-pink-700 font-black rounded-full text-xs md:text-sm flex items-center justify-center space-x-1.5 shadow-xs select-none">
-                                    <span>🔢</span><span id="practice-step-text">Câu 1 / 59</span><span>🔢</span>
+                                    <span id="practice-step-text">Câu 1 / 59</span>
                                 </div>
 
                                 <button id="btn-next-q-prac" onclick="nextQuestion()" class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xs md:text-sm pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all">
@@ -487,8 +487,9 @@
                         </div>
 
                         <div class="flex items-center space-x-2 shrink-0">
-                            <div class="text-xs font-bold text-slate-700 bg-white/95 px-3 py-2 rounded-xl border border-pink-200 text-center shadow-xs">
-                                Ngày báo cáo: <span id="hist-report-date" class="font-bold text-rose-600">03/09/2026</span>
+                            <div class="text-xs font-bold text-slate-700 bg-white/95 px-3 py-2 rounded-xl border border-pink-200 text-center shadow-xs leading-tight">
+                                <span class="block">Ngày báo cáo</span>
+                                <span id="hist-report-date" class="block font-bold text-rose-600">03/09/2026</span>
                             </div>
                             <button onclick="closeHistoryModal()" class="w-8 h-8 rounded-full bg-white border border-pink-200 flex items-center justify-center text-pink-400 hover:text-rose-600 transition-all shadow-xs no-print">
                                 <i class="fa-solid fa-xmark"></i>
@@ -522,14 +523,19 @@
                 <!-- TRANG 2: NHẬN XÉT SƯ PHẠM CHI TIẾT -->
                 <div class="space-y-4 page-break-2">
                     <div class="bg-gradient-to-br from-amber-50/90 via-orange-50/60 to-rose-50/50 border border-amber-200/80 rounded-2xl p-4 space-y-3 shadow-xs">
-                        <div class="flex items-center space-x-2.5 border-b border-amber-200/60 pb-1.5">
-                            <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shadow-xs shrink-0">
-                                <i class="fa-solid fa-award"></i>
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-amber-200/60 pb-1.5">
+                            <div class="flex items-center space-x-2.5">
+                                <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shadow-xs shrink-0">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-base font-black text-amber-950 leading-tight">Nhận xét sư phạm & kế hoạch bồi dưỡng của giáo viên</h4>
+                                    <p class="text-xs font-bold text-amber-700">Đánh giá năng lực tư duy 6 chủ đề & lời khuyên phụ huynh đồng hành</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-base font-black text-amber-950 leading-tight">Nhận xét sư phạm & kế hoạch bồi dưỡng của giáo viên</h4>
-                                <p class="text-xs font-bold text-amber-700">Đánh giá năng lực tư duy 6 chủ đề & lời khuyên phụ huynh đồng hành</p>
-                            </div>
+                            <button id="btn-speak-pedagogical" onclick="speakPedagogicalEvaluation()" class="shrink-0 self-start sm:self-auto px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 border border-amber-300 rounded-xl text-xs font-extrabold flex items-center space-x-1.5 pastel-btn shadow-xs no-print">
+                                <i class="fa-solid fa-volume-high"></i><span>Nghe cô giáo đọc</span>
+                            </button>
                         </div>
                         <div id="pedagogical-evaluation-box" class="space-y-2.5 text-xs sm:text-sm text-slate-800 leading-normal font-semibold"></div>
                     </div>
