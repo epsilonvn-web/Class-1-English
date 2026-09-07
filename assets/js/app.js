@@ -133,6 +133,9 @@ let ALPHABET_DATA = [];
 let IPA_DATA = [];
 let currentAlphaTab = 'alpha';
 let allQuestionsFlatCache = null;
+// Bản văn bản thuần của phần "Nhận xét sư phạm & kế hoạch bồi dưỡng" — cập nhật mỗi lần
+// renderPedagogicalEvaluation() chạy, dùng cho nút "Nghe cô giáo đọc" (dùng chung Tiến trình tuần + Đề thi).
+let pedagogicalEvaluationText = '';
 // Bật/tắt đọc câu hỏi TỰ ĐỘNG khi vào câu mới — nút "Nghe câu hỏi" thủ công vẫn luôn hoạt động
 // dù tắt tính năng này (đây chỉ tắt phần tự động phát, không tắt hẳn tính năng nghe).
 let autoSpeechEnabled = localStorage.getItem('autoSpeechEnabled') !== 'false';
@@ -1542,18 +1545,51 @@ function extractFirstEmoji(text) {
     return match ? match[0] : null;
 }
 
+// Từ điển tra Emoji theo NGHĨA TIẾNG VIỆT trong ngoặc — dùng khi câu hỏi/đáp án/lựa chọn không tự
+// mang sẵn Emoji nào (VD các câu Phonics/Remove Letter/Fill Missing chỉ ghi "'bike' (xe đạp)" suông).
+// Tra theo nghĩa tiếng Việt đáng tin cậy hơn tra theo từ tiếng Anh, vì từ tiếng Anh trong các câu
+// Remove Letter/Fill Missing thường bị cố tình viết sai chính tả (đúng bản chất bài luyện).
+const VOCAB_EMOJI_MAP = {
+    'bàn học': '🪑', 'bàn tay': '✋', 'bé gái': '👧', 'bút chì': '✏️', 'bút mực': '🖊️',
+    'bạn ba': '👦', 'bạn bill': '👦', 'bạn lucy': '👧', 'chiếc lá': '🍃', 'con chuột': '🐭',
+    'con cá': '🐟', 'con dê': '🐐', 'con gà': '🐔', 'con hổ': '🐯', 'con ngựa': '🐴',
+    'con quay': '🪀', 'con rùa': '🐢', 'cái chuông': '🔔', 'cái chổi lau nhà': '🧹',
+    'cái cốc': '🥤', 'cái khóa': '🔒', 'cái lon': '🥫', 'cái mũ': '👒', 'cái nồi': '🍲',
+    'cái đầu': '👤', 'cặp sách': '🎒', 'cổng': '🚪', 'cửa ra vào': '🚪', 'gấu bông': '🧸',
+    'hạt khô': '🥜', 'hồ nước': '🏞️', 'khoai tây chiên': '🍟', 'khu vườn': '🌳', 'mì sợi': '🍜',
+    'mẹ': '👩', 'con chó': '🐶', 'con vịt': '🦆', 'quyển sách': '📖', 'quả táo': '🍎',
+    'tóc': '👱', 'xe đạp': '🚲', 'ô tô': '🚗', 'quả chanh': '🍋', 'quả chuối': '🍌',
+    'quả xoài': '🥭', 'xe tải': '🚚', 'ông mặt trời': '☀️', 'đồng hồ': '⏰'
+};
+function lookupVocabEmoji(text) {
+    if (!text) return null;
+    const m = String(text).match(/\(([^)]+)\)/);
+    if (!m) return null;
+    let gloss = m[1].trim().toLowerCase().replace(/^nghĩa là:\s*/i, '').trim();
+    gloss = gloss.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim();
+    return VOCAB_EMOJI_MAP[gloss] || null;
+}
+
     let mediaHtml = '';
     if (!activeExamContext) {
         // Ưu tiên 1: ảnh thật từ kho học liệu (image_url/img) — nếu link lỗi/chưa có file,
-        // tự động rớt xuống dùng Emoji (trong field "emoji" hoặc trích từ chính câu hỏi) thay thế,
-        // không bao giờ để trống khung hay vỡ layout vì ảnh 404.
-        const fallbackEmoji = q.emoji || extractFirstEmoji(q.question_text) || '📘';
-        const fallbackEmojiHtml = `<div class="text-4xl md:text-5xl floating">${fallbackEmoji}</div>`;
+        // tự động rớt xuống dùng Emoji thay thế theo thứ tự: field "emoji" riêng → Emoji có sẵn
+        // trong câu hỏi → trong đáp án đúng → trong các lựa chọn khác → tra theo nghĩa tiếng Việt
+        // trong ngoặc. Nếu câu hỏi thuần ngữ pháp/câu ghép không có từ vựng cụ thể nào để minh hoạ
+        // (không tra ra Emoji nào hợp lý) thì ẨN HẲN khung ảnh, không hiện icon mặc định vô nghĩa.
+        const fallbackEmoji = q.emoji
+            || extractFirstEmoji(q.question_text)
+            || extractFirstEmoji(q.answer)
+            || (q.options || []).map(extractFirstEmoji).find(Boolean)
+            || lookupVocabEmoji(q.question_text);
+        const fallbackEmojiHtml = fallbackEmoji ? `<div class="text-4xl md:text-5xl floating">${fallbackEmoji}</div>` : '';
         if (q.image_url) {
             // fallbackEmojiHtml sẽ được nhúng làm giá trị thuộc tính onerror="..." (delimiter nháy kép) —
             // nên phải escape dấu nháy kép bên trong thành &quot; để không làm vỡ cấu trúc thẻ <img>,
             // trình duyệt sẽ tự giải mã lại &quot; -> " trước khi thực thi đoạn JS trong onerror.
-            const fallbackForOnerror = fallbackEmojiHtml.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const fallbackForOnerror = fallbackEmojiHtml
+                ? fallbackEmojiHtml.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;')
+                : ''; // Không tra ra Emoji hợp lý -> ảnh lỗi thì biến mất hẳn, không để lại icon sai.
             mediaHtml = `<div class="w-20 h-20 md:w-24 md:h-24 mb-1 flex items-center justify-center">
                 <img src="${escapeHtml(q.image_url)}" alt="" class="w-full h-full object-contain drop-shadow-sm floating"
                      onerror="this.onerror=null; this.outerHTML='${fallbackForOnerror}';">
@@ -2463,6 +2499,15 @@ function renderPedagogicalEvaluation(rows, skillAverages, touchedSkills) {
             <p class="text-gray-700">Ba mẹ nên dành 15 phút mỗi tối cùng con ôn lại từ vựng, đặt câu hỏi gợi mở bằng tiếng Anh đơn giản và khen ngợi kịp thời để giúp ${studentName} giữ vững niềm yêu thích tiếng Anh nhé!</p>
         </div>
     `;
+
+    // Lưu lại bản văn bản thuần (không thẻ HTML) của toàn bộ 4 phần nhận xét — dùng để đọc to
+    // qua nút "Nghe cô giáo đọc" (dùng chung cho cả Tiến trình tuần lẫn Đề thi vì cùng 1 khung này).
+    pedagogicalEvaluationText = box.textContent.replace(/\s+/g, ' ').trim();
+}
+
+function speakPedagogicalEvaluation() {
+    if (!pedagogicalEvaluationText) return;
+    speakVietnamese(pedagogicalEvaluationText);
 }
 
 function renderHistoryTable(rows, sheetName) {
