@@ -1795,6 +1795,29 @@ function updateNavButtons() {
     }
 }
 
+// Sau khi bé đã trả lời xong 1 câu (không phải Đề thi), các nút đáp án KHÔNG bị disable cứng nữa —
+// thay vào đó khoá việc chấm điểm lần 2 (cờ answeredLocked) nhưng vẫn cho bé BẤM LẠI từng đáp án
+// để nghe đọc to chính từ đó. Mục đích: mỗi câu có 4 từ, bé được luyện nghe cả 4, không chỉ đáp án đúng.
+function enableReplayOnOptions() {
+    document.querySelectorAll('.option-btn').forEach(b => {
+        b.disabled = false; // vẫn cho click, nhưng checkAnswer sẽ tự chặn chấm điểm lại nhờ cờ khoá
+        b.style.cursor = 'pointer';
+        b.setAttribute('title', 'Bấm để nghe lại từ này');
+    });
+}
+
+// Đọc to 1 đáp án cụ thể khi bé bấm lại (sau khi câu đã được trả lời). Đọc bằng giọng Anh vì đây
+// là từ vựng tiếng Anh; giữ nguyên chữ gốc, bỏ các Emoji minh hoạ đính kèm để TTS không đọc nhịu.
+function replaySpeakOption(optText) {
+    // Bỏ cụm biểu tượng minh hoạ ở CUỐI đáp án (emoji, và emoji-số dạng "1️⃣" = số + U+FE0F + U+20E3)
+    // để TTS đọc gọn phần chữ; không đụng tới số/chữ nằm giữa nội dung.
+    const clean = String(optText)
+        .replace(/[\u{0030}-\u{0039}]?[\u{FE0F}]?[\u{20E3}]/gu, '')  // xoá emoji-keycap "1️⃣"
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\u{FE0F}]/gu, '') // xoá emoji thường
+        .trim();
+    if (clean) speakEnglish(clean);
+}
+
 function checkAnswer(selectedOpt) {
     const q = activeQuestionsList[currentQIndex];
     const isExam = !!activeExamContext;
@@ -1826,7 +1849,8 @@ function checkAnswer(selectedOpt) {
 
     // RIÊNG TIẾN TRÌNH TUẦN: CHỈ ĐƯỢC CHỌN 1 LẦN DUY NHẤT ĐỂ GHI NHẬN ĐÚNG/SAI CHÍNH XÁC
     if (isRoadmap) {
-        if (userAnswers[currentQIndex] !== undefined) return;
+        // Đã trả lời rồi -> lần bấm sau chỉ để NGHE LẠI từ đó, không chấm điểm lại.
+        if (userAnswers[currentQIndex] !== undefined) { replaySpeakOption(selectedOpt); return; }
 
         const isCorrect = selectedOpt === q.answer;
         userAnswers[currentQIndex] = selectedOpt;
@@ -1841,7 +1865,6 @@ function checkAnswer(selectedOpt) {
         }
 
         document.querySelectorAll('.option-btn').forEach(b => {
-            b.disabled = true;
             const bOpt = b.getAttribute('data-opt');
             if (bOpt === q.answer) {
                 b.classList.remove('bg-pink-50/40', 'border-pink-200');
@@ -1851,6 +1874,7 @@ function checkAnswer(selectedOpt) {
                 b.classList.add('bg-red-200', 'border-red-500', 'text-red-900');
             }
         });
+        enableReplayOnOptions();
 
         if (isCorrect) {
             playAudio('correct');
@@ -1866,7 +1890,8 @@ function checkAnswer(selectedOpt) {
 
     // CHẾ ĐỘ LUYỆN TẬP TỰ DO
     const isCorrect = selectedOpt === q.answer;
-    if (userAnswers[currentQIndex] !== undefined) return;
+    // Đã trả lời đúng rồi -> lần bấm sau chỉ để NGHE LẠI từ đó (học đủ cả 4 từ), không chấm lại.
+    if (userAnswers[currentQIndex] !== undefined) { replaySpeakOption(selectedOpt); return; }
 
     if (isCorrect) {
         userAnswers[currentQIndex] = selectedOpt;
@@ -1875,29 +1900,33 @@ function checkAnswer(selectedOpt) {
         document.getElementById('star-green-count').textContent = starGreenCount;
 
         document.querySelectorAll('.option-btn').forEach(b => {
-            b.disabled = true;
             if (b.getAttribute('data-opt') === q.answer) {
                 b.classList.remove('bg-pink-50/40', 'border-pink-200');
                 b.classList.add('bg-green-100', 'border-green-400', 'text-green-800');
             }
         });
+        enableReplayOnOptions();
 
         playAudio('correct');
         confetti({ particleCount: 30, spread: 55, origin: { y: 0.7 } });
         setTimeout(() => speakEnglish(`${q.answer}`), 180);
     } else {
-        if (!wrongAttemptsByQ[currentQIndex]) wrongAttemptsByQ[currentQIndex] = [];
-        if (!wrongAttemptsByQ[currentQIndex].includes(selectedOpt)) {
-            wrongAttemptsByQ[currentQIndex].push(selectedOpt);
-            starRedCount++;
-            document.getElementById('star-red-count').textContent = starRedCount;
+        // Bé đã bấm từ sai này trước đó rồi -> lần bấm sau chỉ NGHE LẠI, không trừ sao thêm lần nữa.
+        if (wrongAttemptsByQ[currentQIndex] && wrongAttemptsByQ[currentQIndex].includes(selectedOpt)) {
+            replaySpeakOption(selectedOpt);
+            return;
         }
+        if (!wrongAttemptsByQ[currentQIndex]) wrongAttemptsByQ[currentQIndex] = [];
+        wrongAttemptsByQ[currentQIndex].push(selectedOpt);
+        starRedCount++;
+        document.getElementById('star-red-count').textContent = starRedCount;
 
         document.querySelectorAll('.option-btn').forEach(b => {
             if (b.getAttribute('data-opt') === selectedOpt) {
                 b.classList.remove('bg-pink-50/40', 'border-pink-200');
                 b.classList.add('bg-red-200', 'border-red-500', 'text-red-900');
-                b.disabled = true;
+                // KHÔNG disable cứng — để bé vẫn bấm lại nghe được từ này (nhánh replay ở trên xử lý).
+                b.setAttribute('title', 'Bấm để nghe lại từ này');
             }
         });
 
