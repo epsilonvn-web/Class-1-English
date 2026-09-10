@@ -6,6 +6,13 @@
     <meta name="referrer" content="no-referrer">
     <title>Tiếng Anh lớp 1 - Cô giáo Thỏ Hồng</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff5fa2">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Tiếng Anh 1">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome 6 -->
@@ -591,5 +598,35 @@
 
     <!-- NẠP ENGINE JAVASCRIPT ĐỒNG BỘ -->
     <script src="assets/js/app.js?v=6.6"></script>
+
+    <!-- ĐĂNG KÝ SERVICE WORKER (PWA) — cho phép cài app lên màn hình chính điện thoại & chạy khi mạng yếu.
+         Cấu hình NETWORK-FIRST: luôn tự lấy bản mới nhất từ server mỗi lần mở (hợp lúc đang update thường xuyên).
+         Khi phát hiện có bản mới tải xong, tự kích hoạt và tải lại trang 1 lần để áp dụng ngay. -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+                    // Khi có SW bản mới cài xong trong lúc đang dùng -> yêu cầu nó kích hoạt ngay.
+                    reg.addEventListener('updatefound', function () {
+                        var sw = reg.installing;
+                        if (!sw) return;
+                        sw.addEventListener('statechange', function () {
+                            if (sw.state === 'installed' && navigator.serviceWorker.controller) {
+                                sw.postMessage('SKIP_WAITING');
+                            }
+                        });
+                    });
+                }).catch(function (err) { console.warn('Service Worker chưa đăng ký được:', err); });
+
+                // Khi SW mới giành quyền điều khiển -> tải lại trang đúng 1 lần để dùng bản mới nhất.
+                var refreshed = false;
+                navigator.serviceWorker.addEventListener('controllerchange', function () {
+                    if (refreshed) return;
+                    refreshed = true;
+                    window.location.reload();
+                });
+            });
+        }
+    </script>
 </body>
 </html>
