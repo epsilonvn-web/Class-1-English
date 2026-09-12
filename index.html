@@ -102,7 +102,7 @@
 
     <div class="w-full flex justify-center items-center mt-4 md:mt-6">
         <!-- 1. MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
-        <div id="screen-login" class="w-full max-w-md pastel-card p-6 md:p-8 flex flex-col items-center text-center my-auto">
+        <div id="screen-login" class="w-full max-w-md pastel-card p-6 md:p-8 hidden flex flex-col items-center text-center my-auto">
             <div class="mb-2">
                 <span class="text-7xl md:text-8xl swaying select-none">🐰</span>
             </div>
@@ -168,11 +168,15 @@
                     <i class="fa-solid fa-compass"></i><span>Vào học thử - không cần tài khoản (khách)</span>
                 </button>
             </div>
+            <button onclick="returnToGuestHome()" class="w-full mt-3 py-2.5 bg-white text-purple-600 font-extrabold rounded-2xl text-xs md:text-sm pastel-btn border border-purple-200 flex items-center justify-center space-x-1.5">
+                <i class="fa-solid fa-house"></i><span>Quay lại trang chủ</span>
+            </button>
+
             <p id="auth-error-msg" class="text-xs font-bold text-rose-500 mt-3 hidden"></p>
         </div>
 
         <!-- 2. KHUNG CHÍNH CHUẨN TỶ LỆ 16:9 / 16:10 -->
-        <div id="screen-dashboard" class="w-full max-w-5xl hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
+        <div id="screen-dashboard" class="w-full max-w-5xl flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
             
             <header class="w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
                 <div class="flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
@@ -224,11 +228,11 @@
 
                     <div id="user-info-box" class="text-xs font-bold text-gray-600 text-right"></div>
 
-                    <button onclick="clickProgressOrExam('progress')" title="Tiến trình tuần - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
-                        <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
+                    <button onclick="clickProgressOrExam('progress')" title="Bản đồ tuần - tài khoản VIP / dùng thử" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
+                        <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Tài khoản VIP / dùng thử"></i>
                     </button>
-                    <button onclick="openMiniGameHub()" title="Mini Game - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
-                        <i class="fa-solid fa-gamepad"></i><span class="hidden sm:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
+                    <button onclick="openMiniGameHub()" title="Mini Game - tài khoản VIP / dùng thử" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
+                        <i class="fa-solid fa-gamepad"></i><span class="hidden sm:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Tài khoản VIP / dùng thử"></i>
                     </button>
                 </div>
             </header>
