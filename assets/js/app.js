@@ -1158,6 +1158,7 @@ async function callAppsScript(action, payload) {
 }
 
 let adminAccountsCache = [];
+let adminAccountSort = { key: 'maHS', direction: 'asc' };
 
 function isAdminUser() {
     return !!currentUser && !currentUser.isGuest && String(currentUser.role || '').toLowerCase() === 'admin';
@@ -1165,31 +1166,60 @@ function isAdminUser() {
 
 function normalizeAccountTypeClient(value) {
     const raw = String(value || '').trim().toLowerCase();
-    return raw === 'vip' ? 'VIP' : 'Regular';
+    if (raw === 'trial') return 'trial';
+    if (raw === 'vip') return 'vip';
+    return 'regular';
 }
 
-function normalizeAccountStatusClient(value) {
-    const raw = String(value || '').trim().toLowerCase();
-    if (raw === 'pending' || raw === 'chờ duyệt' || raw === 'cho duyet') return 'Pending';
-    if (['block', 'blocked', 'inactive', 'khoa', 'khóa', 'bị khóa', 'bi khoa'].includes(raw)) return 'Block';
-    return 'Active';
+function getAccountTypeLabel(value) {
+    const type = normalizeAccountTypeClient(value);
+    if (type === 'trial') return 'Trial';
+    if (type === 'vip') return 'VIP';
+    return 'Regular';
+}
+
+function parseAccountDate(value) {
+    if (!value) return null;
+    if (value instanceof Date && !Number.isNaN(value.getTime())) return value;
+    const raw = String(value).trim();
+    if (!raw) return null;
+
+    // dd-mm-yy / dd-mm-yyyy / dd/mm/yy / dd/mm/yyyy
+    const m = raw.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{2}|\d{4})$/);
+    if (m) {
+        let year = Number(m[3]);
+        if (year < 100) year += 2000;
+        const d = new Date(year, Number(m[2]) - 1, Number(m[1]), 23, 59, 59, 999);
+        return Number.isNaN(d.getTime()) ? null : d;
+    }
+
+    const d = new Date(raw);
+    return Number.isNaN(d.getTime()) ? null : d;
 }
 
 function getTrialEndDate() {
-    const raw = currentUser?.hanDungThu;
-    if (!raw) return null;
-    const d = new Date(raw);
-    return Number.isNaN(d.getTime()) ? null : d;
+    return parseAccountDate(currentUser?.hanDungThu);
+}
+
+function getVipEndDate() {
+    return parseAccountDate(currentUser?.hanVIP);
 }
 
 function hasPremiumAccess() {
     if (isAdminUser()) return true;
     if (!currentUser || currentUser.isGuest) return false;
-    const status = normalizeAccountStatusClient(currentUser.trangThai);
-    if (status !== 'Active') return false;
-    if (normalizeAccountTypeClient(currentUser.loaiTaiKhoan) === 'VIP') return true;
-    const end = getTrialEndDate();
-    return !!end && end.getTime() >= Date.now();
+
+    const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
+    const now = Date.now();
+    if (type === 'trial') {
+        const end = getTrialEndDate();
+        return !!end && end.getTime() >= now;
+    }
+    if (type === 'vip') {
+        const end = getVipEndDate();
+        return !!end && end.getTime() >= now;
+    }
+    return false;
 }
 
 function closePremiumAccessModal() {
@@ -1252,34 +1282,34 @@ function showPremiumAccessWarning(featureName = 'khu vực này') {
         renderPremiumAccessModal({
             icon: '🐰🔒',
             title: `${featureName} đang chờ bé mở khóa!`,
-            message: `Đây là nội dung gia tăng dành cho tài khoản thành viên. Bé có thể đăng nhập, hoặc đăng ký tài khoản mới để dùng thử miễn phí 30 ngày.`,
+            message: `Đây là nội dung Premium. Bé hãy Sign in nếu đã có tài khoản hoặc Sign up để tạo tài khoản Regular. Trial 1 tháng và VIP 1 năm sẽ do Admin cấp khi phù hợp nhé!`,
             mode: 'guest'
         });
         return;
     }
 
-    const status = normalizeAccountStatusClient(currentUser.trangThai);
-    if (status === 'Pending') {
+    const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
+    if (type === 'trial') {
         renderPremiumAccessModal({
-            icon: '🐰⏳',
-            title: 'Tài khoản đang chờ duyệt',
-            message: `Cô đã nhận được đăng ký của bé rồi. Khi tài khoản được duyệt, 4 nội dung gia tăng sẽ tự động mở cho bé dùng thử nhé!`
+            icon: '🐰⏰',
+            title: 'Trial của bé đã hết hạn',
+            message: `Tài khoản đã trở về Regular. Bé hãy nhờ Admin cấp lại Trial hoặc nâng lên VIP để tiếp tục sử dụng ${featureName} nhé!`
         });
         return;
     }
-    if (status === 'Block') {
+    if (type === 'vip') {
         renderPremiumAccessModal({
-            icon: '🐰⭐',
-            title: 'Nâng cấp VIP để mở khóa nhé!',
-            message: `Tài khoản hiện chưa có quyền vào ${featureName}. Bé hãy nâng lên tài khoản VIP để tiếp tục sử dụng 4 nội dung gia tăng nhé!`
+            icon: '🐰👑',
+            title: 'VIP của bé đã hết hạn',
+            message: `Tài khoản đã trở về Regular. Bé hãy gia hạn VIP để tiếp tục sử dụng ${featureName} nhé!`
         });
         return;
     }
 
     renderPremiumAccessModal({
-        icon: '🐰🌟',
-        title: '30 ngày dùng thử đã kết thúc',
-        message: `Bé đã hoàn thành thời gian trải nghiệm rồi. Hãy nâng lên tài khoản VIP để tiếp tục sử dụng ${featureName} và 3 khu vực gia tăng còn lại nhé!`
+        icon: '🐰⭐',
+        title: 'Mở khóa nội dung Premium nhé!',
+        message: `Tài khoản của bé hiện là Regular. Admin có thể cấp Trial 1 tháng hoặc nâng VIP 1 năm để bé sử dụng ${featureName} và các khu vực Premium khác.`
     });
 }
 
@@ -1319,37 +1349,57 @@ async function callAdminAction(action, extraPayload = {}) {
     return callAppsScript(action, { ...getAdminCredentials(), ...extraPayload });
 }
 
-function setAdminPendingBadge(count) {
-    const badge = document.getElementById('admin-pending-badge');
-    if (!badge) return;
-    const n = Number(count) || 0;
-    badge.textContent = n;
-    badge.classList.toggle('hidden', n <= 0);
-}
-
-async function refreshAdminPending(announce = false) {
-    if (!isAdminUser()) return;
-    try {
-        const result = await callAdminAction('listAccounts');
-        if (!result.ok) return;
-        adminAccountsCache = Array.isArray(result.accounts) ? result.accounts : [];
-        const pending = adminAccountsCache.filter(a => String(a.trangThai || '').toLowerCase() === 'pending');
-        setAdminPendingBadge(pending.length);
-        if (announce && pending.length > 0) {
-            const names = pending.slice(0, 5).map(a => `${a.hoTen || a.maHS} (${a.maHS})`).join(', ');
-            const more = pending.length > 5 ? ` và ${pending.length - 5} tài khoản khác` : '';
-            alert(`Admin có ${pending.length} tài khoản đang chờ duyệt: ${names}${more}. Bấm “Quản lý tài khoản” để duyệt trực tiếp nhé!`);
-        }
-    } catch (err) {
-        console.warn('Không tải được số tài khoản chờ duyệt:', err);
-    }
-}
-
 function formatAdminDate(value) {
-    if (!value) return '--';
-    const d = new Date(value);
-    if (Number.isNaN(d.getTime())) return String(value);
+    const d = parseAccountDate(value);
+    if (!d) return '–';
     return d.toLocaleDateString('vi-VN');
+}
+
+function getAdminSortValue(acc, key) {
+    if (key === 'hanDungThu' || key === 'hanVIP') {
+        const d = parseAccountDate(acc[key]);
+        return d ? d.getTime() : null;
+    }
+    if (key === 'loaiTaiKhoan') {
+        const order = { regular: 0, trial: 1, vip: 2 };
+        return order[normalizeAccountTypeClient(acc[key])] ?? 0;
+    }
+    return String(acc[key] || '').trim().toLocaleLowerCase('vi');
+}
+
+function sortAdminAccounts(accounts) {
+    const { key, direction } = adminAccountSort;
+    const factor = direction === 'desc' ? -1 : 1;
+    return [...accounts].sort((a, b) => {
+        const av = getAdminSortValue(a, key);
+        const bv = getAdminSortValue(b, key);
+        // Ô ngày trống luôn nằm cuối bảng; ngày hợp lệ luôn so sánh bằng timestamp thật.
+        if (av === null && bv === null) return 0;
+        if (av === null) return 1;
+        if (bv === null) return -1;
+        if (typeof av === 'number' && typeof bv === 'number') {
+            if (av === bv) return String(a.maHS || '').localeCompare(String(b.maHS || ''), 'vi', { numeric: true }) * factor;
+            return (av - bv) * factor;
+        }
+        const cmp = String(av).localeCompare(String(bv), 'vi', { numeric: true, sensitivity: 'base' });
+        return cmp * factor;
+    });
+}
+
+function getAdminSortIcon(key) {
+    if (adminAccountSort.key !== key) return '<span class="ml-1 text-purple-200">↕</span>';
+    return adminAccountSort.direction === 'asc'
+        ? '<span class="ml-1 text-purple-500">▲</span>'
+        : '<span class="ml-1 text-purple-500">▼</span>';
+}
+
+function sortAdminAccountsBy(key) {
+    if (adminAccountSort.key === key) {
+        adminAccountSort.direction = adminAccountSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        adminAccountSort = { key, direction: 'asc' };
+    }
+    renderAdminAccountsTable();
 }
 
 async function openAdminAccountsModal() {
@@ -1360,33 +1410,36 @@ async function openAdminAccountsModal() {
         modal.id = 'modal-admin-accounts';
         modal.className = 'fixed inset-0 z-[130] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3';
         modal.innerHTML = `
-            <div class="w-full max-w-5xl max-h-[92vh] bg-white rounded-[28px] border-2 border-purple-200 shadow-2xl flex flex-col overflow-hidden">
-                <div class="px-4 md:px-6 py-4 bg-gradient-to-r from-purple-50 via-pink-50 to-rose-50 border-b border-purple-100 flex items-center justify-between gap-3">
+            <div class="w-full max-w-6xl max-h-[92vh] bg-white rounded-[28px] border-2 border-pink-200 shadow-2xl flex flex-col overflow-hidden">
+                <div class="px-4 md:px-6 py-4 bg-gradient-to-r from-purple-50 via-pink-50 to-rose-50 border-b border-pink-100 flex items-start justify-between gap-3">
                     <div>
-                        <h3 class="text-base md:text-lg font-black text-purple-700">👤 Quản lý tài khoản học sinh</h3>
-                        <p id="admin-accounts-summary" class="text-[11px] md:text-xs font-bold text-gray-500 mt-0.5">Đang tải danh sách...</p>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="text-base md:text-lg font-black text-purple-700">👥 Quản lý tài khoản</h3>
+                            <span id="admin-accounts-summary" class="px-2.5 py-1 rounded-full bg-white border border-purple-200 text-purple-600 text-[10px] md:text-xs font-extrabold">Đang tải...</span>
+                        </div>
+                        <p class="text-[10px] md:text-xs font-semibold text-gray-500 mt-1">Chuyển hạng tài khoản Regular / Trial / VIP. Trial có hạn 1 tháng, VIP có hạn 1 năm.</p>
                     </div>
-                    <button onclick="closeAdminAccountsModal()" class="w-9 h-9 rounded-xl bg-white border border-purple-200 text-purple-500 hover:bg-purple-100 font-black">✕</button>
+                    <button onclick="closeAdminAccountsModal()" class="w-9 h-9 shrink-0 rounded-xl bg-white border border-pink-200 text-pink-500 hover:bg-pink-100 font-black">✕</button>
                 </div>
-                <div class="p-3 md:p-5 overflow-auto flex-1">
+                <div class="p-3 md:p-4 overflow-auto flex-1">
                     <div id="admin-accounts-loading" class="py-10 text-center text-sm font-bold text-gray-400">⏳ Đang tải tài khoản...</div>
-                    <div id="admin-accounts-table-wrap" class="hidden overflow-x-auto">
+                    <div id="admin-accounts-table-wrap" class="hidden overflow-x-auto rounded-2xl border border-pink-100">
                         <table class="w-full min-w-[900px] text-xs md:text-sm border-collapse">
-                            <thead><tr class="bg-purple-50 text-purple-800">
-                                <th class="p-2.5 border border-purple-100 text-left">Mã ID</th>
-                                <th class="p-2.5 border border-purple-100 text-left">Họ tên</th>
-                                <th class="p-2.5 border border-purple-100">Lớp</th>
-                                <th class="p-2.5 border border-purple-100">Ngày đăng ký</th>
-                                <th class="p-2.5 border border-purple-100">Trạng thái</th>
-                                <th class="p-2.5 border border-purple-100">Loại tài khoản</th>
-                                <th class="p-2.5 border border-purple-100">Thao tác</th>
+                            <thead><tr class="bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700">
+                                <th onclick="sortAdminAccountsBy('maHS')" class="p-3 border-b border-pink-100 text-left cursor-pointer select-none hover:bg-purple-100/60">Mã HS <span data-sort-icon="maHS"></span></th>
+                                <th onclick="sortAdminAccountsBy('hoTen')" class="p-3 border-b border-pink-100 text-left cursor-pointer select-none hover:bg-purple-100/60">Họ tên <span data-sort-icon="hoTen"></span></th>
+                                <th onclick="sortAdminAccountsBy('lop')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Lớp <span data-sort-icon="lop"></span></th>
+                                <th onclick="sortAdminAccountsBy('loaiTaiKhoan')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Loại tài khoản <span data-sort-icon="loaiTaiKhoan"></span></th>
+                                <th onclick="sortAdminAccountsBy('hanDungThu')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Hạn dùng thử <span data-sort-icon="hanDungThu"></span></th>
+                                <th onclick="sortAdminAccountsBy('hanVIP')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Hạn VIP <span data-sort-icon="hanVIP"></span></th>
                             </tr></thead>
                             <tbody id="admin-accounts-body"></tbody>
                         </table>
                     </div>
                 </div>
-                <div class="px-4 md:px-6 py-3 border-t border-purple-100 bg-slate-50 flex justify-end">
-                    <button onclick="closeAdminAccountsModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white text-xs md:text-sm font-extrabold">Đóng</button>
+                <div class="px-4 md:px-6 py-3 border-t border-pink-100 bg-rose-50/40 flex items-center justify-between gap-3">
+                    <div class="text-[10px] md:text-xs font-semibold text-gray-500">Regular: miễn phí • Trial: Premium 1 tháng • VIP: Premium 1 năm.</div>
+                    <button onclick="loadAdminAccounts()" class="px-4 py-2 rounded-xl bg-white border border-purple-200 text-purple-600 text-xs font-extrabold hover:bg-purple-50">⟳ Làm mới</button>
                 </div>
             </div>`;
         document.body.appendChild(modal);
@@ -1414,7 +1467,6 @@ async function loadAdminAccounts() {
         if (!result.ok) throw new Error(result.error || 'Không tải được danh sách tài khoản.');
         adminAccountsCache = Array.isArray(result.accounts) ? result.accounts : [];
         renderAdminAccountsTable();
-        setAdminPendingBadge(result.pendingCount || 0);
         if (loading) loading.classList.add('hidden');
         if (wrap) wrap.classList.remove('hidden');
     } catch (err) {
@@ -1426,61 +1478,42 @@ function renderAdminAccountsTable() {
     const body = document.getElementById('admin-accounts-body');
     const summary = document.getElementById('admin-accounts-summary');
     if (!body) return;
-    const pendingCount = adminAccountsCache.filter(a => String(a.trangThai || '').toLowerCase() === 'pending').length;
-    if (summary) summary.textContent = pendingCount > 0
-        ? `Có ${pendingCount} tài khoản đang chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`
-        : `Không có tài khoản chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`;
+
+    if (summary) summary.textContent = `${adminAccountsCache.length} tài khoản`;
+    document.querySelectorAll('#modal-admin-accounts [data-sort-icon]').forEach(el => {
+        el.innerHTML = getAdminSortIcon(el.dataset.sortIcon);
+    });
+
     if (adminAccountsCache.length === 0) {
-        body.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
+        body.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
         return;
     }
-    body.innerHTML = adminAccountsCache.map(acc => {
-        const status = String(acc.trangThai || 'Active');
-        const lower = status.toLowerCase();
-        const isPending = lower === 'pending';
-        const isBlocked = ['block', 'blocked', 'inactive', 'khoa'].includes(lower);
-        const rowClass = isPending ? 'bg-amber-50/70' : '';
-        const badge = isPending
-            ? '<span class="px-2 py-1 rounded-lg bg-amber-100 text-amber-700 font-extrabold">Chờ duyệt</span>'
-            : isBlocked
-                ? '<span class="px-2 py-1 rounded-lg bg-rose-100 text-rose-700 font-extrabold">Đã khóa premium</span>'
-                : '<span class="px-2 py-1 rounded-lg bg-emerald-100 text-emerald-700 font-extrabold">Hoạt động</span>';
+
+    const sorted = sortAdminAccounts(adminAccountsCache);
+    body.innerHTML = sorted.map(acc => {
+        const safeId = escapeHtml(acc.maHS || '');
         const accountType = normalizeAccountTypeClient(acc.loaiTaiKhoan);
-        const typeBadge = accountType === 'VIP'
-            ? '<span class="px-2 py-1 rounded-lg bg-fuchsia-100 text-fuchsia-700 font-extrabold">VIP</span>'
-            : '<span class="px-2 py-1 rounded-lg bg-sky-100 text-sky-700 font-extrabold">Regular</span>';
-        const safeId = escapeHtml(acc.maHS);
-        const actionButtons = isPending
-            ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold mr-1">✓ Duyệt</button>
-               <button onclick="changeStudentAccountStatus('${safeId}', 'Block')" class="px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold">Khóa</button>`
-            : isBlocked
-                ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold">Mở khóa</button>`
-                : `<button onclick="changeStudentAccountStatus('${safeId}', 'Block')" class="px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold">Khóa</button>`;
-        const typeAction = accountType === 'VIP'
-            ? `<button onclick="changeStudentAccountType('${safeId}', 'Regular')" class="px-3 py-1.5 rounded-lg bg-sky-100 hover:bg-sky-200 text-sky-700 font-extrabold ml-1">Về Regular</button>`
-            : `<button onclick="changeStudentAccountType('${safeId}', 'VIP')" class="px-3 py-1.5 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-extrabold ml-1">Lên VIP</button>`;
-        return `<tr class="${rowClass}">
-            <td class="p-2.5 border border-slate-100 text-left font-black text-purple-700">${safeId}</td>
-            <td class="p-2.5 border border-slate-100 text-left font-bold text-gray-700">${escapeHtml(acc.hoTen || '')}</td>
-            <td class="p-2.5 border border-slate-100 text-center font-bold">${escapeHtml(acc.lop || '--')}</td>
-            <td class="p-2.5 border border-slate-100 text-center text-gray-500">${escapeHtml(formatAdminDate(acc.ngayDangKy))}</td>
-            <td class="p-2.5 border border-slate-100 text-center">${badge}</td>
-            <td class="p-2.5 border border-slate-100 text-center">${typeBadge}</td>
-            <td class="p-2.5 border border-slate-100 text-center whitespace-nowrap">${actionButtons}${typeAction}</td>
+        const selectClass = accountType === 'vip'
+            ? 'border-purple-300 bg-purple-50 text-purple-700'
+            : accountType === 'trial'
+                ? 'border-amber-300 bg-amber-50 text-amber-700'
+                : 'border-sky-300 bg-sky-50 text-sky-700';
+
+        return `<tr class="hover:bg-pink-50/40 transition-colors">
+            <td class="p-3 border-b border-slate-100 text-left font-black text-slate-700">${safeId}</td>
+            <td class="p-3 border-b border-slate-100 text-left font-bold text-slate-600">${escapeHtml(acc.hoTen || '')}</td>
+            <td class="p-3 border-b border-slate-100 text-center font-bold text-slate-600">${escapeHtml(acc.lop || '–')}</td>
+            <td class="p-3 border-b border-slate-100 text-center">
+                <select onchange="changeStudentAccountType('${safeId}', this.value)" class="min-w-[90px] rounded-xl border px-3 py-2 font-extrabold outline-none ${selectClass}">
+                    <option value="regular" ${accountType === 'regular' ? 'selected' : ''}>Regular</option>
+                    <option value="trial" ${accountType === 'trial' ? 'selected' : ''}>Trial</option>
+                    <option value="vip" ${accountType === 'vip' ? 'selected' : ''}>VIP</option>
+                </select>
+            </td>
+            <td class="p-3 border-b border-slate-100 text-center font-bold text-slate-500">${escapeHtml(formatAdminDate(acc.hanDungThu))}</td>
+            <td class="p-3 border-b border-slate-100 text-center font-bold text-purple-600">${escapeHtml(formatAdminDate(acc.hanVIP))}</td>
         </tr>`;
     }).join('');
-}
-
-async function changeStudentAccountStatus(maHS, status) {
-    if (!isAdminUser()) return;
-    const actionText = status === 'Active' ? 'duyệt/mở khóa' : 'khóa';
-    try {
-        const result = await callAdminAction('updateAccountStatus', { targetMaHS: maHS, status });
-        if (!result.ok) throw new Error(result.error || `Không thể ${actionText} tài khoản.`);
-        await loadAdminAccounts();
-    } catch (err) {
-        alert('Lỗi cập nhật tài khoản: ' + err.message);
-    }
 }
 
 async function changeStudentAccountType(maHS, accountType) {
@@ -1491,6 +1524,7 @@ async function changeStudentAccountType(maHS, accountType) {
         await loadAdminAccounts();
     } catch (err) {
         alert('Lỗi cập nhật loại tài khoản: ' + err.message);
+        await loadAdminAccounts();
     }
 }
 
@@ -1568,7 +1602,7 @@ async function doRegister() {
             alert(result.error);
             return;
         }
-        alert(`Đăng ký thành công! Mã ID của bé là: ${result.student.maHS}. Bé có thể đăng nhập để học ngay mục 1–10; 4 nội dung gia tăng sẽ mở khi tài khoản được duyệt.`);
+        alert(`Đăng ký thành công! Mã ID của bé là: ${result.student.maHS}. Tài khoản mới là Regular: bé học miễn phí mục 1–10. Trial 1 tháng hoặc VIP 1 năm sẽ do Admin cấp khi cần nhé!`);
         document.getElementById('login-mahs').value = result.student.maHS;
         switchAuthTab('login');
     } catch (err) {
@@ -1622,7 +1656,7 @@ function logout() {
 }
 
 function handleGuestMode(isSilent = false) {
-    currentUser = { name: "Khách (Guest)", isGuest: true, tuanHienTai: 1, hoTen: "Bé Khách", lop: "1A", maHS: "KHACH", trangThai: 'Guest', loaiTaiKhoan: 'Free' };
+    currentUser = { name: "Khách (Guest)", isGuest: true, tuanHienTai: 1, hoTen: "Bé Khách", lop: "1A", maHS: "KHACH", loaiTaiKhoan: 'regular', hanDungThu: '', hanVIP: '' };
     enterDashboard(isSilent);
 }
 
@@ -1630,7 +1664,6 @@ function enterDashboard(isSilent = false) {
     document.getElementById('screen-login').classList.add('hidden');
     document.getElementById('screen-dashboard').classList.remove('hidden');
     updateUserInfoBox();
-    if (isAdminUser()) refreshAdminPending(!isSilent);
     resetStars();
     renderDashboardGrid();
     renderExamHubGrid();
@@ -1659,14 +1692,12 @@ function updateUserInfoBox() {
             <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
                 class="relative h-8 px-2.5 flex items-center gap-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl border border-purple-200 text-[10px] md:text-xs font-extrabold transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)]">
                 <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý tài khoản</span>
-                <span id="admin-pending-badge" class="hidden absolute -top-2 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white text-[10px] leading-[18px] font-black shadow">0</span>
             </button>` : '';
         const roleLine = isAdminUser()
             ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
             : (() => {
                 const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
-                const status = normalizeAccountStatusClient(currentUser.trangThai);
-                const premiumLabel = type === 'VIP' ? 'VIP' : (hasPremiumAccess() ? 'Regular • Trial' : `Regular • ${status}`);
+                const premiumLabel = getAccountTypeLabel(type);
                 return `<div class="text-gray-500 font-semibold text-[10px]">ID: ${escapeHtml(currentUser.maHS)} | ${escapeHtml(premiumLabel)}</div>`;
             })();
         box.innerHTML = `
