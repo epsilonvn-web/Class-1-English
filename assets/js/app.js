@@ -610,7 +610,7 @@ async function renderDashboardGrid() {
             <div onclick="openTopic(${t.id}, '${t.title}', '${t.icon}')" class="pastel-card p-3 flex flex-col justify-between cursor-pointer hover:border-${t.color}-400 transition-all group min-h-[92px]">
                 <div class="flex items-center space-x-2.5">
                     ${iconHtml}
-                    <h3 class="font-extrabold text-${t.color}-700 text-sm md:text-base leading-tight flex items-center gap-1.5">${t.title}${Number(t.id) === 11 ? '<i class="fa-solid fa-lock text-[10px] opacity-75" title="Cần đăng nhập"></i>' : ''}</h3>
+                    <h3 class="font-extrabold text-${t.color}-700 text-sm md:text-base leading-tight flex items-center gap-1.5">${t.title}${Number(t.id) === 11 ? '<i class="fa-solid fa-lock text-[10px] opacity-75" title="Tài khoản VIP / dùng thử"></i>' : ''}</h3>
                 </div>
                 <div class="flex justify-between items-center mt-1.5 pt-1 border-t border-pink-100 text-[11px] font-bold text-gray-500">
                     <span>${t.desc}</span>
@@ -624,7 +624,7 @@ async function renderDashboardGrid() {
         <div onclick="openExamHub()" class="pastel-card p-3 flex flex-col justify-between cursor-pointer hover:border-amber-400 transition-all group bg-gradient-to-br from-white to-amber-50/50 min-h-[92px]">
             <div class="flex items-center space-x-2.5">
                 <div class="w-8 h-8 bg-amber-100 rounded-xl flex items-center justify-center text-sm font-extrabold text-amber-600 shadow-inner group-hover:scale-110 transition-transform shrink-0">🏆</div>
-                <h3 class="font-extrabold text-amber-700 text-sm md:text-base leading-tight flex items-center gap-1.5">12. Đấu trường đề thi <i class="fa-solid fa-lock text-[10px] opacity-75" title="Cần đăng nhập"></i></h3>
+                <h3 class="font-extrabold text-amber-700 text-sm md:text-base leading-tight flex items-center gap-1.5">12. Đấu trường đề thi <i class="fa-solid fa-lock text-[10px] opacity-75" title="Tài khoản VIP / dùng thử"></i></h3>
             </div>
             <div class="flex justify-between items-center mt-1.5 pt-1 border-t border-amber-100 text-[11px] font-bold text-gray-500">
                 <span>HK1, HK2, HSG</span>
@@ -692,9 +692,7 @@ function updateExamTimerDisplay() {
 
 function openExamHub() {
     stopSpeaking();
-    if (!currentUser || currentUser.isGuest) {
-        return alert('Con cần đăng nhập bằng tài khoản học sinh mới vào được Đấu trường đề thi nhé!');
-    }
+    if (!requirePremiumAccess('Đấu trường đề thi')) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = false;
     activeExamContext = null;
@@ -1165,6 +1163,150 @@ function isAdminUser() {
     return !!currentUser && !currentUser.isGuest && String(currentUser.role || '').toLowerCase() === 'admin';
 }
 
+function normalizeAccountTypeClient(value) {
+    const raw = String(value || '').trim().toLowerCase();
+    return raw === 'vip' ? 'VIP' : 'Regular';
+}
+
+function normalizeAccountStatusClient(value) {
+    const raw = String(value || '').trim().toLowerCase();
+    if (raw === 'pending' || raw === 'chờ duyệt' || raw === 'cho duyet') return 'Pending';
+    if (['block', 'blocked', 'inactive', 'khoa', 'khóa', 'bị khóa', 'bi khoa'].includes(raw)) return 'Block';
+    return 'Active';
+}
+
+function getTrialEndDate() {
+    const raw = currentUser?.hanDungThu;
+    if (!raw) return null;
+    const d = new Date(raw);
+    return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function hasPremiumAccess() {
+    if (isAdminUser()) return true;
+    if (!currentUser || currentUser.isGuest) return false;
+    const status = normalizeAccountStatusClient(currentUser.trangThai);
+    if (status !== 'Active') return false;
+    if (normalizeAccountTypeClient(currentUser.loaiTaiKhoan) === 'VIP') return true;
+    const end = getTrialEndDate();
+    return !!end && end.getTime() >= Date.now();
+}
+
+function closePremiumAccessModal() {
+    document.getElementById('premium-access-modal')?.remove();
+}
+
+function renderPremiumAccessModal({ icon = '🐰', title = 'Cô giáo Thỏ Hồng', message = '', mode = 'info' }) {
+    closePremiumAccessModal();
+
+    const isGuest = mode === 'guest';
+    const modal = document.createElement('div');
+    modal.id = 'premium-access-modal';
+    modal.className = 'fixed inset-0 z-[9999] flex items-center justify-center p-4';
+    modal.innerHTML = `
+        <div class="absolute inset-0 bg-slate-900/45 backdrop-blur-[2px]" data-premium-close></div>
+        <div class="relative w-full max-w-md overflow-hidden rounded-[28px] border-2 border-pink-200 bg-white shadow-2xl animate-[popIn_.18s_ease-out]">
+            <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-pink-100/80"></div>
+            <div class="absolute -left-6 bottom-10 h-20 w-20 rounded-full bg-purple-100/70"></div>
+
+            <div class="relative px-6 pb-6 pt-7 text-center">
+                <button type="button" data-premium-close class="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-pink-50 text-xl font-black text-pink-400 transition hover:bg-pink-100" aria-label="Đóng">×</button>
+
+                <div class="mx-auto mb-3 flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-pink-100 to-purple-100 text-5xl shadow-lg">${icon}</div>
+                <div class="mb-1 text-sm font-extrabold uppercase tracking-[0.18em] text-pink-400">Cô giáo Thỏ Hồng</div>
+                <h3 class="mb-3 text-xl font-black text-purple-700">${title}</h3>
+                <p class="mx-auto max-w-sm text-[15px] font-semibold leading-7 text-slate-600">${message}</p>
+
+                <div class="mt-5 rounded-2xl border border-pink-100 bg-gradient-to-r from-pink-50 to-purple-50 px-4 py-3 text-sm font-bold text-purple-600">
+                    🌷 Mục 1–10 vẫn học hoàn toàn miễn phí nhé bé!
+                </div>
+
+                <div class="mt-5 flex ${isGuest ? 'gap-3' : ''} justify-center">
+                    ${isGuest ? `
+                        <button type="button" data-premium-login class="flex-1 rounded-2xl bg-gradient-to-r from-purple-500 to-violet-500 px-4 py-3 font-extrabold text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg">🔑 Sign in</button>
+                        <button type="button" data-premium-signup class="flex-1 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-400 px-4 py-3 font-extrabold text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg">✨ Sign up</button>
+                    ` : `
+                        <button type="button" data-premium-close class="min-w-40 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-3 font-extrabold text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg">💗 Bé hiểu rồi</button>
+                    `}
+                </div>
+            </div>
+        </div>`;
+
+    document.body.appendChild(modal);
+
+    modal.querySelectorAll('[data-premium-close]').forEach(el => {
+        el.addEventListener('click', closePremiumAccessModal);
+    });
+    modal.querySelector('[data-premium-login]')?.addEventListener('click', () => {
+        closePremiumAccessModal();
+        openAuthScreen('login');
+    });
+    modal.querySelector('[data-premium-signup]')?.addEventListener('click', () => {
+        closePremiumAccessModal();
+        openAuthScreen('register');
+    });
+}
+
+function showPremiumAccessWarning(featureName = 'khu vực này') {
+    if (!currentUser || currentUser.isGuest) {
+        renderPremiumAccessModal({
+            icon: '🐰🔒',
+            title: `${featureName} đang chờ bé mở khóa!`,
+            message: `Đây là nội dung gia tăng dành cho tài khoản thành viên. Bé có thể đăng nhập, hoặc đăng ký tài khoản mới để dùng thử miễn phí 30 ngày.`,
+            mode: 'guest'
+        });
+        return;
+    }
+
+    const status = normalizeAccountStatusClient(currentUser.trangThai);
+    if (status === 'Pending') {
+        renderPremiumAccessModal({
+            icon: '🐰⏳',
+            title: 'Tài khoản đang chờ duyệt',
+            message: `Cô đã nhận được đăng ký của bé rồi. Khi tài khoản được duyệt, 4 nội dung gia tăng sẽ tự động mở cho bé dùng thử nhé!`
+        });
+        return;
+    }
+    if (status === 'Block') {
+        renderPremiumAccessModal({
+            icon: '🐰⭐',
+            title: 'Nâng cấp VIP để mở khóa nhé!',
+            message: `Tài khoản hiện chưa có quyền vào ${featureName}. Bé hãy nâng lên tài khoản VIP để tiếp tục sử dụng 4 nội dung gia tăng nhé!`
+        });
+        return;
+    }
+
+    renderPremiumAccessModal({
+        icon: '🐰🌟',
+        title: '30 ngày dùng thử đã kết thúc',
+        message: `Bé đã hoàn thành thời gian trải nghiệm rồi. Hãy nâng lên tài khoản VIP để tiếp tục sử dụng ${featureName} và 3 khu vực gia tăng còn lại nhé!`
+    });
+}
+
+function requirePremiumAccess(featureName) {
+    if (hasPremiumAccess()) return true;
+    showPremiumAccessWarning(featureName);
+    return false;
+}
+
+function openAuthScreen(tab = 'login') {
+    stopSpeaking();
+    document.getElementById('screen-dashboard')?.classList.add('hidden');
+    document.getElementById('screen-login')?.classList.remove('hidden');
+    switchAuthTab(tab);
+    hideAuthError();
+}
+
+function returnToGuestHome() {
+    if (!currentUser || currentUser.isGuest) {
+        handleGuestMode(true);
+        return;
+    }
+    document.getElementById('screen-login')?.classList.add('hidden');
+    document.getElementById('screen-dashboard')?.classList.remove('hidden');
+    goHome();
+}
+
 function getAdminCredentials() {
     return {
         adminMaHS: currentUser?.maHS || localStorage.getItem('tv1_mahs') || '',
@@ -1229,13 +1371,14 @@ async function openAdminAccountsModal() {
                 <div class="p-3 md:p-5 overflow-auto flex-1">
                     <div id="admin-accounts-loading" class="py-10 text-center text-sm font-bold text-gray-400">⏳ Đang tải tài khoản...</div>
                     <div id="admin-accounts-table-wrap" class="hidden overflow-x-auto">
-                        <table class="w-full min-w-[760px] text-xs md:text-sm border-collapse">
+                        <table class="w-full min-w-[900px] text-xs md:text-sm border-collapse">
                             <thead><tr class="bg-purple-50 text-purple-800">
                                 <th class="p-2.5 border border-purple-100 text-left">Mã ID</th>
                                 <th class="p-2.5 border border-purple-100 text-left">Họ tên</th>
                                 <th class="p-2.5 border border-purple-100">Lớp</th>
                                 <th class="p-2.5 border border-purple-100">Ngày đăng ký</th>
                                 <th class="p-2.5 border border-purple-100">Trạng thái</th>
+                                <th class="p-2.5 border border-purple-100">Loại tài khoản</th>
                                 <th class="p-2.5 border border-purple-100">Thao tác</th>
                             </tr></thead>
                             <tbody id="admin-accounts-body"></tbody>
@@ -1288,7 +1431,7 @@ function renderAdminAccountsTable() {
         ? `Có ${pendingCount} tài khoản đang chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`
         : `Không có tài khoản chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`;
     if (adminAccountsCache.length === 0) {
-        body.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
+        body.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
         return;
     }
     body.innerHTML = adminAccountsCache.map(acc => {
@@ -1300,8 +1443,12 @@ function renderAdminAccountsTable() {
         const badge = isPending
             ? '<span class="px-2 py-1 rounded-lg bg-amber-100 text-amber-700 font-extrabold">Chờ duyệt</span>'
             : isBlocked
-                ? '<span class="px-2 py-1 rounded-lg bg-rose-100 text-rose-700 font-extrabold">Đã khóa</span>'
+                ? '<span class="px-2 py-1 rounded-lg bg-rose-100 text-rose-700 font-extrabold">Đã khóa premium</span>'
                 : '<span class="px-2 py-1 rounded-lg bg-emerald-100 text-emerald-700 font-extrabold">Hoạt động</span>';
+        const accountType = normalizeAccountTypeClient(acc.loaiTaiKhoan);
+        const typeBadge = accountType === 'VIP'
+            ? '<span class="px-2 py-1 rounded-lg bg-fuchsia-100 text-fuchsia-700 font-extrabold">VIP</span>'
+            : '<span class="px-2 py-1 rounded-lg bg-sky-100 text-sky-700 font-extrabold">Regular</span>';
         const safeId = escapeHtml(acc.maHS);
         const actionButtons = isPending
             ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold mr-1">✓ Duyệt</button>
@@ -1309,13 +1456,17 @@ function renderAdminAccountsTable() {
             : isBlocked
                 ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold">Mở khóa</button>`
                 : `<button onclick="changeStudentAccountStatus('${safeId}', 'Block')" class="px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold">Khóa</button>`;
+        const typeAction = accountType === 'VIP'
+            ? `<button onclick="changeStudentAccountType('${safeId}', 'Regular')" class="px-3 py-1.5 rounded-lg bg-sky-100 hover:bg-sky-200 text-sky-700 font-extrabold ml-1">Về Regular</button>`
+            : `<button onclick="changeStudentAccountType('${safeId}', 'VIP')" class="px-3 py-1.5 rounded-lg bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-extrabold ml-1">Lên VIP</button>`;
         return `<tr class="${rowClass}">
             <td class="p-2.5 border border-slate-100 text-left font-black text-purple-700">${safeId}</td>
             <td class="p-2.5 border border-slate-100 text-left font-bold text-gray-700">${escapeHtml(acc.hoTen || '')}</td>
             <td class="p-2.5 border border-slate-100 text-center font-bold">${escapeHtml(acc.lop || '--')}</td>
             <td class="p-2.5 border border-slate-100 text-center text-gray-500">${escapeHtml(formatAdminDate(acc.ngayDangKy))}</td>
             <td class="p-2.5 border border-slate-100 text-center">${badge}</td>
-            <td class="p-2.5 border border-slate-100 text-center whitespace-nowrap">${actionButtons}</td>
+            <td class="p-2.5 border border-slate-100 text-center">${typeBadge}</td>
+            <td class="p-2.5 border border-slate-100 text-center whitespace-nowrap">${actionButtons}${typeAction}</td>
         </tr>`;
     }).join('');
 }
@@ -1329,6 +1480,17 @@ async function changeStudentAccountStatus(maHS, status) {
         await loadAdminAccounts();
     } catch (err) {
         alert('Lỗi cập nhật tài khoản: ' + err.message);
+    }
+}
+
+async function changeStudentAccountType(maHS, accountType) {
+    if (!isAdminUser()) return;
+    try {
+        const result = await callAdminAction('updateAccountType', { targetMaHS: maHS, accountType });
+        if (!result.ok) throw new Error(result.error || 'Không thể cập nhật loại tài khoản.');
+        await loadAdminAccounts();
+    } catch (err) {
+        alert('Lỗi cập nhật loại tài khoản: ' + err.message);
     }
 }
 
@@ -1406,7 +1568,7 @@ async function doRegister() {
             alert(result.error);
             return;
         }
-        alert(`Đã gửi đăng ký thành công, vui lòng chờ Admin duyệt! Mã ID của bé là: ${result.student.maHS}`);
+        alert(`Đăng ký thành công! Mã ID của bé là: ${result.student.maHS}. Bé có thể đăng nhập để học ngay mục 1–10; 4 nội dung gia tăng sẽ mở khi tài khoản được duyệt.`);
         document.getElementById('login-mahs').value = result.student.maHS;
         switchAuthTab('login');
     } catch (err) {
@@ -1422,45 +1584,46 @@ async function doRegister() {
 async function tryAutoLogin() {
     const maHS = localStorage.getItem('tv1_mahs');
     const maPin = localStorage.getItem('tv1_mapin');
-    if (!maHS || !maPin) return;
 
-    // Ẩn ngay màn hình đăng nhập và hiện loading, tránh hiện "chớp" màn hình đăng nhập
-    // rồi mới chuyển sang trang chủ khi đã có sẵn thông tin đăng nhập.
-    const loginScreen = document.getElementById('screen-login');
-    if (loginScreen) loginScreen.classList.add('hidden');
+    // Không có phiên đăng nhập đã lưu => vào thẳng trang chủ ở chế độ Guest.
+    // Mục 1-10 luôn mở; Sign in / Sign up hiển thị trên header.
+    if (!maHS || !maPin) {
+        handleGuestMode(true);
+        return;
+    }
+
     showLoadingOverlay('Đang đăng nhập lại cho bé...');
-
     try {
         const res = await callAppsScript('login', { maHS: maHS.toUpperCase(), maPin });
         if (res.ok) {
             currentUser = { ...res.student, isGuest: false };
             enterDashboard(true);
         } else {
-            if (loginScreen) loginScreen.classList.remove('hidden');
+            localStorage.removeItem('tv1_mahs');
+            localStorage.removeItem('tv1_mapin');
+            handleGuestMode(true);
         }
     } catch (e) {
-        if (loginScreen) loginScreen.classList.remove('hidden');
+        handleGuestMode(true);
     } finally {
         hideLoadingOverlay();
     }
 }
 
 function logout() {
-    currentUser = null;
     localStorage.removeItem('tv1_mahs');
     localStorage.removeItem('tv1_mapin');
-    document.getElementById('screen-dashboard').classList.add('hidden');
-    document.getElementById('screen-login').classList.remove('hidden');
     const mahsInput = document.getElementById('login-mahs');
     const mapinInput = document.getElementById('login-mapin');
     if (mahsInput) mahsInput.value = '';
     if (mapinInput) mapinInput.value = '';
     hideAuthError();
+    handleGuestMode(true);
 }
 
-function handleGuestMode() {
-    currentUser = { name: "Khách (Guest)", isGuest: true, tuanHienTai: 1, hoTen: "Bé Khách", lop: "1A", maHS: "KHACH" };
-    enterDashboard();
+function handleGuestMode(isSilent = false) {
+    currentUser = { name: "Khách (Guest)", isGuest: true, tuanHienTai: 1, hoTen: "Bé Khách", lop: "1A", maHS: "KHACH", trangThai: 'Guest', loaiTaiKhoan: 'Free' };
+    enterDashboard(isSilent);
 }
 
 function enterDashboard(isSilent = false) {
@@ -1500,7 +1663,12 @@ function updateUserInfoBox() {
             </button>` : '';
         const roleLine = isAdminUser()
             ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
-            : `<div class="text-gray-500 font-semibold text-[10px]">ID: ${escapeHtml(currentUser.maHS)} | Lớp ${escapeHtml(currentUser.lop)}</div>`;
+            : (() => {
+                const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
+                const status = normalizeAccountStatusClient(currentUser.trangThai);
+                const premiumLabel = type === 'VIP' ? 'VIP' : (hasPremiumAccess() ? 'Regular • Trial' : `Regular • ${status}`);
+                return `<div class="text-gray-500 font-semibold text-[10px]">ID: ${escapeHtml(currentUser.maHS)} | ${escapeHtml(premiumLabel)}</div>`;
+            })();
         box.innerHTML = `
             <div class="flex items-center space-x-2">
                 <div class="text-right">
@@ -1511,7 +1679,12 @@ function updateUserInfoBox() {
                 <button onclick="logout()" title="Đăng xuất" class="w-8 h-8 flex items-center justify-center bg-rose-100 hover:bg-rose-200 text-rose-500 rounded-xl border border-rose-200 text-xs transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(244,63,94,0.55)]"><i class="fa-solid fa-right-from-bracket"></i></button>
             </div>`;
     } else {
-        box.innerHTML = `<span class="text-amber-600 font-extrabold text-xs">Khách (Guest)</span><br><span class="text-gray-400 font-semibold text-[10px]">Chưa đăng nhập</span>`;
+        box.innerHTML = `
+            <div class="flex items-center gap-1.5">
+                <span class="text-amber-600 font-extrabold text-[10px] md:text-xs mr-0.5">Khách</span>
+                <button onclick="openAuthScreen('login')" class="h-8 px-2.5 rounded-xl bg-pink-500 hover:bg-pink-600 text-white text-[10px] md:text-xs font-extrabold shadow-sm">Sign in</button>
+                <button onclick="openAuthScreen('register')" class="h-8 px-2.5 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-700 border border-purple-200 text-[10px] md:text-xs font-extrabold shadow-sm">Sign up</button>
+            </div>`;
     }
 }
 
@@ -1524,7 +1697,8 @@ function resetStars() {
 }
 
 function clickProgressOrExam(type) {
-    if (!currentUser || currentUser.isGuest) return alert('Bé vui lòng đăng nhập để sử dụng tính năng này nhé!');
+    const feature = type === 'progress' ? 'Bản đồ tuần' : 'Đấu trường đề thi';
+    if (!requirePremiumAccess(feature)) return;
     if (type === 'progress') openRoadmap();
     else if (type === 'exam') openExamHub();
 }
@@ -1534,9 +1708,7 @@ function clickProgressOrExam(type) {
 // ==========================================
 function openTopic(topicNum, topicName, icon) {
     stopSpeaking();
-    if (Number(topicNum) === 11 && (!currentUser || currentUser.isGuest)) {
-        return alert('Con cần đăng nhập bằng tài khoản học sinh mới vào được Practice & Play nhé!');
-    }
+    if (Number(topicNum) === 11 && !requirePremiumAccess('Practice & Play')) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = false;
     activeTopicId = topicNum; activeExamContext = null; activeRoadmapContext = null;
@@ -1734,6 +1906,7 @@ function handleNextExamFromReport() {
 
 function openRoadmap() {
     stopSpeaking();
+    if (!requirePremiumAccess('Bản đồ tuần')) return;
     inAlphaIpaFlow = false;
     updateNavTabs("Bản đồ tiến trình tuần", "🗺️", null);
     renderRoadmapSVG();
@@ -3454,11 +3627,7 @@ const MINIGAME_LIST = [
 
 function openMiniGameHub() {
     stopSpeaking();
-    // Bắt buộc đăng nhập mới vào được Mini Game (giống mục 11, Đấu trường đề thi, Tiến trình tuần)
-    if (!currentUser || currentUser.isGuest) {
-        alert('Con cần đăng nhập bằng tài khoản học sinh mới vào được Mini Game nhé!');
-        return;
-    }
+    if (!requirePremiumAccess('Mini Game')) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = true;
     activeExamContext = null; activeRoadmapContext = null; activeTopicId = null; pendingTopicQuiz = null;
