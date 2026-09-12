@@ -1356,7 +1356,7 @@ function formatAdminDate(value) {
 }
 
 function getAdminSortValue(acc, key) {
-    if (key === 'hanDungThu' || key === 'hanVIP') {
+    if (key === 'ngayDangKy' || key === 'hanDungThu' || key === 'hanVIP') {
         const d = parseAccountDate(acc[key]);
         return d ? d.getTime() : null;
     }
@@ -1424,11 +1424,12 @@ async function openAdminAccountsModal() {
                 <div class="p-3 md:p-4 overflow-auto flex-1">
                     <div id="admin-accounts-loading" class="py-10 text-center text-sm font-bold text-gray-400">⏳ Đang tải tài khoản...</div>
                     <div id="admin-accounts-table-wrap" class="hidden overflow-x-auto rounded-2xl border border-pink-100">
-                        <table class="w-full min-w-[900px] text-xs md:text-sm border-collapse">
+                        <table class="w-full min-w-[1040px] text-xs md:text-sm border-collapse">
                             <thead><tr class="bg-gradient-to-r from-purple-50 to-pink-50 text-purple-700">
                                 <th onclick="sortAdminAccountsBy('maHS')" class="p-3 border-b border-pink-100 text-left cursor-pointer select-none hover:bg-purple-100/60">Mã HS <span data-sort-icon="maHS"></span></th>
                                 <th onclick="sortAdminAccountsBy('hoTen')" class="p-3 border-b border-pink-100 text-left cursor-pointer select-none hover:bg-purple-100/60">Họ tên <span data-sort-icon="hoTen"></span></th>
                                 <th onclick="sortAdminAccountsBy('lop')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Lớp <span data-sort-icon="lop"></span></th>
+                                <th onclick="sortAdminAccountsBy('ngayDangKy')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60 whitespace-nowrap">Ngày đăng ký <span data-sort-icon="ngayDangKy"></span></th>
                                 <th onclick="sortAdminAccountsBy('loaiTaiKhoan')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Loại tài khoản <span data-sort-icon="loaiTaiKhoan"></span></th>
                                 <th onclick="sortAdminAccountsBy('hanDungThu')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Hạn dùng thử <span data-sort-icon="hanDungThu"></span></th>
                                 <th onclick="sortAdminAccountsBy('hanVIP')" class="p-3 border-b border-pink-100 cursor-pointer select-none hover:bg-purple-100/60">Hạn VIP <span data-sort-icon="hanVIP"></span></th>
@@ -1485,7 +1486,7 @@ function renderAdminAccountsTable() {
     });
 
     if (adminAccountsCache.length === 0) {
-        body.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
+        body.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
         return;
     }
 
@@ -1503,6 +1504,7 @@ function renderAdminAccountsTable() {
             <td class="p-3 border-b border-slate-100 text-left font-black text-slate-700">${safeId}</td>
             <td class="p-3 border-b border-slate-100 text-left font-bold text-slate-600">${escapeHtml(acc.hoTen || '')}</td>
             <td class="p-3 border-b border-slate-100 text-center font-bold text-slate-600">${escapeHtml(acc.lop || '–')}</td>
+            <td class="p-3 border-b border-slate-100 text-center font-bold text-slate-500 whitespace-nowrap">${escapeHtml(formatAdminDate(acc.ngayDangKy))}</td>
             <td class="p-3 border-b border-slate-100 text-center">
                 <select onchange="changeStudentAccountType('${safeId}', this.value)" class="min-w-[90px] rounded-xl border px-3 py-2 font-extrabold outline-none ${selectClass}">
                     <option value="regular" ${accountType === 'regular' ? 'selected' : ''}>Regular</option>
@@ -1691,7 +1693,7 @@ function updateUserInfoBox() {
         const adminBtn = isAdminUser() ? `
             <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
                 class="relative h-8 px-2.5 flex items-center gap-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl border border-purple-200 text-[10px] md:text-xs font-extrabold transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)]">
-                <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý tài khoản</span>
+                <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý</span>
             </button>` : '';
         const roleLine = isAdminUser()
             ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
