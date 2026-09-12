@@ -122,7 +122,7 @@
                 </div>
                 <div class="relative">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-pink-400"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" id="login-mapin" maxlength="4" inputmode="numeric" placeholder="Mã PIN (4 số)" class="w-full pl-11 pr-4 py-3.5 rounded-2xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none font-bold text-gray-700 placeholder-gray-300 bg-pink-50/20 text-sm">
+                    <input type="password" id="login-mapin" maxlength="6" inputmode="numeric" placeholder="Mã PIN (6 số)" class="w-full pl-11 pr-4 py-3.5 rounded-2xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none font-bold text-gray-700 placeholder-gray-300 bg-pink-50/20 text-sm">
                 </div>
                 <button onclick="doLogin()" id="btn-do-login" class="w-full py-3.5 bg-gradient-to-r from-pink-400 to-rose-400 text-white font-extrabold rounded-2xl text-sm pastel-btn shadow-md">
                     <i class="fa-solid fa-right-to-bracket mr-1"></i> Đăng nhập
@@ -150,8 +150,8 @@
                         <input type="number" id="reg-stt" placeholder="09" min="1" max="99" oninput="updateMaHSPreview()" class="w-full mt-1 px-3 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none font-bold text-gray-700 placeholder-gray-300 bg-pink-50/20 text-sm">
                     </div>
                     <div>
-                        <label class="text-xs font-extrabold text-pink-600">Mã PIN (4 số) <span class="text-rose-400">*</span></label>
-                        <input type="password" id="reg-mapin" maxlength="4" inputmode="numeric" placeholder="••••" class="w-full mt-1 px-3 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none font-bold text-gray-700 placeholder-gray-300 bg-pink-50/20 text-sm">
+                        <label class="text-xs font-extrabold text-pink-600">Mã PIN (6 số) <span class="text-rose-400">*</span></label>
+                        <input type="password" id="reg-mapin" maxlength="6" inputmode="numeric" placeholder="••••••" class="w-full mt-1 px-3 py-3 rounded-2xl border-2 border-pink-200 focus:border-pink-400 focus:outline-none font-bold text-gray-700 placeholder-gray-300 bg-pink-50/20 text-sm">
                     </div>
                 </div>
                 <div class="flex items-center justify-between bg-pink-50 border border-pink-200 rounded-xl px-3 py-2.5">
@@ -179,7 +179,7 @@
                     <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="h-12 flex items-center gap-1.5 bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 pl-2 pr-3 rounded-2xl border-2 border-pink-300 shadow-sm shrink-0 transition-all duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
                         <span class="w-8 h-8 flex items-center justify-center bg-white rounded-full text-lg shadow-inner border border-pink-200 shrink-0">🐰</span>
                         <span class="flex flex-col items-start leading-none">
-                            <span class="text-sm font-black bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent uppercase tracking-wide whitespace-nowrap">Tiếng Anh lớp 1</span>
+                            <span class="text-sm font-black bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent uppercase tracking-wide whitespace-nowrap">Tiếng Anh 1</span>
                             <span class="text-[10px] font-bold text-purple-500 mt-0.5 whitespace-nowrap">Cô giáo Thỏ Hồng</span>
                         </span>
                     </button>
@@ -597,7 +597,7 @@
     </footer>
 
     <!-- NẠP ENGINE JAVASCRIPT ĐỒNG BỘ -->
-    <script src="assets/js/app.js?v=6.6"></script>
+    <script src="assets/js/app.js?v=6.7"></script>
 
     <!-- ĐĂNG KÝ SERVICE WORKER (PWA) — cho phép cài app lên màn hình chính điện thoại & chạy khi mạng yếu.
          Cấu hình NETWORK-FIRST: luôn tự lấy bản mới nhất từ server mỗi lần mở (hợp lúc đang update thường xuyên).
