@@ -330,6 +330,41 @@ const SEMESTER_DATA_FILES = [
 
 let semesterDataLoadingPromise = null;
 let weeksByIdCache = null; // { 1: [...60 câu thô...], 2: [...], ..., 24: [...] }
+let wordMeaningMapCache = {}; // word chuẩn hoá -> mảng tất cả nghĩa tiếng Việt tìm thấy trong Vocabulary
+
+// Chuẩn hoá từ tiếng Anh để tra nghĩa: bỏ Emoji nhưng giữ nguyên chữ, số, dấu gạch nối/apostrophe.
+function normalizeVocabWordKey(text) {
+    return String(text || '')
+        .replace(/[\u{0030}-\u{0039}]?[\u{FE0F}]?[\u{20E3}]/gu, '')
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\u{FE0F}]/gu, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+}
+
+// Rút nghĩa tiếng Việt trực tiếp từ câu hỏi Vocabulary trong JSON.
+// VD: "Từ nào có nghĩa là 'bà'?" hoặc "... mô tả 'cái cốc' ...".
+function extractVocabularyVietnameseMeaning(questionText) {
+    const text = String(questionText || '');
+    const patterns = [
+        /(?:có\s+)?nghĩa(?:\s+là)?\s*['“\"]([^'”\"]+)['”\"]/i,
+        /mô\s+tả\s*['“\"]([^'”\"]+)['”\"]/i,
+        /cho\s*['“\"]([^'”\"]+)['”\"]/i
+    ];
+    for (const re of patterns) {
+        const m = text.match(re);
+        if (m && m[1]) return m[1].trim();
+    }
+    return '';
+}
+
+function addVocabularyMeaning(wordText, meaningText) {
+    const key = normalizeVocabWordKey(wordText);
+    const meaning = String(meaningText || '').trim();
+    if (!key || !meaning) return;
+    if (!wordMeaningMapCache[key]) wordMeaningMapCache[key] = [];
+    if (!wordMeaningMapCache[key].includes(meaning)) wordMeaningMapCache[key].push(meaning);
+}
 
 async function loadSemesterData() {
     if (semesterDataLoadingPromise) return semesterDataLoadingPromise;
@@ -351,6 +386,13 @@ async function loadSemesterData() {
                 }
                 (sec.subs || []).forEach(sub => {
                     (sub.qs || []).forEach(q => {
+                        // Vocabulary: gom cặp từ tiếng Anh -> nghĩa tiếng Việt từ dữ liệu thật.
+                        // Cùng một từ nếu xuất hiện với 2+ nghĩa khác nhau thì giữ TẤT CẢ, không ghi đè.
+                        if (Number(sec.id) === 2) {
+                            const viMeaning = extractVocabularyVietnameseMeaning(q.q || q.question_text || '');
+                            addVocabularyMeaning(q.a ?? q.answer ?? '', viMeaning);
+                        }
+
                         // sub_code = mã hoạt động con thật ("1.3") dùng để LỌC (VD Phonics Matcher = mục 1);
                         // sub = tên hiển thị thân thiện ("Phonics Matcher (Nối âm)") dùng để HIỂN THỊ tiêu đề câu hỏi.
                         sectionsById[sec.id].rawQuestions.push({ ...q, sub_code: q.sub || sub.id, sub: sub.name || q.sub || sub.id });
@@ -486,7 +528,7 @@ async function renderDashboardGrid() {
         <div onclick="openExamHub()" class="pastel-card p-3 flex flex-col justify-between cursor-pointer hover:border-amber-400 transition-all group bg-gradient-to-br from-white to-amber-50/50 min-h-[92px]">
             <div class="flex items-center space-x-2.5">
                 <div class="w-8 h-8 bg-amber-100 rounded-xl flex items-center justify-center text-sm font-extrabold text-amber-600 shadow-inner group-hover:scale-110 transition-transform shrink-0">🏆</div>
-                <h3 class="font-extrabold text-amber-700 text-sm md:text-base leading-tight">13. Đấu trường đề thi</h3>
+                <h3 class="font-extrabold text-amber-700 text-sm md:text-base leading-tight">12. Đấu trường đề thi</h3>
             </div>
             <div class="flex justify-between items-center mt-1.5 pt-1 border-t border-amber-100 text-[11px] font-bold text-gray-500">
                 <span>HK1, HK2, HSG</span>
@@ -521,7 +563,7 @@ async function startRandomExam(categoryKey) {
         const questions = Array.isArray(exam.questions) && exam.questions.length ? exam.questions : [];
         if (!questions.length) return alert('Đề thi này chưa có câu hỏi, bé chọn đề khác nhé!');
 
-        updateNavTabs("13. Đấu trường đề thi", "🏆", examTitle);
+        updateNavTabs("12. Đấu trường đề thi", "🏆", examTitle);
         startTopicQuiz(0, examTitle, shuffleArray(questions), null);
     } catch (err) {
         hideLoadingOverlay();
@@ -559,7 +601,7 @@ function openExamHub() {
     activeRoadmapContext = null;
     activeTopicId = null;
     pendingTopicQuiz = null;
-    updateNavTabs("13. Đấu trường đề thi", "🏆", null);
+    updateNavTabs("12. Đấu trường đề thi", "🏆", null);
     switchAppView('view-exam-hub');
     showLoadingOverlay("Đang tải kho đề thi...");
     renderExamHubGrid().finally(() => hideLoadingOverlay());
@@ -956,10 +998,35 @@ function switchAuthTab(tab) {
     hideAuthError();
 }
 
+let maHSPreviewTimer = null;
+let maHSPreviewRequestSeq = 0;
+
 function updateMaHSPreview() {
     const lop = document.getElementById('reg-lop').value.trim().toUpperCase();
     const stt = document.getElementById('reg-stt').value.trim();
-    document.getElementById('mahs-preview').textContent = (lop && stt) ? `${lop}-${stt.padStart(2, '0')}` : '--';
+    const preview = document.getElementById('mahs-preview');
+    if (!preview) return;
+
+    clearTimeout(maHSPreviewTimer);
+    if (!lop || !stt) {
+        preview.textContent = '--';
+        return;
+    }
+
+    const baseId = `${lop}-${stt.padStart(2, '0')}`;
+    preview.textContent = baseId;
+
+    const requestSeq = ++maHSPreviewRequestSeq;
+    maHSPreviewTimer = setTimeout(async () => {
+        try {
+            preview.textContent = 'Đang kiểm tra...';
+            const result = await callAppsScript('getAvailableStudentId', { lop, soThuTu: stt });
+            if (requestSeq !== maHSPreviewRequestSeq) return;
+            preview.textContent = result?.ok && result.maHS ? result.maHS : baseId;
+        } catch (e) {
+            if (requestSeq === maHSPreviewRequestSeq) preview.textContent = baseId;
+        }
+    }, 350);
 }
 
 function showAuthError(msg) {
@@ -985,6 +1052,179 @@ async function callAppsScript(action, payload) {
         return JSON.parse(rawText);
     } catch (e) {
         throw new Error('Google Apps Script trả về dữ liệu không hợp lệ (không phải JSON) — thường do link Apps Script chưa được Deploy đúng cách (cần đặt quyền truy cập là "Anyone"/"Bất kỳ ai") hoặc đã hết hạn uỷ quyền. Anh vui lòng kiểm tra lại bước Deploy > Manage deployments trên Apps Script nhé.');
+    }
+}
+
+let adminAccountsCache = [];
+
+function isAdminUser() {
+    return !!currentUser && !currentUser.isGuest && String(currentUser.role || '').toLowerCase() === 'admin';
+}
+
+function getAdminCredentials() {
+    return {
+        adminMaHS: currentUser?.maHS || localStorage.getItem('tv1_mahs') || '',
+        adminPin: localStorage.getItem('tv1_mapin') || ''
+    };
+}
+
+async function callAdminAction(action, extraPayload = {}) {
+    if (!isAdminUser()) throw new Error('Tài khoản hiện tại không có quyền Admin.');
+    return callAppsScript(action, { ...getAdminCredentials(), ...extraPayload });
+}
+
+function setAdminPendingBadge(count) {
+    const badge = document.getElementById('admin-pending-badge');
+    if (!badge) return;
+    const n = Number(count) || 0;
+    badge.textContent = n;
+    badge.classList.toggle('hidden', n <= 0);
+}
+
+async function refreshAdminPending(announce = false) {
+    if (!isAdminUser()) return;
+    try {
+        const result = await callAdminAction('listAccounts');
+        if (!result.ok) return;
+        adminAccountsCache = Array.isArray(result.accounts) ? result.accounts : [];
+        const pending = adminAccountsCache.filter(a => String(a.trangThai || '').toLowerCase() === 'pending');
+        setAdminPendingBadge(pending.length);
+        if (announce && pending.length > 0) {
+            const names = pending.slice(0, 5).map(a => `${a.hoTen || a.maHS} (${a.maHS})`).join(', ');
+            const more = pending.length > 5 ? ` và ${pending.length - 5} tài khoản khác` : '';
+            alert(`Admin có ${pending.length} tài khoản đang chờ duyệt: ${names}${more}. Bấm “Quản lý tài khoản” để duyệt trực tiếp nhé!`);
+        }
+    } catch (err) {
+        console.warn('Không tải được số tài khoản chờ duyệt:', err);
+    }
+}
+
+function formatAdminDate(value) {
+    if (!value) return '--';
+    const d = new Date(value);
+    if (Number.isNaN(d.getTime())) return String(value);
+    return d.toLocaleDateString('vi-VN');
+}
+
+async function openAdminAccountsModal() {
+    if (!isAdminUser()) return;
+    let modal = document.getElementById('modal-admin-accounts');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'modal-admin-accounts';
+        modal.className = 'fixed inset-0 z-[130] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-3';
+        modal.innerHTML = `
+            <div class="w-full max-w-5xl max-h-[92vh] bg-white rounded-[28px] border-2 border-purple-200 shadow-2xl flex flex-col overflow-hidden">
+                <div class="px-4 md:px-6 py-4 bg-gradient-to-r from-purple-50 via-pink-50 to-rose-50 border-b border-purple-100 flex items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-base md:text-lg font-black text-purple-700">👤 Quản lý tài khoản học sinh</h3>
+                        <p id="admin-accounts-summary" class="text-[11px] md:text-xs font-bold text-gray-500 mt-0.5">Đang tải danh sách...</p>
+                    </div>
+                    <button onclick="closeAdminAccountsModal()" class="w-9 h-9 rounded-xl bg-white border border-purple-200 text-purple-500 hover:bg-purple-100 font-black">✕</button>
+                </div>
+                <div class="p-3 md:p-5 overflow-auto flex-1">
+                    <div id="admin-accounts-loading" class="py-10 text-center text-sm font-bold text-gray-400">⏳ Đang tải tài khoản...</div>
+                    <div id="admin-accounts-table-wrap" class="hidden overflow-x-auto">
+                        <table class="w-full min-w-[760px] text-xs md:text-sm border-collapse">
+                            <thead><tr class="bg-purple-50 text-purple-800">
+                                <th class="p-2.5 border border-purple-100 text-left">Mã ID</th>
+                                <th class="p-2.5 border border-purple-100 text-left">Họ tên</th>
+                                <th class="p-2.5 border border-purple-100">Lớp</th>
+                                <th class="p-2.5 border border-purple-100">Ngày đăng ký</th>
+                                <th class="p-2.5 border border-purple-100">Trạng thái</th>
+                                <th class="p-2.5 border border-purple-100">Thao tác</th>
+                            </tr></thead>
+                            <tbody id="admin-accounts-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="px-4 md:px-6 py-3 border-t border-purple-100 bg-slate-50 flex justify-end">
+                    <button onclick="closeAdminAccountsModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-white text-xs md:text-sm font-extrabold">Đóng</button>
+                </div>
+            </div>`;
+        document.body.appendChild(modal);
+    } else {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+    await loadAdminAccounts();
+}
+
+function closeAdminAccountsModal() {
+    const modal = document.getElementById('modal-admin-accounts');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+async function loadAdminAccounts() {
+    const loading = document.getElementById('admin-accounts-loading');
+    const wrap = document.getElementById('admin-accounts-table-wrap');
+    if (loading) { loading.textContent = '⏳ Đang tải tài khoản...'; loading.classList.remove('hidden'); }
+    if (wrap) wrap.classList.add('hidden');
+    try {
+        const result = await callAdminAction('listAccounts');
+        if (!result.ok) throw new Error(result.error || 'Không tải được danh sách tài khoản.');
+        adminAccountsCache = Array.isArray(result.accounts) ? result.accounts : [];
+        renderAdminAccountsTable();
+        setAdminPendingBadge(result.pendingCount || 0);
+        if (loading) loading.classList.add('hidden');
+        if (wrap) wrap.classList.remove('hidden');
+    } catch (err) {
+        if (loading) loading.textContent = '❌ ' + err.message;
+    }
+}
+
+function renderAdminAccountsTable() {
+    const body = document.getElementById('admin-accounts-body');
+    const summary = document.getElementById('admin-accounts-summary');
+    if (!body) return;
+    const pendingCount = adminAccountsCache.filter(a => String(a.trangThai || '').toLowerCase() === 'pending').length;
+    if (summary) summary.textContent = pendingCount > 0
+        ? `Có ${pendingCount} tài khoản đang chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`
+        : `Không có tài khoản chờ duyệt / ${adminAccountsCache.length} tài khoản học sinh`;
+    if (adminAccountsCache.length === 0) {
+        body.innerHTML = '<tr><td colspan="6" class="p-6 text-center text-gray-400 font-bold">Chưa có tài khoản học sinh nào.</td></tr>';
+        return;
+    }
+    body.innerHTML = adminAccountsCache.map(acc => {
+        const status = String(acc.trangThai || 'Active');
+        const lower = status.toLowerCase();
+        const isPending = lower === 'pending';
+        const isBlocked = ['block', 'blocked', 'inactive', 'khoa'].includes(lower);
+        const rowClass = isPending ? 'bg-amber-50/70' : '';
+        const badge = isPending
+            ? '<span class="px-2 py-1 rounded-lg bg-amber-100 text-amber-700 font-extrabold">Chờ duyệt</span>'
+            : isBlocked
+                ? '<span class="px-2 py-1 rounded-lg bg-rose-100 text-rose-700 font-extrabold">Đã khóa</span>'
+                : '<span class="px-2 py-1 rounded-lg bg-emerald-100 text-emerald-700 font-extrabold">Hoạt động</span>';
+        const safeId = escapeHtml(acc.maHS);
+        const actionButtons = isPending
+            ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold mr-1">✓ Duyệt</button>
+               <button onclick="changeStudentAccountStatus('${safeId}', 'Block')" class="px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold">Khóa</button>`
+            : isBlocked
+                ? `<button onclick="changeStudentAccountStatus('${safeId}', 'Active')" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold">Mở khóa</button>`
+                : `<button onclick="changeStudentAccountStatus('${safeId}', 'Block')" class="px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-700 font-extrabold">Khóa</button>`;
+        return `<tr class="${rowClass}">
+            <td class="p-2.5 border border-slate-100 text-left font-black text-purple-700">${safeId}</td>
+            <td class="p-2.5 border border-slate-100 text-left font-bold text-gray-700">${escapeHtml(acc.hoTen || '')}</td>
+            <td class="p-2.5 border border-slate-100 text-center font-bold">${escapeHtml(acc.lop || '--')}</td>
+            <td class="p-2.5 border border-slate-100 text-center text-gray-500">${escapeHtml(formatAdminDate(acc.ngayDangKy))}</td>
+            <td class="p-2.5 border border-slate-100 text-center">${badge}</td>
+            <td class="p-2.5 border border-slate-100 text-center whitespace-nowrap">${actionButtons}</td>
+        </tr>`;
+    }).join('');
+}
+
+async function changeStudentAccountStatus(maHS, status) {
+    if (!isAdminUser()) return;
+    const actionText = status === 'Active' ? 'duyệt/mở khóa' : 'khóa';
+    try {
+        const result = await callAdminAction('updateAccountStatus', { targetMaHS: maHS, status });
+        if (!result.ok) throw new Error(result.error || `Không thể ${actionText} tài khoản.`);
+        await loadAdminAccounts();
+    } catch (err) {
+        alert('Lỗi cập nhật tài khoản: ' + err.message);
     }
 }
 
@@ -1042,8 +1282,8 @@ async function doRegister() {
         alert(msg);
         return;
     }
-    if (!/^\d{4}$/.test(maPin)) {
-        const msg = 'Mã PIN phải gồm đúng 4 chữ số!';
+    if (!/^\d{6}$/.test(maPin)) {
+        const msg = 'Mã PIN phải gồm đúng 6 chữ số!';
         showAuthError(msg);
         alert(msg);
         return;
@@ -1123,6 +1363,7 @@ function enterDashboard(isSilent = false) {
     document.getElementById('screen-login').classList.add('hidden');
     document.getElementById('screen-dashboard').classList.remove('hidden');
     updateUserInfoBox();
+    if (isAdminUser()) refreshAdminPending(!isSilent);
     resetStars();
     renderDashboardGrid();
     renderExamHubGrid();
@@ -1147,12 +1388,22 @@ function updateUserInfoBox() {
     const box = document.getElementById('user-info-box');
     if (!box) return;
     if (currentUser && !currentUser.isGuest) {
+        const adminBtn = isAdminUser() ? `
+            <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
+                class="relative h-8 px-2.5 flex items-center gap-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl border border-purple-200 text-[10px] md:text-xs font-extrabold transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)]">
+                <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý tài khoản</span>
+                <span id="admin-pending-badge" class="hidden absolute -top-2 -right-2 min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white text-[10px] leading-[18px] font-black shadow">0</span>
+            </button>` : '';
+        const roleLine = isAdminUser()
+            ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
+            : `<div class="text-gray-500 font-semibold text-[10px]">ID: ${escapeHtml(currentUser.maHS)} | Lớp ${escapeHtml(currentUser.lop)}</div>`;
         box.innerHTML = `
             <div class="flex items-center space-x-2">
                 <div class="text-right">
-                    <div class="text-pink-600 font-extrabold text-xs md:text-sm leading-tight">${escapeHtml(currentUser.hoTen)}</div>
-                    <div class="text-gray-500 font-semibold text-[10px]">ID: ${escapeHtml(currentUser.maHS)} | Lớp ${escapeHtml(currentUser.lop)}</div>
+                    <div class="text-pink-600 font-extrabold text-xs md:text-sm leading-tight">${escapeHtml(currentUser.hoTen || currentUser.maHS)}</div>
+                    ${roleLine}
                 </div>
+                ${adminBtn}
                 <button onclick="logout()" title="Đăng xuất" class="w-8 h-8 flex items-center justify-center bg-rose-100 hover:bg-rose-200 text-rose-500 rounded-xl border border-rose-200 text-xs transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(244,63,94,0.55)]"><i class="fa-solid fa-right-from-bracket"></i></button>
             </div>`;
     } else {
@@ -1684,7 +1935,7 @@ function lookupVocabEmoji(text) {
         } else {
             html += `
                 <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-2 border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs pastel-btn">
-                    <span><strong class="text-pink-600 mr-2 text-base md:text-lg">${letter}.</strong> ${escapeHtml(formattedOpt)}${ipaHtml}</span>
+                    <span class="opt-text"><strong class="text-pink-600 mr-2 text-base md:text-lg">${letter}.</strong> ${escapeHtml(formattedOpt)}${ipaHtml}</span>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         }
@@ -1762,6 +2013,7 @@ function restoreQuestionState(q) {
                 b.disabled = true;
             }
         });
+        if (completedAnswer === q.answer) showVocabularyMeaningForOption(q.answer);
     }
 }
 
@@ -1812,10 +2064,41 @@ function replaySpeakOption(optText) {
     // Bỏ cụm biểu tượng minh hoạ ở CUỐI đáp án (emoji, và emoji-số dạng "1️⃣" = số + U+FE0F + U+20E3)
     // để TTS đọc gọn phần chữ; không đụng tới số/chữ nằm giữa nội dung.
     const clean = String(optText)
-        .replace(/[\u{0030}-\u{0039}]?[\u{FE0F}]?[\u{20E3}]/gu, '')  // xoá emoji-keycap "1️⃣"
-        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\u{FE0F}]/gu, '') // xoá emoji thường
+        .replace(/[\u{0030}-\u{0039}]?[\u{FE0F}]?[\u{20E3}]/gu, '')
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F1E6}-\u{1F1FF}\u{FE0F}]/gu, '')
         .trim();
     if (clean) speakEnglish(clean);
+}
+
+// Hiện nghĩa tiếng Việt ngay sau IPA theo đúng cách TA2 đang làm.
+// Chỉ áp dụng cho chuyên mục Vocabulary (2.x). Nghĩa lấy từ chính 2 JSON, không tự dịch.
+// Nếu một từ có nhiều nghĩa tiếng Việt trong kho dữ liệu, hiển thị toàn bộ, ngăn cách bằng " / ".
+function showVocabularyMeaningForOption(optText) {
+    const q = activeQuestionsList[currentQIndex];
+    if (!q || !String(q.sub_topic || '').startsWith('2.')) return;
+
+    const key = normalizeVocabWordKey(optText);
+    const meanings = wordMeaningMapCache[key] || [];
+    if (!meanings.length) return;
+
+    document.querySelectorAll('.option-btn').forEach(b => {
+        if (b.getAttribute('data-opt') !== optText) return;
+        const textSpan = b.querySelector('.opt-text');
+        if (!textSpan) return;
+
+        let meaningSpan = textSpan.querySelector('.opt-meaning');
+        if (!meaningSpan) {
+            meaningSpan = document.createElement('span');
+            meaningSpan.className = 'opt-meaning text-xs md:text-sm font-bold text-purple-500 ml-1.5 italic';
+            textSpan.appendChild(meaningSpan);
+        }
+        meaningSpan.textContent = `(${meanings.join(' / ')})`;
+    });
+}
+
+function speakOptionWithMeaning(optText) {
+    replaySpeakOption(optText);
+    showVocabularyMeaningForOption(optText);
 }
 
 function checkAnswer(selectedOpt) {
@@ -1850,7 +2133,7 @@ function checkAnswer(selectedOpt) {
     // RIÊNG TIẾN TRÌNH TUẦN: CHỈ ĐƯỢC CHỌN 1 LẦN DUY NHẤT ĐỂ GHI NHẬN ĐÚNG/SAI CHÍNH XÁC
     if (isRoadmap) {
         // Đã trả lời rồi -> lần bấm sau chỉ để NGHE LẠI từ đó, không chấm điểm lại.
-        if (userAnswers[currentQIndex] !== undefined) { replaySpeakOption(selectedOpt); return; }
+        if (userAnswers[currentQIndex] !== undefined) { speakOptionWithMeaning(selectedOpt); return; }
 
         const isCorrect = selectedOpt === q.answer;
         userAnswers[currentQIndex] = selectedOpt;
@@ -1879,7 +2162,7 @@ function checkAnswer(selectedOpt) {
         if (isCorrect) {
             playAudio('correct');
             confetti({ particleCount: 30, spread: 55, origin: { y: 0.7 } });
-            setTimeout(() => speakEnglish(`${q.answer}`), 180);
+            setTimeout(() => speakOptionWithMeaning(q.answer), 180);
         } else {
             playAudio('wrong');
         }
@@ -1891,7 +2174,7 @@ function checkAnswer(selectedOpt) {
     // CHẾ ĐỘ LUYỆN TẬP TỰ DO
     const isCorrect = selectedOpt === q.answer;
     // Đã trả lời đúng rồi -> lần bấm sau chỉ để NGHE LẠI từ đó (học đủ cả 4 từ), không chấm lại.
-    if (userAnswers[currentQIndex] !== undefined) { replaySpeakOption(selectedOpt); return; }
+    if (userAnswers[currentQIndex] !== undefined) { speakOptionWithMeaning(selectedOpt); return; }
 
     if (isCorrect) {
         userAnswers[currentQIndex] = selectedOpt;
@@ -1909,11 +2192,11 @@ function checkAnswer(selectedOpt) {
 
         playAudio('correct');
         confetti({ particleCount: 30, spread: 55, origin: { y: 0.7 } });
-        setTimeout(() => speakEnglish(`${q.answer}`), 180);
+        setTimeout(() => speakOptionWithMeaning(q.answer), 180);
     } else {
         // Bé đã bấm từ sai này trước đó rồi -> lần bấm sau chỉ NGHE LẠI, không trừ sao thêm lần nữa.
         if (wrongAttemptsByQ[currentQIndex] && wrongAttemptsByQ[currentQIndex].includes(selectedOpt)) {
-            replaySpeakOption(selectedOpt);
+            speakOptionWithMeaning(selectedOpt);
             return;
         }
         if (!wrongAttemptsByQ[currentQIndex]) wrongAttemptsByQ[currentQIndex] = [];
