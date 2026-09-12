@@ -1248,7 +1248,7 @@ function renderPremiumAccessModal({ icon = '🐰', title = 'Cô giáo Thỏ Hồ
                 <p class="mx-auto max-w-sm text-[15px] font-semibold leading-7 text-slate-600">${message}</p>
 
                 <div class="mt-5 rounded-2xl border border-pink-100 bg-gradient-to-r from-pink-50 to-purple-50 px-4 py-3 text-sm font-bold text-purple-600">
-                    🌷 Mục 1–10 vẫn học hoàn toàn miễn phí nhé bé!
+                    🌻 Các chuyên đề cơ bản vẫn học miễn phí bình thường nhé!
                 </div>
 
                 <div class="mt-5 flex ${isGuest ? 'gap-3' : ''} justify-center">
@@ -1281,8 +1281,8 @@ function showPremiumAccessWarning(featureName = 'khu vực này') {
     if (!currentUser || currentUser.isGuest) {
         renderPremiumAccessModal({
             icon: '🐰🔒',
-            title: `${featureName} đang chờ bé mở khóa!`,
-            message: `Đây là nội dung Premium. Bé hãy Sign in nếu đã có tài khoản hoặc Sign up để tạo tài khoản Regular. Trial 1 tháng và VIP 1 năm sẽ do Admin cấp khi phù hợp nhé!`,
+            title: `${featureName}`,
+            message: `Đây là ${featureName} dành cho tài khoản Trial hoặc VIP.<br>Con có thể Sign in nếu đã có tài khoản hoặc Sign up để đăng ký nhé!<br>Các chuyên đề cơ bản vẫn học miễn phí bình thường.`,
             mode: 'guest'
         });
         return;
@@ -1308,8 +1308,8 @@ function showPremiumAccessWarning(featureName = 'khu vực này') {
 
     renderPremiumAccessModal({
         icon: '🐰⭐',
-        title: 'Mở khóa nội dung Premium nhé!',
-        message: `Tài khoản của bé hiện là Regular. Admin có thể cấp Trial 1 tháng hoặc nâng VIP 1 năm để bé sử dụng ${featureName} và các khu vực Premium khác.`
+        title: `${featureName}`,
+        message: `Đây là ${featureName} dành cho tài khoản Trial hoặc VIP.<br>Tài khoản của con hiện là Regular. Con hãy nhờ Admin nâng lên Trial hoặc VIP nhé!<br>Các chuyên đề cơ bản vẫn học miễn phí bình thường.`
     });
 }
 
