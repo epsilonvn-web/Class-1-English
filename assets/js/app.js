@@ -1159,6 +1159,8 @@ async function callAppsScript(action, payload) {
 
 let adminAccountsCache = [];
 let adminAccountSort = { key: 'maHS', direction: 'asc' };
+let adminNewRegistrationCount = 0;
+let adminRegistrationPollTimer = null;
 
 function isAdminUser() {
     return !!currentUser && !currentUser.isGuest && String(currentUser.role || '').toLowerCase() === 'admin';
@@ -1337,6 +1339,72 @@ function returnToGuestHome() {
     goHome();
 }
 
+
+function renderAdminRegistrationBadge() {
+    const badge = document.getElementById('admin-new-registration-badge');
+    if (!badge) return;
+    if (adminNewRegistrationCount > 0) {
+        badge.textContent = adminNewRegistrationCount > 99 ? '99+' : String(adminNewRegistrationCount);
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+}
+
+function showAdminRegistrationToast(count) {
+    if (!isAdminUser() || !count) return;
+    document.getElementById('admin-registration-toast')?.remove();
+    const toast = document.createElement('div');
+    toast.id = 'admin-registration-toast';
+    toast.className = 'fixed top-4 right-4 z-[160] max-w-sm bg-white border-2 border-pink-200 rounded-2xl shadow-2xl p-3.5 flex items-start gap-3';
+    toast.innerHTML = `
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center text-xl shrink-0">🐰</div>
+        <div class="min-w-0 flex-1">
+            <div class="font-black text-purple-700 text-sm">Có tài khoản mới đăng ký</div>
+            <div class="text-xs font-bold text-gray-600 mt-0.5">Có <b class="text-pink-600">${count}</b> học sinh mới. Bấm <b>Quản lý</b> để xem và cấp Trial/VIP nếu cần.</div>
+        </div>
+        <button onclick="this.closest('#admin-registration-toast')?.remove()" class="w-7 h-7 rounded-lg bg-pink-50 text-pink-400 hover:bg-pink-100 shrink-0">✕</button>`;
+    document.body.appendChild(toast);
+    setTimeout(() => toast?.remove(), 9000);
+}
+
+async function checkAdminNewRegistrations(showToast = false) {
+    if (!isAdminUser()) return;
+    try {
+        const result = await callAdminAction('getNewRegistrationCount');
+        if (!result.ok) return;
+        const previous = adminNewRegistrationCount;
+        adminNewRegistrationCount = Number(result.count) || 0;
+        renderAdminRegistrationBadge();
+        if (showToast && adminNewRegistrationCount > 0 && adminNewRegistrationCount !== previous) {
+            showAdminRegistrationToast(adminNewRegistrationCount);
+        }
+    } catch (e) {
+        console.warn('Không kiểm tra được tài khoản mới:', e);
+    }
+}
+
+function startAdminRegistrationPolling() {
+    clearInterval(adminRegistrationPollTimer);
+    if (!isAdminUser()) return;
+    checkAdminNewRegistrations(true);
+    adminRegistrationPollTimer = setInterval(() => checkAdminNewRegistrations(true), 60000);
+}
+
+async function markAdminRegistrationsSeen() {
+    if (!isAdminUser()) return;
+    try {
+        const result = await callAdminAction('markRegistrationsSeen');
+        if (result.ok) {
+            adminNewRegistrationCount = 0;
+            renderAdminRegistrationBadge();
+            document.getElementById('admin-registration-toast')?.remove();
+        }
+    } catch (e) {
+        console.warn('Không đánh dấu được tài khoản mới đã xem:', e);
+    }
+}
+
 function getAdminCredentials() {
     return {
         adminMaHS: currentUser?.maHS || localStorage.getItem('tv1_mahs') || '',
@@ -1449,6 +1517,7 @@ async function openAdminAccountsModal() {
         modal.classList.add('flex');
     }
     await loadAdminAccounts();
+    await markAdminRegistrationsSeen();
 }
 
 function closeAdminAccountsModal() {
@@ -1647,6 +1716,9 @@ async function tryAutoLogin() {
 }
 
 function logout() {
+    clearInterval(adminRegistrationPollTimer);
+    adminRegistrationPollTimer = null;
+    adminNewRegistrationCount = 0;
     localStorage.removeItem('tv1_mahs');
     localStorage.removeItem('tv1_mapin');
     const mahsInput = document.getElementById('login-mahs');
@@ -1694,6 +1766,7 @@ function updateUserInfoBox() {
             <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
                 class="relative h-8 px-2.5 flex items-center gap-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl border border-purple-200 text-[10px] md:text-xs font-extrabold transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)]">
                 <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý</span>
+                <span id="admin-new-registration-badge" class="hidden absolute -top-2 -right-2 min-w-[20px] h-5 px-1.5 rounded-full inline-flex bg-rose-500 text-white text-[10px] font-black items-center justify-center shadow-md border-2 border-white"></span>
             </button>` : '';
         const roleLine = isAdminUser()
             ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
@@ -1711,7 +1784,10 @@ function updateUserInfoBox() {
                 ${adminBtn}
                 <button onclick="logout()" title="Đăng xuất" class="w-8 h-8 flex items-center justify-center bg-rose-100 hover:bg-rose-200 text-rose-500 rounded-xl border border-rose-200 text-xs transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(244,63,94,0.55)]"><i class="fa-solid fa-right-from-bracket"></i></button>
             </div>`;
+        if (isAdminUser()) setTimeout(() => { renderAdminRegistrationBadge(); startAdminRegistrationPolling(); }, 0);
     } else {
+        clearInterval(adminRegistrationPollTimer);
+        adminRegistrationPollTimer = null;
         box.innerHTML = `
             <div class="flex items-center gap-1.5">
                 <span class="text-amber-600 font-extrabold text-[10px] md:text-xs mr-0.5">Khách</span>
