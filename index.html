@@ -80,6 +80,62 @@
         ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
 
+        /* Mobile header: đưa loa + điểm Đúng/Sai lên cùng hàng với logo */
+        @media (max-width: 767px) {
+            .ta-main-header {
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) auto auto;
+                grid-template-rows: auto auto;
+                align-items: center;
+                gap: 6px;
+                padding: 8px 10px !important;
+            }
+            .ta-header-left {
+                grid-column: 1;
+                grid-row: 1;
+                width: auto !important;
+                min-width: 0;
+                overflow: hidden !important;
+                justify-content: flex-start !important;
+            }
+            .ta-header-actions {
+                display: contents !important;
+            }
+            #btn-toggle-autospeech {
+                grid-column: 2;
+                grid-row: 1;
+                justify-self: end;
+            }
+            #header-score-box {
+                grid-column: 3;
+                grid-row: 1;
+                justify-self: end;
+            }
+            #user-info-box {
+                grid-column: 1;
+                grid-row: 2;
+                justify-self: start;
+                text-align: left !important;
+                min-width: 0;
+            }
+            #btn-weekly-progress {
+                grid-column: 2;
+                grid-row: 2;
+                justify-self: end;
+            }
+            #btn-mini-game {
+                grid-column: 3;
+                grid-row: 2;
+                justify-self: end;
+            }
+            #btn-header-home {
+                max-width: 100%;
+            }
+            #btn-header-home > span:last-child {
+                min-width: 0;
+            }
+        }
+
         @media print {
             body * { visibility: hidden; }
             #printable-report-area, #printable-report-area * { visibility: visible; }
@@ -102,12 +158,12 @@
 
     <div class="w-full flex justify-center items-center mt-4 md:mt-6">
         <!-- 1. MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
-        <div id="screen-login" class="w-full max-w-md pastel-card p-6 md:p-8 hidden flex flex-col items-center text-center my-auto">
+        <div id="screen-login" class="w-full max-w-md pastel-card p-6 md:p-8 flex flex-col items-center text-center my-auto">
             <div class="mb-2">
                 <span class="text-7xl md:text-8xl swaying select-none">🐰</span>
             </div>
 
-            <h1 class="text-2xl md:text-3xl font-extrabold text-pink-600 tracking-wide uppercase mb-1">Tiếng Anh lớp 1</h1>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-pink-600 tracking-wide mb-1">Tiếng Anh 1</h1>
             <p class="text-sm font-bold text-purple-600 mb-5">Cô giáo Thỏ Hồng</p>
 
             <div class="w-full grid grid-cols-2 bg-pink-50 rounded-2xl p-1 mb-5 border border-pink-200">
@@ -168,22 +224,18 @@
                     <i class="fa-solid fa-compass"></i><span>Vào học thử - không cần tài khoản (khách)</span>
                 </button>
             </div>
-            <button onclick="returnToGuestHome()" class="w-full mt-3 py-2.5 bg-white text-purple-600 font-extrabold rounded-2xl text-xs md:text-sm pastel-btn border border-purple-200 flex items-center justify-center space-x-1.5">
-                <i class="fa-solid fa-house"></i><span>Quay lại trang chủ</span>
-            </button>
-
             <p id="auth-error-msg" class="text-xs font-bold text-rose-500 mt-3 hidden"></p>
         </div>
 
         <!-- 2. KHUNG CHÍNH CHUẨN TỶ LỆ 16:9 / 16:10 -->
-        <div id="screen-dashboard" class="w-full max-w-5xl flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
+        <div id="screen-dashboard" class="w-full max-w-5xl hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
             
-            <header class="w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
-                <div class="flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
+            <header class="ta-main-header w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
+                <div class="ta-header-left flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
                     <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="h-12 flex items-center gap-1.5 bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 pl-2 pr-3 rounded-2xl border-2 border-pink-300 shadow-sm shrink-0 transition-all duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
                         <span class="w-8 h-8 flex items-center justify-center bg-white rounded-full text-lg shadow-inner border border-pink-200 shrink-0">🐰</span>
                         <span class="flex flex-col items-start leading-none">
-                            <span class="text-sm font-black bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent uppercase tracking-wide whitespace-nowrap">Tiếng Anh 1</span>
+                            <span class="text-sm font-black bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap">Tiếng Anh 1</span>
                             <span class="text-[10px] font-bold text-purple-500 mt-0.5 whitespace-nowrap">Cô giáo Thỏ Hồng</span>
                         </span>
                     </button>
@@ -210,12 +262,12 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap items-center gap-2 w-full md:w-auto justify-center md:justify-end ml-auto shrink-0">
+                <div class="ta-header-actions flex flex-wrap items-center gap-2 w-full md:w-auto justify-center md:justify-end ml-auto shrink-0">
                     <button id="btn-toggle-autospeech" onclick="toggleAutoSpeech()" title="Bật/tắt tự động đọc câu hỏi" class="h-10 w-10 shrink-0 flex items-center justify-center bg-pink-50 text-pink-600 border border-pink-200 rounded-xl shadow-inner transition-colors">
                         <i class="fa-solid fa-volume-high"></i>
                     </button>
 
-                    <div class="flex flex-col space-y-0.5 bg-pink-50/90 px-2.5 py-1 rounded-xl border border-pink-200 shadow-inner">
+                    <div id="header-score-box" class="flex flex-col space-y-0.5 bg-pink-50/90 px-2.5 py-1 rounded-xl border border-pink-200 shadow-inner">
                         <div class="flex items-center justify-between space-x-2 font-extrabold">
                             <span class="px-1.5 py-0.2 bg-emerald-500 text-white rounded text-[10px] shadow-sm"><i class="fa-solid fa-star mr-0.5"></i> Đúng</span>
                             <span class="text-emerald-600 font-extrabold text-xs" id="star-green-count">0</span>
@@ -228,11 +280,11 @@
 
                     <div id="user-info-box" class="text-xs font-bold text-gray-600 text-right"></div>
 
-                    <button onclick="clickProgressOrExam('progress')" title="Bản đồ tuần - tài khoản VIP / dùng thử" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
-                        <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Tài khoản VIP / dùng thử"></i>
+                    <button id="btn-weekly-progress" onclick="clickProgressOrExam('progress')" title="Tiến trình tuần - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
+                        <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
                     </button>
-                    <button onclick="openMiniGameHub()" title="Mini Game - tài khoản VIP / dùng thử" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
-                        <i class="fa-solid fa-gamepad"></i><span class="hidden sm:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Tài khoản VIP / dùng thử"></i>
+                    <button id="btn-mini-game" onclick="openMiniGameHub()" title="Mini Game - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
+                        <i class="fa-solid fa-gamepad"></i><span class="hidden sm:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
                     </button>
                 </div>
             </header>
