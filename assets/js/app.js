@@ -1143,17 +1143,27 @@ function hideAuthError() {
 }
 
 async function callAppsScript(action, payload) {
-    const res = await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ action, payload })
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const rawText = await res.text();
     try {
-        return JSON.parse(rawText);
-    } catch (e) {
-        throw new Error('Google Apps Script trả về dữ liệu không hợp lệ (không phải JSON) — thường do link Apps Script chưa được Deploy đúng cách (cần đặt quyền truy cập là "Anyone"/"Bất kỳ ai") hoặc đã hết hạn uỷ quyền. Anh vui lòng kiểm tra lại bước Deploy > Manage deployments trên Apps Script nhé.');
+        const res = await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action, payload })
+        });
+        if (!res.ok) {
+            console.error('[TA1][Apps Script] HTTP error', { action, status: res.status, statusText: res.statusText });
+            throw new Error('SERVER_CONNECTION_ERROR');
+        }
+        const rawText = await res.text();
+        try {
+            return JSON.parse(rawText);
+        } catch (e) {
+            console.error('[TA1][Apps Script] Invalid JSON response', { action, rawText: rawText.slice(0, 500), error: e });
+            throw new Error('SERVER_CONNECTION_ERROR');
+        }
+    } catch (err) {
+        if (err && err.message === 'SERVER_CONNECTION_ERROR') throw err;
+        console.error('[TA1][Apps Script] Network/fetch error', { action, error: err });
+        throw new Error('SERVER_CONNECTION_ERROR');
     }
 }
 
@@ -1630,7 +1640,7 @@ async function doLogin() {
         localStorage.setItem('tv1_mapin', maPin);
         enterDashboard();
     } catch (err) {
-        const connErr = 'Lỗi kết nối máy chủ: ' + err.message;
+        const connErr = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
         showAuthError(connErr);
         alert(connErr);
     } finally {
@@ -1677,7 +1687,7 @@ async function doRegister() {
         document.getElementById('login-mahs').value = result.student.maHS;
         switchAuthTab('login');
     } catch (err) {
-        const connErr = 'Lỗi kết nối: ' + err.message;
+        const connErr = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
         showAuthError(connErr);
         alert(connErr);
     } finally {
