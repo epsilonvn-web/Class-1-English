@@ -1153,7 +1153,8 @@ async function callAppsScript(action, payload) {
     try {
         return JSON.parse(rawText);
     } catch (e) {
-        throw new Error('Google Apps Script trả về dữ liệu không hợp lệ (không phải JSON) — thường do link Apps Script chưa được Deploy đúng cách (cần đặt quyền truy cập là "Anyone"/"Bất kỳ ai") hoặc đã hết hạn uỷ quyền. Anh vui lòng kiểm tra lại bước Deploy > Manage deployments trên Apps Script nhé.');
+        console.error('Apps Script returned non-JSON:', rawText);
+        throw new Error('SERVER_RESPONSE_INVALID');
     }
 }
 
@@ -1630,7 +1631,8 @@ async function doLogin() {
         localStorage.setItem('tv1_mapin', maPin);
         enterDashboard();
     } catch (err) {
-        const connErr = 'Lỗi kết nối máy chủ: ' + err.message;
+        console.error('Login connection error:', err);
+        const connErr = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
         showAuthError(connErr);
         alert(connErr);
     } finally {
@@ -1677,7 +1679,8 @@ async function doRegister() {
         document.getElementById('login-mahs').value = result.student.maHS;
         switchAuthTab('login');
     } catch (err) {
-        const connErr = 'Lỗi kết nối: ' + err.message;
+        console.error('Register connection error:', err);
+        const connErr = 'Lỗi kết nối máy chủ. Vui lòng thử lại sau.';
         showAuthError(connErr);
         alert(connErr);
     } finally {
