@@ -8,14 +8,17 @@
 //   - Dữ liệu động (assets/data/*.json) và Google Apps Script luôn đi thẳng ra mạng, không cache.
 // ---------------------------------------------------------------------------------------------
 
-const CACHE_NAME = 'tienganh1-runtime';
+const CACHE_NAME = 'tienganh1-runtime-v2';
 
 // Vỏ tối thiểu để app còn mở được khi offline (nạp sẵn lúc cài cho chắc).
 const APP_SHELL = [
   './',
   './index.html',
   './assets/js/app.js',
-  './manifest.json'
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png',
+  './apple-touch-icon.png'
 ];
 
 // Khi cài: nạp sẵn vỏ ứng dụng bằng bản mới nhất, rồi kích hoạt ngay không chờ.

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
     <title>Tiếng Anh lớp 1 - Cô giáo Thỏ Hồng</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ff5fa2">
@@ -80,60 +80,85 @@
         ::-webkit-scrollbar-thumb { background: #f472b6; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #ec4899; }
 
-        /* Mobile header: đưa loa + điểm Đúng/Sai lên cùng hàng với logo */
+        /* Mobile header theo bố cục chuẩn TV1: Logo + Chuyên mục + Tuần + Game / Loa + sao + tài khoản */
         @media (max-width: 767px) {
             .ta-main-header {
                 display: grid !important;
-                grid-template-columns: minmax(0, 1fr) auto auto;
+                grid-template-columns: auto minmax(0, 1fr) auto auto;
                 grid-template-rows: auto auto;
+                gap: 0.35rem 0.35rem !important;
                 align-items: center;
-                gap: 6px;
-                padding: 8px 10px !important;
+                padding: 0.35rem 0.45rem !important;
             }
-            .ta-header-left {
-                grid-column: 1;
-                grid-row: 1;
-                width: auto !important;
-                min-width: 0;
-                overflow: hidden !important;
-                justify-content: flex-start !important;
-            }
+
+            .ta-header-left,
             .ta-header-actions {
                 display: contents !important;
             }
-            #btn-toggle-autospeech {
-                grid-column: 2;
-                grid-row: 1;
-                justify-self: end;
-            }
-            #header-score-box {
-                grid-column: 3;
-                grid-row: 1;
-                justify-self: end;
-            }
-            #user-info-box {
-                grid-column: 1;
-                grid-row: 2;
-                justify-self: start;
-                text-align: left !important;
-                min-width: 0;
-            }
-            #btn-weekly-progress {
-                grid-column: 2;
-                grid-row: 2;
-                justify-self: end;
-            }
-            #btn-mini-game {
-                grid-column: 3;
-                grid-row: 2;
-                justify-self: end;
-            }
+
             #btn-header-home {
-                max-width: 100%;
+                grid-row: 1;
+                grid-column: 1;
             }
-            #btn-header-home > span:last-child {
+
+            #header-learning-tabs {
+                grid-row: 1;
+                grid-column: 2;
                 min-width: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scrollbar-width: none;
+                margin-left: 0;
             }
+            #header-learning-tabs::-webkit-scrollbar { display: none; }
+
+            #header-level2-icon { display: none !important; }
+            #header-level2-tab > button {
+                padding-left: 0.5rem !important;
+                padding-right: 0.5rem !important;
+                column-gap: 0 !important;
+            }
+
+            #btn-weekly-progress {
+                grid-row: 1;
+                grid-column: 3;
+                justify-self: end;
+            }
+
+            #btn-mini-game {
+                grid-row: 1;
+                grid-column: 4;
+                justify-self: end;
+            }
+
+            #btn-toggle-autospeech {
+                grid-row: 2;
+                grid-column: 1;
+                justify-self: start;
+                margin: 0;
+            }
+
+            #header-score-box {
+                grid-row: 2;
+                grid-column: 1;
+                justify-self: start;
+                margin-left: 0 !important;
+                transform: translateX(2.7rem);
+            }
+
+            #user-info-box {
+                grid-row: 2;
+                grid-column: 2 / 5;
+                justify-self: end;
+                width: auto;
+                min-width: 0;
+                margin-left: auto;
+                text-align: right !important;
+            }
+
+            #user-info-box > div,
+            #user-info-box > span { margin-left: auto; }
+            #user-info-box > * { max-width: 100%; }
         }
 
         @media print {
@@ -154,16 +179,16 @@
         }
     </style>
 </head>
-<body class="p-1 md:p-2 w-full">
+<body class="p-1 md:p-2 w-full" style="padding-top:max(0.25rem,env(safe-area-inset-top));padding-bottom:max(0.25rem,env(safe-area-inset-bottom));padding-left:max(0.25rem,env(safe-area-inset-left));padding-right:max(0.25rem,env(safe-area-inset-right));">
 
     <div class="w-full flex justify-center items-center mt-4 md:mt-6">
         <!-- 1. MÀN HÌNH ĐĂNG NHẬP / ĐĂNG KÝ -->
         <div id="screen-login" class="w-full max-w-md pastel-card p-6 md:p-8 flex flex-col items-center text-center my-auto">
-            <div class="mb-2">
-                <span class="text-7xl md:text-8xl swaying select-none">🐰</span>
+            <div class="mb-2 flex flex-col items-center">
+                <img src="icon-512.png" alt="Tiếng Anh 1" class="w-28 h-28 md:w-32 md:h-32 object-contain rounded-[28%] shadow-md select-none">
             </div>
 
-            <h1 class="text-2xl md:text-3xl font-extrabold text-pink-600 tracking-wide mb-1">Tiếng Anh 1</h1>
+            <h1 class="sr-only">Tiếng Anh 1</h1>
             <p class="text-sm font-bold text-purple-600 mb-5">Cô giáo Thỏ Hồng</p>
 
             <div class="w-full grid grid-cols-2 bg-pink-50 rounded-2xl p-1 mb-5 border border-pink-200">
@@ -232,14 +257,11 @@
             
             <header class="ta-main-header w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
                 <div class="ta-header-left flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
-                    <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="h-12 flex items-center gap-1.5 bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 pl-2 pr-3 rounded-2xl border-2 border-pink-300 shadow-sm shrink-0 transition-all duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
-                        <span class="w-8 h-8 flex items-center justify-center bg-white rounded-full text-lg shadow-inner border border-pink-200 shrink-0">🐰</span>
-                        <span class="flex flex-col items-start leading-none">
-                            <span class="text-sm font-black bg-gradient-to-r from-pink-600 to-purple-500 bg-clip-text text-transparent tracking-wide whitespace-nowrap">Tiếng Anh 1</span>
-                            <span class="text-[10px] font-bold text-purple-500 mt-0.5 whitespace-nowrap">Cô giáo Thỏ Hồng</span>
-                        </span>
+                    <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="w-[62px] h-[62px] flex items-center justify-center bg-white rounded-xl border border-pink-300 shadow-sm shrink-0 overflow-hidden p-0 transition-shadow duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
+                        <img src="icon-192.png" alt="Trang chủ Tiếng Anh 1" class="w-full h-full object-cover">
                     </button>
 
+                    <div id="header-learning-tabs" class="flex items-center space-x-1 min-w-0">
                     <div id="header-level2-tab" class="hidden items-center">
                         <button onclick="returnToTopicLecture()" class="h-10 px-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-extrabold rounded-xl text-xs md:text-sm flex items-center space-x-1.5 shadow-sm border border-pink-300 shrink-0 max-w-[200px] md:max-w-[260px] transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
                             <span id="header-level2-icon">🔢</span>
@@ -260,6 +282,7 @@
                             <span id="header-level4-title" class="truncate">Chủ đề tuần</span>
                         </div>
                     </div>
+                    </div>
                 </div>
 
                 <div class="ta-header-actions flex flex-wrap items-center gap-2 w-full md:w-auto justify-center md:justify-end ml-auto shrink-0">
@@ -269,11 +292,11 @@
 
                     <div id="header-score-box" class="flex flex-col space-y-0.5 bg-pink-50/90 px-2.5 py-1 rounded-xl border border-pink-200 shadow-inner">
                         <div class="flex items-center justify-between space-x-2 font-extrabold">
-                            <span class="px-1.5 py-0.2 bg-emerald-500 text-white rounded text-[10px] shadow-sm"><i class="fa-solid fa-star mr-0.5"></i> Đúng</span>
+                            <span class="px-1.5 py-0.5 bg-emerald-500 text-white rounded text-[10px] shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Đúng</span></span>
                             <span class="text-emerald-600 font-extrabold text-xs" id="star-green-count">0</span>
                         </div>
                         <div class="flex items-center justify-between space-x-2 font-extrabold">
-                            <span class="px-1.5 py-0.2 bg-rose-500 text-white rounded text-[10px] shadow-sm"><i class="fa-solid fa-star mr-0.5"></i> Sai</span>
+                            <span class="px-1.5 py-0.5 bg-rose-500 text-white rounded text-[10px] shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Sai</span></span>
                             <span class="text-rose-600 font-extrabold text-xs" id="star-red-count">0</span>
                         </div>
                     </div>
@@ -281,10 +304,10 @@
                     <div id="user-info-box" class="text-xs font-bold text-gray-600 text-right"></div>
 
                     <button id="btn-weekly-progress" onclick="clickProgressOrExam('progress')" title="Tiến trình tuần - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
-                        <i class="fa-solid fa-map-location-dot"></i><span class="hidden sm:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
+                        <i class="fa-solid fa-map-location-dot"></i><span class="md:hidden">Tuần</span><span class="hidden md:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
                     </button>
                     <button id="btn-mini-game" onclick="openMiniGameHub()" title="Mini Game - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
-                        <i class="fa-solid fa-gamepad"></i><span class="hidden sm:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
+                        <i class="fa-solid fa-gamepad"></i><span class="md:hidden">Game</span><span class="hidden md:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
                     </button>
                 </div>
             </header>
@@ -677,9 +700,8 @@
     </div>
 
     <!-- CHÂN TRANG BẢN QUYỀN CHUẨN ĐỊNH DẠNG -->
-    <footer class="w-full mt-2 md:mt-3 pb-2 text-center text-sm font-normal text-pink-500 tracking-wider select-text" style="user-select: text; -webkit-user-select: text;">
-        <div>Tiếng Anh 1 - Cô giáo Thỏ Hồng</div>
-        <div>Zalo 0865.749.402</div>
+    <footer class="w-full mt-2 md:mt-3 pb-2 text-center text-sm font-bold text-pink-500 tracking-wider">
+        epsilon.vn@gmail.com
     </footer>
 
     <!-- NẠP ENGINE JAVASCRIPT ĐỒNG BỘ -->
