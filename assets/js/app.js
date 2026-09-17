@@ -128,6 +128,37 @@ const GREETINGS_GUEST = [
 // ĐỊNH DANH MÁY CHỦ APPS SCRIPT & BIẾN TOÀN CỤC
 // ==========================================
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzdiYg6HysPgQ1n_ZUzRDftT5uY3l9mnL53KJe57TKk4EUWQz4ZSkhQKaFtv-HuVuQVWg/exec";
+
+// Persistent session: client chỉ lưu session token, tuyệt đối không lưu PIN/mật khẩu hay quyền học.
+const SESSION_TOKEN_KEY = 'ta1_session_token';
+const LEGACY_SESSION_TOKEN_KEY = 'tv1_token';
+let sessionRestoreRetryTimer = null;
+let sessionRestoreInFlight = false;
+
+function getStoredSessionToken() {
+    let token = localStorage.getItem(SESSION_TOKEN_KEY) || '';
+    // Migrate 1 lần từ key cũ: chỉ lấy token, xóa mọi dấu vết maHS cũ để client chỉ còn lưu token.
+    if (!token) {
+        token = localStorage.getItem(LEGACY_SESSION_TOKEN_KEY) || '';
+        if (token) localStorage.setItem(SESSION_TOKEN_KEY, token);
+    }
+    localStorage.removeItem('tv1_mahs');
+    localStorage.removeItem(LEGACY_SESSION_TOKEN_KEY);
+    return token;
+}
+
+function storeSessionToken(token) {
+    if (token) localStorage.setItem(SESSION_TOKEN_KEY, String(token));
+    localStorage.removeItem('tv1_mahs');
+    localStorage.removeItem(LEGACY_SESSION_TOKEN_KEY);
+}
+
+function clearSessionToken() {
+    localStorage.removeItem(SESSION_TOKEN_KEY);
+    localStorage.removeItem('tv1_mahs');
+    localStorage.removeItem(LEGACY_SESSION_TOKEN_KEY);
+}
+
 let allTopicsDataCache = null;
 let ALPHABET_DATA = [];
 let IPA_DATA = [];
@@ -690,9 +721,9 @@ function updateExamTimerDisplay() {
     el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
-function openExamHub() {
+async function openExamHub() {
     stopSpeaking();
-    if (!requirePremiumAccess('Đấu trường đề thi')) return;
+    if (!(await requirePremiumAccess('Đấu trường đề thi'))) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = false;
     activeExamContext = null;
@@ -1210,7 +1241,7 @@ function getVipEndDate() {
 
 function hasPremiumAccess() {
     if (isAdminUser()) return true;
-    if (!currentUser || currentUser.isGuest) return false;
+    if (!currentUser || currentUser.isGuest || currentUser.sessionPending) return false;
 
     const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
     const now = Date.now();
@@ -1316,10 +1347,44 @@ function showPremiumAccessWarning(featureName = 'khu vực này') {
     });
 }
 
-function requirePremiumAccess(featureName) {
-    if (hasPremiumAccess()) return true;
-    showPremiumAccessWarning(featureName);
-    return false;
+async function requirePremiumAccess(featureName) {
+    if (!currentUser || currentUser.isGuest) {
+        showPremiumAccessWarning(featureName);
+        return false;
+    }
+
+    const token = currentUser.token || getStoredSessionToken();
+    if (!token) {
+        showPremiumAccessWarning(featureName);
+        return false;
+    }
+
+    try {
+        // Premium/Admin luôn được xác minh lại từ backend tại thời điểm mở khu vực Premium.
+        const res = await callAppsScript('restoreSession', { token });
+        if (!res?.ok || !res.student) {
+            if (res?.code === 'INVALID_SESSION') clearSessionToken();
+            renderPremiumAccessModal({
+                icon: '🐰🔐',
+                title: featureName,
+                message: 'Phiên đăng nhập chưa thể được xác minh. Con thử lại khi kết nối máy chủ ổn định nhé!'
+            });
+            return false;
+        }
+        currentUser = { ...res.student, isGuest: false, token, sessionPending: false };
+        updateUserInfoBox();
+        if (hasPremiumAccess()) return true;
+        showPremiumAccessWarning(featureName);
+        return false;
+    } catch (e) {
+        // Không hạ phiên xuống Guest khi mạng lỗi; chỉ không cấp Premium vì backend chưa xác minh được.
+        renderPremiumAccessModal({
+            icon: '🐰📡',
+            title: featureName,
+            message: 'Tạm thời chưa kết nối được máy chủ để xác minh quyền Trial/VIP. Phiên đăng nhập của con vẫn được giữ nguyên nhé!'
+        });
+        return false;
+    }
 }
 
 function openAuthScreen(tab = 'login') {
@@ -1410,7 +1475,7 @@ async function markAdminRegistrationsSeen() {
 // token đã có sẵn khi đăng nhập, server tự tra lại quyền admin từ token (xem requireAdmin bên Code.gs).
 function getAdminCredentials() {
     return {
-        token: (currentUser && currentUser.token) || localStorage.getItem('tv1_token') || ''
+        token: (currentUser && currentUser.token) || getStoredSessionToken() || ''
     };
 }
 
@@ -1627,9 +1692,9 @@ async function doLogin() {
             alert(errMsg);
             return;
         }
-        currentUser = { ...result.student, isGuest: false, token: result.token };
-        localStorage.setItem('tv1_mahs', maHS);
-        localStorage.setItem('tv1_token', result.token);
+        currentUser = { ...result.student, isGuest: false, token: result.token, sessionPending: false };
+        storeSessionToken(result.token);
+        if (maPinInput) maPinInput.value = '';
         enterDashboard();
     } catch (err) {
         console.error('Login connection error:', err);
@@ -1690,55 +1755,101 @@ async function doRegister() {
     }
 }
 
-async function tryAutoLogin() {
-    const maHS = localStorage.getItem('tv1_mahs');
-    const token = localStorage.getItem('tv1_token');
+function scheduleSessionRestoreRetry(delayMs = 15000) {
+    clearTimeout(sessionRestoreRetryTimer);
+    sessionRestoreRetryTimer = setTimeout(() => restoreSessionFromToken({ showOverlay: false }), delayMs);
+}
 
-    // Không có phiên đăng nhập đã lưu => vào thẳng trang chủ ở chế độ Guest.
-    // Mục 1-10 luôn mở; Sign in / Sign up hiển thị trên header.
-    if (!maHS || !token) {
+function enterSessionPendingMode(token) {
+    // Có token nhưng máy chủ tạm thời chưa truy cập được: KHÔNG xóa token, KHÔNG chuyển sang Guest.
+    // Chỉ mở phần Free; Admin/Trial/VIP vẫn khóa cho tới khi backend xác minh lại.
+    currentUser = {
+        isGuest: false,
+        sessionPending: true,
+        token,
+        hoTen: 'Đang khôi phục phiên...',
+        maHS: '',
+        lop: '',
+        tuanHienTai: 1,
+        role: 'student',
+        loaiTaiKhoan: 'regular',
+        hanDungThu: '',
+        hanVIP: ''
+    };
+    enterDashboard(true);
+}
+
+async function restoreSessionFromToken({ showOverlay = true } = {}) {
+    const token = getStoredSessionToken();
+    if (!token) {
         handleGuestMode(true);
-        return;
+        return false;
     }
-
-    showLoadingOverlay('Đang đăng nhập lại cho bé...');
+    if (sessionRestoreInFlight) return false;
+    sessionRestoreInFlight = true;
+    if (showOverlay) showLoadingOverlay('Đang khôi phục phiên đăng nhập...');
     try {
-        // whoAmI: xác thực lại bằng TOKEN (không phải PIN gốc) - server tự tra lại thông tin học sinh
-        // mới nhất (VD tuần hiện tại, loại tài khoản có thể đã đổi từ lúc đăng nhập).
-        const res = await callAppsScript('whoAmI', { token });
-        if (res.ok) {
-            currentUser = { ...res.student, isGuest: false, token };
-            enterDashboard(true);
-        } else {
-            localStorage.removeItem('tv1_mahs');
-            localStorage.removeItem('tv1_token');
-            handleGuestMode(true);
+        const res = await callAppsScript('restoreSession', { token });
+        if (res?.ok && res.student) {
+            const wasPending = !!currentUser?.sessionPending;
+            currentUser = { ...res.student, isGuest: false, token, sessionPending: false };
+            clearTimeout(sessionRestoreRetryTimer);
+            if (wasPending) {
+                updateUserInfoBox();
+                renderDashboardGrid();
+                renderExamHubGrid();
+            } else {
+                enterDashboard(true);
+            }
+            return true;
         }
+
+        // Chỉ xóa token khi backend xác nhận token thực sự không còn hợp lệ.
+        if (res?.code === 'INVALID_SESSION') {
+            clearSessionToken();
+            handleGuestMode(true);
+            return false;
+        }
+
+        // Lỗi ứng dụng khác: giữ nguyên phiên cục bộ và thử lại, không tự logout.
+        if (!currentUser || currentUser.isGuest) enterSessionPendingMode(token);
+        scheduleSessionRestoreRetry();
+        return false;
     } catch (e) {
-        handleGuestMode(true);
+        console.warn('Tạm thời chưa khôi phục được phiên:', e);
+        if (!currentUser || currentUser.isGuest) enterSessionPendingMode(token);
+        scheduleSessionRestoreRetry();
+        return false;
     } finally {
-        hideLoadingOverlay();
+        sessionRestoreInFlight = false;
+        if (showOverlay) hideLoadingOverlay();
     }
 }
 
+async function tryAutoLogin() {
+    const token = getStoredSessionToken();
+    if (!token) {
+        handleGuestMode(true);
+        return;
+    }
+    await restoreSessionFromToken({ showOverlay: true });
+}
+
 function logout() {
-    const tokenToRevoke = currentUser && currentUser.token;
+    const tokenToRevoke = (currentUser && currentUser.token) || getStoredSessionToken();
+    clearTimeout(sessionRestoreRetryTimer);
     clearInterval(adminRegistrationPollTimer);
     adminRegistrationPollTimer = null;
     adminNewRegistrationCount = 0;
-    localStorage.removeItem('tv1_mahs');
-    localStorage.removeItem('tv1_token');
+    clearSessionToken();
     const mahsInput = document.getElementById('login-mahs');
     const mapinInput = document.getElementById('login-mapin');
     if (mahsInput) mahsInput.value = '';
     if (mapinInput) mapinInput.value = '';
     hideAuthError();
     handleGuestMode(true);
-    // Hủy token thật trên server (best-effort, không chờ kết quả) - tránh trường hợp ai đó lỡ có được
-    // token này vẫn dùng tiếp được cho tới khi tự hết hạn dù bé đã bấm đăng xuất.
-    if (tokenToRevoke) {
-        callAppsScript('logout', { token: tokenToRevoke }).catch(() => {});
-    }
+    // Thu hồi token phía server theo đúng hành động Đăng xuất chủ động của người dùng.
+    if (tokenToRevoke) callAppsScript('logout', { token: tokenToRevoke }).catch(() => {});
 }
 
 function handleGuestMode(isSilent = false) {
@@ -1773,6 +1884,19 @@ function enterDashboard(isSilent = false) {
 function updateUserInfoBox() {
     const box = document.getElementById('user-info-box');
     if (!box) return;
+    if (currentUser?.sessionPending) {
+        clearInterval(adminRegistrationPollTimer);
+        adminRegistrationPollTimer = null;
+        box.innerHTML = `
+            <div class="flex items-center gap-2">
+                <div class="text-right">
+                    <div class="text-pink-600 font-extrabold text-[10px] md:text-xs leading-tight">Đang khôi phục phiên...</div>
+                    <div class="text-gray-400 font-semibold text-[9px]">Quyền Premium chờ xác minh</div>
+                </div>
+                <button onclick="logout()" title="Đăng xuất" class="w-8 h-8 flex items-center justify-center bg-rose-100 hover:bg-rose-200 text-rose-500 rounded-xl border border-rose-200 text-xs"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>`;
+        return;
+    }
     if (currentUser && !currentUser.isGuest) {
         const adminBtn = isAdminUser() ? `
             <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
@@ -1817,19 +1941,17 @@ function resetStars() {
     if (redEl) redEl.textContent = 0;
 }
 
-function clickProgressOrExam(type) {
-    const feature = type === 'progress' ? 'Bản đồ tuần' : 'Đấu trường đề thi';
-    if (!requirePremiumAccess(feature)) return;
-    if (type === 'progress') openRoadmap();
-    else if (type === 'exam') openExamHub();
+async function clickProgressOrExam(type) {
+    if (type === 'progress') await openRoadmap();
+    else if (type === 'exam') await openExamHub();
 }
 
 // ==========================================
 // CHỦ ĐỀ 1: BẢNG CHỮ CÁI TƯƠNG TÁC (1.1 ĐẾN 1.4)
 // ==========================================
-function openTopic(topicNum, topicName, icon) {
+async function openTopic(topicNum, topicName, icon) {
     stopSpeaking();
-    if (Number(topicNum) === 11 && !requirePremiumAccess('Practice & Play')) return;
+    if (Number(topicNum) === 11 && !(await requirePremiumAccess('Practice & Play'))) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = false;
     activeTopicId = topicNum; activeExamContext = null; activeRoadmapContext = null;
@@ -2025,9 +2147,9 @@ function handleNextExamFromReport() {
     }
 }
 
-function openRoadmap() {
+async function openRoadmap() {
     stopSpeaking();
-    if (!requirePremiumAccess('Bản đồ tuần')) return;
+    if (!(await requirePremiumAccess('Bản đồ tuần'))) return;
     inAlphaIpaFlow = false;
     updateNavTabs("Bản đồ tiến trình tuần", "🗺️", null);
     renderRoadmapSVG();
@@ -3646,6 +3768,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
     }, { once: true });
 
+    window.addEventListener('online', () => {
+        if (getStoredSessionToken() && currentUser?.sessionPending) {
+            restoreSessionFromToken({ showOverlay: false });
+        }
+    });
+
     updateAutoSpeechButtonUI();
 });
 
@@ -3756,9 +3884,9 @@ const MINIGAME_LIST = [
     { id: 'teacher-says', title: '12. Teacher Says', desc: 'Phản xạ với câu mệnh lệnh', icon: '🤖', ready: true }
 ];
 
-function openMiniGameHub() {
+async function openMiniGameHub() {
     stopSpeaking();
-    if (!requirePremiumAccess('Mini Game')) return;
+    if (!(await requirePremiumAccess('Mini Game'))) return;
     inAlphaIpaFlow = false;
     inMiniGameFlow = true;
     activeExamContext = null; activeRoadmapContext = null; activeTopicId = null; pendingTopicQuiz = null;
