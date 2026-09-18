@@ -161,6 +161,39 @@
             #user-info-box > * { max-width: 100%; }
         }
 
+
+        /* Đưa icon khóa trên các thẻ Premium của trang chủ lên góc trên bên phải
+           để không chiếm chỗ trên dòng tiêu đề. */
+        #view-dashboard-grid .pastel-card {
+            position: relative;
+        }
+
+        #view-dashboard-grid .pastel-card h3 .fa-lock {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            margin: 0 !important;
+            z-index: 2;
+        }
+
+
+        /* Đưa icon khóa của Bản đồ tuần và Mini Game lên góc trên,
+           không chiếm chiều ngang trong nội dung nút. */
+        #btn-weekly-progress,
+        #btn-mini-game {
+            position: relative;
+            overflow: visible;
+        }
+
+        #btn-weekly-progress > .fa-lock,
+        #btn-mini-game > .fa-lock {
+            position: absolute;
+            top: -7px;
+            right: -4px;
+            margin: 0 !important;
+            z-index: 3;
+        }
+
         @media print {
             body * { visibility: hidden; }
             #printable-report-area, #printable-report-area * { visibility: visible; }
