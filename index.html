@@ -210,6 +210,58 @@
             .page-break-2 { page-break-before: always; break-before: page; page-break-after: always; break-after: page; }
             .page-break-3 { page-break-before: always; break-before: page; }
         }
+
+
+        /* ===== TA1 6-TAB UI — bám chuẩn TA2 ===== */
+        .main-module-tab {
+            position: relative; min-height: 46px; padding: 7px 8px; border-radius: 14px;
+            border: 1.5px solid #f5c5df; background: linear-gradient(180deg,#fff,#fff8fc);
+            color: #7e3bb8; font-weight: 900; font-size: 13px; line-height: 1.05;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            box-shadow: 0 2px 7px rgba(109,40,217,.07);
+            transition: box-shadow .18s,border-color .18s,background .18s,color .18s;
+        }
+        .main-module-tab:hover { border-color:#e879f9; box-shadow:0 0 13px rgba(217,70,239,.22); }
+        .main-module-tab.is-active {
+            color:#fff; border-color:#d946ef;
+            background:linear-gradient(135deg,#ec4899 0%,#a855f7 55%,#7c3aed 100%);
+            box-shadow:0 5px 14px rgba(168,85,247,.28);
+        }
+        @media (min-width:768px) { .main-module-tab { min-height:50px; font-size:14px; } }
+
+        .bi-label{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.08;text-align:center}
+        .bi-label .en{display:block;font-weight:900}
+        .bi-label .vi{display:block;font-size:11px;font-weight:800;opacity:.78;margin-top:4px;line-height:1.1}
+        .bi-left{align-items:flex-start;text-align:left}
+        .card-title-bi{display:flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1.12}
+        .card-title-bi .en{display:block;font-weight:900}
+        .card-title-bi .vi{display:block;font-size:12px;font-weight:800;color:#94a3b8;margin-top:4px;line-height:1.15}
+        .card-vi{display:block;font-size:12px;font-weight:800;color:#94a3b8;margin-top:4px;line-height:1.15}
+
+        .semester-switch-btn{min-width:92px;height:42px;padding:0 14px;border-radius:12px;font-weight:900;font-size:12px;line-height:1.05;transition:.18s;border:1.5px solid #e9d5ff;}
+        .semester-switch-btn.is-active{color:#fff;background:linear-gradient(135deg,#ec4899 0%,#a855f7 100%);border-color:#c026d3;box-shadow:0 4px 10px rgba(168,85,247,.22);}
+        .semester-switch-btn.is-inactive{color:#7e22ce;background:linear-gradient(135deg,#fff1f7 0%,#f5f3ff 100%);}
+        .lesson-chip{border:1px solid #fbcfe8;background:#fff7fb;border-radius:12px;padding:6px 10px;font-weight:800;font-size:12px;color:#7e22ce;}
+        #view-bai-hoc-hub .bi-label .vi{font-size:13px;margin-top:5px;opacity:.82;}
+        #view-bai-hoc-hub #bai-hoc-hub-subtitle{font-size:13px;line-height:1.35;}
+        #view-bai-hoc-hub #bai-hoc-hub-subtitle .lesson-hub-vi{font-size:12px;color:#94a3b8;font-weight:800;display:block;margin-top:4px;}
+        #view-bai-hoc-hub .semester-switch-btn .semester-vi{font-size:11px;display:block;margin-top:3px;opacity:.82;}
+
+        /* Mobile: header chỉ giữ chức năng hệ thống; module học nằm ở 6 tab phía dưới */
+        @media (max-width: 767px) {
+            #dashboard-header {
+                display:grid !important; grid-template-columns:auto minmax(0,1fr); grid-template-rows:auto auto;
+                align-items:center; column-gap:.35rem !important; row-gap:.35rem !important; padding:.35rem .45rem !important;
+            }
+            #header-nav-group,#header-actions-group{display:contents !important;}
+            #btn-header-home{grid-row:1;grid-column:1;width:93px !important;height:62px !important;min-width:93px !important;margin:0 !important;}
+            #header-learning-tabs{grid-row:1;grid-column:2;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;}
+            #header-learning-tabs::-webkit-scrollbar{display:none;}
+            #btn-toggle-autospeech{grid-row:2;grid-column:1;justify-self:start;}
+            #header-score-box{grid-row:2;grid-column:1;justify-self:start;margin-left:2.7rem !important;transform:none !important;padding-left:.4rem !important;padding-right:.4rem !important;}
+            #user-info-box{grid-row:2;grid-column:2;justify-self:end;width:auto;min-width:0;margin-left:auto;text-align:right !important;}
+        }
+
     </style>
 </head>
 <body class="p-1 md:p-2 w-full" style="padding-top:max(0.25rem,env(safe-area-inset-top));padding-bottom:max(0.25rem,env(safe-area-inset-bottom));padding-left:max(0.25rem,env(safe-area-inset-left));padding-right:max(0.25rem,env(safe-area-inset-right));">
@@ -286,12 +338,12 @@
         </div>
 
         <!-- 2. KHUNG CHÍNH CHUẨN TỶ LỆ 16:9 / 16:10 -->
-        <div id="screen-dashboard" class="w-full max-w-5xl hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
+        <div id="screen-dashboard" class="w-full hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2" style="max-width: 72rem !important;">
             
-            <header class="ta-main-header w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
-                <div class="ta-header-left flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
-                    <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="w-[62px] h-[62px] flex items-center justify-center bg-white rounded-xl border border-pink-300 shadow-sm shrink-0 overflow-hidden p-0 transition-shadow duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
-                        <img src="icon-192.png" alt="Trang chủ Tiếng Anh 1" class="w-full h-full object-cover">
+            <header id="dashboard-header" class="ta-main-header w-full bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-sm border-2 border-pink-200 flex flex-col md:flex-row justify-between items-center gap-2">
+                <div id="header-nav-group" class="ta-header-left flex items-center space-x-2 w-full md:w-auto justify-between md:justify-start overflow-x-auto pb-0.5">
+                    <button id="btn-header-home" onclick="goHome()" title="Về trang chủ" class="w-[93px] h-[62px] flex items-center justify-center bg-white rounded-xl border border-pink-300 shadow-sm shrink-0 overflow-hidden p-0 transition-shadow duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
+                        <img src="logo-home.png" alt="Trang chủ Tiếng Anh 1" class="w-full h-full object-cover">
                     </button>
 
                     <div id="header-learning-tabs" class="flex items-center space-x-1 min-w-0">
@@ -318,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="ta-header-actions flex flex-wrap items-center gap-2 w-full md:w-auto justify-center md:justify-end ml-auto shrink-0">
+                <div id="header-actions-group" class="ta-header-actions flex flex-wrap items-center gap-2 w-full md:w-auto justify-center md:justify-end ml-auto shrink-0">
                     <button id="btn-toggle-autospeech" onclick="toggleAutoSpeech()" title="Bật/tắt tự động đọc câu hỏi" class="h-10 w-10 shrink-0 flex items-center justify-center bg-pink-50 text-pink-600 border border-pink-200 rounded-xl shadow-inner transition-colors">
                         <i class="fa-solid fa-volume-high"></i>
                     </button>
@@ -335,20 +387,50 @@
                     </div>
 
                     <div id="user-info-box" class="text-xs font-bold text-gray-600 text-right"></div>
-
-                    <button id="btn-weekly-progress" onclick="clickProgressOrExam('progress')" title="Tiến trình tuần - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-purple-600 hover:to-indigo-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(244,63,94,0.65)]">
-                        <i class="fa-solid fa-map-location-dot"></i><span class="md:hidden">Tuần</span><span class="hidden md:inline">Bản đồ tuần</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
-                    </button>
-                    <button id="btn-mini-game" onclick="openMiniGameHub()" title="Mini Game - cần đăng nhập" class="h-10 px-2.5 md:px-3 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-md hover:from-teal-600 hover:to-emerald-600 flex items-center space-x-1.5 shrink-0 transition-shadow duration-200 hover:shadow-[0_0_14px_rgba(20,184,166,0.65)]">
-                        <i class="fa-solid fa-gamepad"></i><span class="md:hidden">Game</span><span class="hidden md:inline">Mini Game</span><i class="fa-solid fa-lock text-[9px] opacity-80" title="Cần đăng nhập"></i>
-                    </button>
                 </div>
             </header>
+
+            <!-- ĐIỀU HƯỚNG CHÍNH 6 TAB — EN TRÊN / VI DƯỚI -->
+            <nav id="main-module-tabs" class="w-full bg-white/95 border-2 border-pink-200 rounded-2xl p-1.5 shadow-sm" aria-label="Main learning modules">
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-1.5">
+                    <button id="main-tab-discover" onclick="openMainTab('discover')" class="main-module-tab is-active" data-tab="discover"><span class="text-lg">🧭</span><span class="bi-label"><span class="en">Explore</span></span></button>
+                    <button id="main-tab-lessons" onclick="openMainTab('lessons')" class="main-module-tab" data-tab="lessons"><span class="text-lg">📖</span><span class="bi-label"><span class="en">Lessons</span></span><span id="lessons-lock-icon" class="hidden absolute -top-1 -right-1 text-[10px]">🔒</span></button>
+                    <button id="main-tab-exercises" onclick="openMainTab('exercises')" class="main-module-tab" data-tab="exercises"><span class="text-lg">✏️</span><span class="bi-label"><span class="en">Exercises</span></span><span id="roadmap-lock-icon" class="hidden absolute -top-1 -right-1 text-[10px]">🔒</span></button>
+                    <button id="main-tab-review" onclick="openMainTab('review')" class="main-module-tab" data-tab="review"><span class="text-lg">🧠</span><span class="bi-label"><span class="en">Review</span></span><span id="review-lock-icon" class="hidden absolute -top-1 -right-1 text-[10px]">🔒</span></button>
+                    <button id="main-tab-exams" onclick="openMainTab('exams')" class="main-module-tab" data-tab="exams"><span class="text-lg">🏆</span><span class="bi-label"><span class="en">Exams</span></span><span id="exam-lock-icon" class="hidden absolute -top-1 -right-1 text-[10px]">🔒</span></button>
+                    <button id="main-tab-games" onclick="openMainTab('games')" class="main-module-tab" data-tab="games"><span class="text-lg">🎮</span><span class="bi-label"><span class="en">Mini Games</span></span><span id="minigame-lock-icon" class="hidden absolute -top-1 -right-1 text-[10px]">🔒</span></button>
+                </div>
+            </nav>
 
             <main id="app-viewport" class="w-full">
                 
                 <!-- VIEW 1: TRANG CHỦ 12 CHỦ ĐỀ -->
                 <div id="view-dashboard-grid" class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5"></div>
+
+                <!-- MODULE BÀI HỌC: 16 UNIT THEO SGK GLOBAL SUCCESS -->
+                <div id="view-bai-hoc-hub" class="w-full hidden pastel-card p-3 md:p-5">
+                    <div class="w-full max-w-5xl mx-auto">
+                        <div class="grid grid-cols-[auto_1fr_auto] items-center gap-3 mb-3">
+                            <div id="bai-hoc-semester-tabs" class="flex items-center gap-2 justify-self-start"></div>
+                            <div class="text-center min-w-0">
+                                <h2 class="text-lg md:text-xl font-black text-purple-700 flex items-center justify-center gap-2"><span>📖</span><span class="bi-label"><span class="en">English 1 Lessons</span><span class="vi">Bài học Tiếng Anh 1</span></span></h2>
+                                <p id="bai-hoc-hub-subtitle" class="text-xs md:text-sm text-slate-500 font-bold mt-0.5">16 Units · Global Success<br><span class="text-[10px] text-slate-400">16 Unit theo SGK Global Success</span></p>
+                            </div>
+                            <div class="w-[170px] hidden md:block" aria-hidden="true"></div>
+                        </div>
+                        <div id="bai-hoc-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-2.5"></div>
+                    </div>
+                </div>
+
+                <div id="view-bai-hoc-lesson" class="w-full hidden pastel-card p-3 md:p-5">
+                    <div class="w-full max-w-4xl mx-auto space-y-3">
+                        <div class="flex items-center justify-between gap-2">
+                            <div id="bai-hoc-lesson-meta" class="text-base md:text-lg font-extrabold text-purple-600"></div>
+                            <button id="btn-back-bai-hoc" onclick="openBaiHocHub(activeBaiHocContext.semester || 1)" class="px-3 py-2 bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 rounded-xl text-xs font-extrabold shrink-0">← Lessons<br><span class="text-[9px] opacity-70">Danh sách bài</span></button>
+                        </div>
+                        <div id="bai-hoc-sections" class="space-y-3"></div>
+                    </div>
+                </div>
 
                 <!-- VIEW 2: BÀI GIẢNG -->
                 <div id="view-lecture" class="w-full hidden pastel-card p-4 md:p-6 flex flex-col justify-between items-center min-h-[480px]">
@@ -464,26 +546,20 @@
                     </div>
                 </div>
 
-                <!-- VIEW 4: BẢN ĐỒ LỘ TRÌNH 12 TUẦN SVG CHỮ S -->
+                <!-- VIEW: BÀI TẬP THEO 16 UNIT SGK / SBT -->
                 <div id="view-roadmap" class="w-full hidden pastel-card p-3 md:p-5 flex flex-col items-center">
                     <div class="w-full max-w-5xl flex flex-col items-center">
-                        <div class="flex flex-col sm:flex-row items-center justify-between w-full px-2 mb-2 gap-2">
+                        <div class="flex flex-col sm:flex-row items-center justify-between w-full px-1 mb-3 gap-2">
                             <div>
-                                <h2 class="text-base md:text-lg font-extrabold text-indigo-600 flex items-center space-x-2">
-                                    <span>🗺️</span><span>Bản đồ lộ trình 24 tuần bứt phá</span>
-                                </h2>
-                                <p class="text-[11px] md:text-xs text-gray-500 font-bold">Mỗi tuần 30 câu (tỷ lệ 3:4:3). Đạt từ 80% trở lên để mở khóa tuần kế tiếp!</p>
+                                <h2 class="text-base md:text-lg font-extrabold text-indigo-600 flex items-center space-x-2"><span>✏️</span><span class="bi-label bi-left"><span class="en">Exercises</span><span class="vi">Bài tập</span></span></h2>
+                                <p class="text-[11px] md:text-xs text-gray-500 font-bold">20 questions each · Score 80% to unlock the next exercise · 6-skill assessment<br><span class="text-[10px] text-slate-400">20 câu mỗi bài · đạt 80% để mở bài tiếp theo · đánh giá 6 năng lực</span></p>
                             </div>
-                            
-                            <div class="flex items-center space-x-2 shrink-0">
-                                <button onclick="openHistoryModal('LichSuTienTrinhTuan')" class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold rounded-xl border border-indigo-200 text-xs pastel-btn flex items-center space-x-1.5 shadow-sm">
-                                    <i class="fa-solid fa-chart-line text-indigo-600"></i>
-                                    <span>📊 Xem lịch sử tiến trình</span>
-                                </button>
+                            <div class="flex items-center gap-2 shrink-0">
+                                <div id="bai-tap-semester-tabs" class="flex items-center gap-2"></div>
+                                <button onclick="openHistoryModal('LichSuTienTrinhTuan')" class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold rounded-xl border border-indigo-200 text-xs pastel-btn flex items-center space-x-1.5 shadow-sm"><i class="fa-solid fa-chart-line text-indigo-600"></i><span>📊 Exercise History<br><span class="text-[9px] opacity-70">Lịch sử Bài tập</span></span></button>
                             </div>
                         </div>
-
-                        <div id="roadmap-svg-container" class="w-full max-w-2xl mx-auto flex justify-center items-center overflow-hidden bg-gradient-to-b from-pink-50/30 to-purple-50/30 rounded-2xl border-2 border-pink-100 p-1" style="aspect-ratio: 16 / 9;"></div>
+                        <div id="roadmap-svg-container" class="w-full bg-gradient-to-br from-pink-50/70 via-white to-purple-50/70 rounded-3xl border-2 border-pink-200 p-3 shadow-sm"></div>
                     </div>
                 </div>
 
@@ -492,7 +568,7 @@
                     <div class="w-full max-w-5xl">
                         <div class="flex items-center justify-between w-full px-2 mb-3 gap-2">
                             <h2 class="text-base md:text-lg font-extrabold text-teal-600 flex items-center space-x-2">
-                                <span>🎮</span><span>Trung tâm Mini Game</span>
+                                <span>🎮</span><span class="bi-label bi-left"><span class="en">Mini Games</span><span class="vi">Trò chơi</span></span>
                             </h2>
                             <span class="text-[11px] md:text-xs font-bold text-gray-500">Học mà chơi - chơi mà nhớ</span>
                         </div>
@@ -518,9 +594,9 @@
                     <div class="w-full max-w-5xl">
                         <div class="text-center mb-5">
                             <h2 class="font-extrabold text-amber-600 text-lg md:text-xl flex items-center justify-center space-x-2">
-                                <span>🏆</span><span>Đấu trường đề thi thử</span>
+                                <span>🏆</span><span class="bi-label"><span class="en">Test Arena</span><span class="vi">Đấu trường đề thi thử</span></span>
                             </h2>
-                            <p class="text-xs md:text-sm text-gray-500 font-bold mt-1">Thử sức các bộ đề thi chuẩn ma trận 13 câu - 6 nhóm năng lực</p>
+                            <p class="text-xs md:text-sm text-gray-500 font-bold mt-1">Try 13-question tests across 6 skills<br><span class="text-[10px] text-slate-400">Luyện đề 13 câu theo 6 nhóm năng lực</span></p>
                         </div>
                         <div id="exam-categories-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
                     </div>
@@ -739,7 +815,7 @@
     </footer>
 
     <!-- NẠP ENGINE JAVASCRIPT ĐỒNG BỘ -->
-    <script src="assets/js/app.js?v=6.7"></script>
+    <script src="assets/js/app.js?v=6.9"></script>
 
     <!-- ĐĂNG KÝ SERVICE WORKER (PWA) — cho phép cài app lên màn hình chính điện thoại & chạy khi mạng yếu.
          Cấu hình NETWORK-FIRST: luôn tự lấy bản mới nhất từ server mỗi lần mở (hợp lúc đang update thường xuyên).
