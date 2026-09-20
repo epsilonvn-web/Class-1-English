@@ -2095,7 +2095,7 @@ function updateUserInfoBox() {
                 <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý</span>
             </button>` : '';
         const roleLine = isAdminUser()
-            ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN | Quản trị viên</div>`
+            ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN</div>`
             : (() => {
                 const type = normalizeAccountTypeClient(currentUser.loaiTaiKhoan);
                 const premiumLabel = getAccountTypeLabel(type);
@@ -4174,9 +4174,28 @@ function getWordSearchVocabPool(topicId = 'all') {
 let currentMainTab = 'discover';
 let activeBaiHocContext = { semester: 1, bai: null, lessonId: null, pageNo: 1 };
 
+// ============================================================
+// TA1 APP SHELL 2026: banner chinh o root tab, banner phu + breadcrumb khi vao noi dung.
+// Chi dieu khien presentation, khong thay doi nghiep vu/du lieu.
+// ============================================================
+let appShellRootMode_ = true;
+function setAppShellRootMode_(isRoot) {
+    appShellRootMode_ = !!isRoot;
+    const mainBanner = document.getElementById('app-main-banner');
+    const contextBanner = document.getElementById('app-context-banner');
+    if (mainBanner) mainBanner.classList.toggle('hidden', !appShellRootMode_);
+    if (contextBanner) contextBanner.classList.toggle('hidden', appShellRootMode_);
+}
+
 function switchAppView(viewId) {
     stopSpeaking();
     if (!['view-bai-hoc-hub','view-bai-hoc-lesson'].includes(viewId)) inLessonFlow=false;
+
+    // Root cua 6 tab: hien banner chinh. Cac man noi dung sau khi di vao nhanh: banner phu.
+    const rootViews = new Set(['view-dashboard-grid','view-bai-hoc-hub','view-roadmap','view-minigame-hub','view-exam-hub']);
+    const reviewRoot = viewId === 'view-lecture' && currentMainTab === 'review' && !activeExamContext && !activeRoadmapContext;
+    setAppShellRootMode_(rootViews.has(viewId) || reviewRoot);
+
     ['view-dashboard-grid','view-bai-hoc-hub','view-bai-hoc-lesson','view-alphabet','view-lecture','view-quiz','view-roadmap','view-minigame-hub','view-game-play','view-exam-hub','view-result'].forEach(id => {
         const el=document.getElementById(id); if(!el)return;
         if(id===viewId) el.classList.remove('hidden'); else el.classList.add('hidden');
@@ -4211,6 +4230,7 @@ function openMainTab(tabName){
     }
 }
 function goHome(){
+    setAppShellRootMode_(true);
     stopSpeaking(); clearInterval(quizTimerInterval);
     inLessonFlow=false; inAlphaIpaFlow=false; inMiniGameFlow=false;
     activeExamContext=null; activeRoadmapContext=null; activeTopicId=null; pendingTopicQuiz=null;
