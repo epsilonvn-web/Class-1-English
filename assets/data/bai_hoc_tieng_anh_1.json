@@ -1,0 +1,3021 @@
+{
+  "schema_version": "TA1_BH_BT_V1",
+  "data_version": "2026-09-20",
+  "subject": "Tiếng Anh",
+  "grade": 1,
+  "curriculum": "Global Success",
+  "module_model": "Bài học ↔ Bài tập",
+  "competencies": [
+    "ENG_PHO",
+    "ENG_VOC",
+    "ENG_LIS",
+    "ENG_GRA",
+    "ENG_SYN",
+    "ENG_READ"
+  ],
+  "rules": {
+    "bai_hoc": "16 Bài học bám 16 Unit SGK. Bài học mở toàn bộ để xem và học lại.",
+    "bai_tap": "16 Bài tập bám 16 Unit Sách bài tập. Mỗi lượt dự kiến 20 câu từ pool liên quan Unit.",
+    "unlock": "Bài tập 1 mở sẵn. Đạt từ 80% để mở Bài tập kế tiếp.",
+    "assessment": "Giữ 6 năng lực ENG_PHO, ENG_VOC, ENG_LIS, ENG_GRA, ENG_SYN, ENG_READ."
+  },
+  "bai_hoc": [
+    {
+      "bai": 1,
+      "semester": 1,
+      "source_unit": 1,
+      "source_title": "In the school playground",
+      "source_title_vi": "Ở sân chơi của trường",
+      "theme": "In the school playground",
+      "lesson_id": "TA1_U01",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "B",
+            "sound": "/b/",
+            "words": [
+              "ball",
+              "bike",
+              "book"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "ball",
+              "meaning": "quả bóng",
+              "ipa": ""
+            },
+            {
+              "word": "bike",
+              "meaning": "xe đạp",
+              "ipa": ""
+            },
+            {
+              "word": "book",
+              "meaning": "quyển sách",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "Hi, I’m Bill. / Bye, Bill.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "B",
+                "M",
+                "C"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "bike",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "Hi, I’m Bill. / Bye, Bill.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "ball, bike, book"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Hi, I’m Bill. / Bye, Bill."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: B /b/",
+            "Words: ball, bike, book.",
+            "Sentence: Hi, I’m Bill. / Bye, Bill."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: B /b/",
+            "Từ vựng: ball, bike, book.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "Hi, I’m Bill. / Bye, Bill."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 2,
+      "semester": 1,
+      "source_unit": 2,
+      "source_title": "In the dining room",
+      "source_title_vi": "Trong phòng ăn",
+      "theme": "In the dining room",
+      "lesson_id": "TA1_U02",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "C",
+            "sound": "/k/",
+            "words": [
+              "cake",
+              "car",
+              "cat",
+              "cup"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "cake",
+              "meaning": "bánh ngọt",
+              "ipa": ""
+            },
+            {
+              "word": "car",
+              "meaning": "ô tô",
+              "ipa": ""
+            },
+            {
+              "word": "cat",
+              "meaning": "con mèo",
+              "ipa": ""
+            },
+            {
+              "word": "cup",
+              "meaning": "cái cốc",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "I have a car.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "C",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "car",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "I have a car.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "cake, car, cat, cup"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "I have a car."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: C /k/",
+            "Words: cake, car, cat, cup.",
+            "Sentence: I have a car."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: C /k/",
+            "Từ vựng: cake, car, cat, cup.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "I have a car."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 3,
+      "semester": 1,
+      "source_unit": 3,
+      "source_title": "At the street market",
+      "source_title_vi": "Ở chợ đường phố",
+      "theme": "At the street market",
+      "lesson_id": "TA1_U03",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "A",
+            "sound": "/æ/",
+            "words": [
+              "apple",
+              "bag",
+              "can",
+              "hat"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "apple",
+              "meaning": "quả táo",
+              "ipa": ""
+            },
+            {
+              "word": "bag",
+              "meaning": "cái túi",
+              "ipa": ""
+            },
+            {
+              "word": "can",
+              "meaning": "lon",
+              "ipa": ""
+            },
+            {
+              "word": "hat",
+              "meaning": "cái mũ",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "This is my bag.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "A",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "bag",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "This is my bag.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "apple, bag, can, hat"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "This is my bag."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: A /æ/",
+            "Words: apple, bag, can, hat.",
+            "Sentence: This is my bag."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: A /æ/",
+            "Từ vựng: apple, bag, can, hat.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "This is my bag."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 4,
+      "semester": 1,
+      "source_unit": 4,
+      "source_title": "In the bedroom",
+      "source_title_vi": "Trong phòng ngủ",
+      "theme": "In the bedroom",
+      "lesson_id": "TA1_U04",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "D",
+            "sound": "/d/",
+            "words": [
+              "desk",
+              "dog",
+              "door",
+              "duck"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "desk",
+              "meaning": "cái bàn",
+              "ipa": ""
+            },
+            {
+              "word": "dog",
+              "meaning": "con chó",
+              "ipa": ""
+            },
+            {
+              "word": "door",
+              "meaning": "cánh cửa",
+              "ipa": ""
+            },
+            {
+              "word": "duck",
+              "meaning": "con vịt",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "This is a dog.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "D",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "dog",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "This is a dog.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "desk, dog, door, duck"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "This is a dog."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: D /d/",
+            "Words: desk, dog, door, duck.",
+            "Sentence: This is a dog."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: D /d/",
+            "Từ vựng: desk, dog, door, duck.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "This is a dog."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 5,
+      "semester": 1,
+      "source_unit": 5,
+      "source_title": "At the fish and chip shop",
+      "source_title_vi": "Ở cửa hàng cá và khoai tây chiên",
+      "theme": "At the fish and chip shop",
+      "lesson_id": "TA1_U05",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "I",
+            "sound": "/ɪ/",
+            "words": [
+              "chicken",
+              "chips",
+              "fish",
+              "milk"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "chicken",
+              "meaning": "thịt gà",
+              "ipa": ""
+            },
+            {
+              "word": "chips",
+              "meaning": "khoai tây chiên",
+              "ipa": ""
+            },
+            {
+              "word": "fish",
+              "meaning": "cá",
+              "ipa": ""
+            },
+            {
+              "word": "milk",
+              "meaning": "sữa",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "I like milk.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "I",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "chips",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "I like milk.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "chicken, chips, fish, milk"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "I like milk."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: I /ɪ/",
+            "Words: chicken, chips, fish, milk.",
+            "Sentence: I like milk."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: I /ɪ/",
+            "Từ vựng: chicken, chips, fish, milk.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "I like milk."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 6,
+      "semester": 1,
+      "source_unit": 6,
+      "source_title": "In the classroom",
+      "source_title_vi": "Trong lớp học",
+      "theme": "In the classroom",
+      "lesson_id": "TA1_U06",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "E",
+            "sound": "/e/",
+            "words": [
+              "bell",
+              "pen",
+              "pencil",
+              "red"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "bell",
+              "meaning": "chuông",
+              "ipa": ""
+            },
+            {
+              "word": "pen",
+              "meaning": "bút mực",
+              "ipa": ""
+            },
+            {
+              "word": "pencil",
+              "meaning": "bút chì",
+              "ipa": ""
+            },
+            {
+              "word": "red",
+              "meaning": "màu đỏ",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "It’s a red pen.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "E",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "pen",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "It’s a red pen.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "bell, pen, pencil, red"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "It’s a red pen."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: E /e/",
+            "Words: bell, pen, pencil, red.",
+            "Sentence: It’s a red pen."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: E /e/",
+            "Từ vựng: bell, pen, pencil, red.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "It’s a red pen."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 7,
+      "semester": 1,
+      "source_unit": 7,
+      "source_title": "In the garden",
+      "source_title_vi": "Trong vườn",
+      "theme": "In the garden",
+      "lesson_id": "TA1_U07",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "G",
+            "sound": "/g/",
+            "words": [
+              "garden",
+              "gate",
+              "girl",
+              "goat"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "garden",
+              "meaning": "khu vườn",
+              "ipa": ""
+            },
+            {
+              "word": "gate",
+              "meaning": "cổng",
+              "ipa": ""
+            },
+            {
+              "word": "girl",
+              "meaning": "bé gái",
+              "ipa": ""
+            },
+            {
+              "word": "goat",
+              "meaning": "con dê",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "There’s a garden.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "G",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "gate",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "There’s a garden.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "garden, gate, girl, goat"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "There’s a garden."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: G /g/",
+            "Words: garden, gate, girl, goat.",
+            "Sentence: There’s a garden."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: G /g/",
+            "Từ vựng: garden, gate, girl, goat.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "There’s a garden."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 8,
+      "semester": 1,
+      "source_unit": 8,
+      "source_title": "In the park",
+      "source_title_vi": "Trong công viên",
+      "theme": "In the park",
+      "lesson_id": "TA1_U08",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "H",
+            "sound": "/h/",
+            "words": [
+              "hair",
+              "hand",
+              "head",
+              "horse"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "hair",
+              "meaning": "tóc",
+              "ipa": ""
+            },
+            {
+              "word": "hand",
+              "meaning": "bàn tay",
+              "ipa": ""
+            },
+            {
+              "word": "head",
+              "meaning": "đầu",
+              "ipa": ""
+            },
+            {
+              "word": "horse",
+              "meaning": "con ngựa",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "Touch your hair.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "H",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "hand",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "Touch your hair.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "hair, hand, head, horse"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Touch your hair."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: H /h/",
+            "Words: hair, hand, head, horse.",
+            "Sentence: Touch your hair."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: H /h/",
+            "Từ vựng: hair, hand, head, horse.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "Touch your hair."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 9,
+      "semester": 2,
+      "source_unit": 9,
+      "source_title": "In the shop",
+      "source_title_vi": "Trong cửa hàng",
+      "theme": "In the shop",
+      "lesson_id": "TA1_U09",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "O",
+            "sound": "/ɒ/",
+            "words": [
+              "clocks",
+              "locks",
+              "mops",
+              "pots"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "clocks",
+              "meaning": "những chiếc đồng hồ",
+              "ipa": ""
+            },
+            {
+              "word": "locks",
+              "meaning": "những cái khóa",
+              "ipa": ""
+            },
+            {
+              "word": "mops",
+              "meaning": "những cây lau nhà",
+              "ipa": ""
+            },
+            {
+              "word": "pots",
+              "meaning": "những cái nồi",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "How many clocks? — Two.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "O",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "locks",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "How many clocks? — Two.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "clocks, locks, mops, pots"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "How many clocks? — Two."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: O /ɒ/",
+            "Words: clocks, locks, mops, pots.",
+            "Sentence: How many clocks? — Two."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: O /ɒ/",
+            "Từ vựng: clocks, locks, mops, pots.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "How many clocks? — Two."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 10,
+      "semester": 2,
+      "source_unit": 10,
+      "source_title": "At the zoo",
+      "source_title_vi": "Ở sở thú",
+      "theme": "At the zoo",
+      "lesson_id": "TA1_U10",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "M",
+            "sound": "/m/",
+            "words": [
+              "mango",
+              "monkey",
+              "mother",
+              "mouse"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "mango",
+              "meaning": "quả xoài",
+              "ipa": ""
+            },
+            {
+              "word": "monkey",
+              "meaning": "con khỉ",
+              "ipa": ""
+            },
+            {
+              "word": "mother",
+              "meaning": "mẹ",
+              "ipa": ""
+            },
+            {
+              "word": "mouse",
+              "meaning": "con chuột",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "That’s a monkey.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "M",
+                "B",
+                "C"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "monkey",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "That’s a monkey.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "mango, monkey, mother, mouse"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "That’s a monkey."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: M /m/",
+            "Words: mango, monkey, mother, mouse.",
+            "Sentence: That’s a monkey."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: M /m/",
+            "Từ vựng: mango, monkey, mother, mouse.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "That’s a monkey."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 11,
+      "semester": 2,
+      "source_unit": 11,
+      "source_title": "At the bus stop",
+      "source_title_vi": "Ở trạm xe buýt",
+      "theme": "At the bus stop",
+      "lesson_id": "TA1_U11",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "U",
+            "sound": "/ʌ/",
+            "words": [
+              "bus",
+              "run",
+              "sun",
+              "truck"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "bus",
+              "meaning": "xe buýt",
+              "ipa": ""
+            },
+            {
+              "word": "run",
+              "meaning": "chạy",
+              "ipa": ""
+            },
+            {
+              "word": "sun",
+              "meaning": "mặt trời",
+              "ipa": ""
+            },
+            {
+              "word": "truck",
+              "meaning": "xe tải",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "She’s running. / He’s running.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "U",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "run",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "She’s running. / He’s running.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "bus, run, sun, truck"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "She’s running. / He’s running."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: U /ʌ/",
+            "Words: bus, run, sun, truck.",
+            "Sentence: She’s running. / He’s running."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: U /ʌ/",
+            "Từ vựng: bus, run, sun, truck.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "She’s running. / He’s running."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 12,
+      "semester": 2,
+      "source_unit": 12,
+      "source_title": "At the lake",
+      "source_title_vi": "Ở hồ",
+      "theme": "At the lake",
+      "lesson_id": "TA1_U12",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "L",
+            "sound": "/l/",
+            "words": [
+              "lake",
+              "leaf",
+              "lemons"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "lake",
+              "meaning": "hồ",
+              "ipa": ""
+            },
+            {
+              "word": "leaf",
+              "meaning": "chiếc lá",
+              "ipa": ""
+            },
+            {
+              "word": "lemons",
+              "meaning": "những quả chanh",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "Look at the lemons.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "L",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "leaf",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "Look at the lemons.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "lake, leaf, lemons"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Look at the lemons."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: L /l/",
+            "Words: lake, leaf, lemons.",
+            "Sentence: Look at the lemons."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: L /l/",
+            "Từ vựng: lake, leaf, lemons.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "Look at the lemons."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 13,
+      "semester": 2,
+      "source_unit": 13,
+      "source_title": "In the school canteen",
+      "source_title_vi": "Trong căng tin trường",
+      "theme": "In the school canteen",
+      "lesson_id": "TA1_U13",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "N",
+            "sound": "/n/",
+            "words": [
+              "bananas",
+              "noodles",
+              "nuts"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "bananas",
+              "meaning": "những quả chuối",
+              "ipa": ""
+            },
+            {
+              "word": "noodles",
+              "meaning": "mì",
+              "ipa": ""
+            },
+            {
+              "word": "nuts",
+              "meaning": "các loại hạt",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "She’s having noodles.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "N",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "noodles",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "She’s having noodles.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "bananas, noodles, nuts"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "She’s having noodles."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: N /n/",
+            "Words: bananas, noodles, nuts.",
+            "Sentence: She’s having noodles."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: N /n/",
+            "Từ vựng: bananas, noodles, nuts.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "She’s having noodles."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 14,
+      "semester": 2,
+      "source_unit": 14,
+      "source_title": "In the toy shop",
+      "source_title_vi": "Trong cửa hàng đồ chơi",
+      "theme": "In the toy shop",
+      "lesson_id": "TA1_U14",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "T",
+            "sound": "/t/",
+            "words": [
+              "teddy bear",
+              "tiger",
+              "top",
+              "turtle"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "teddy bear",
+              "meaning": "gấu bông",
+              "ipa": ""
+            },
+            {
+              "word": "tiger",
+              "meaning": "con hổ",
+              "ipa": ""
+            },
+            {
+              "word": "top",
+              "meaning": "con quay",
+              "ipa": ""
+            },
+            {
+              "word": "turtle",
+              "meaning": "con rùa",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "I can see a tiger.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "T",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "tiger",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "I can see a tiger.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "teddy bear, tiger, top, turtle"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "I can see a tiger."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: T /t/",
+            "Words: teddy bear, tiger, top, turtle.",
+            "Sentence: I can see a tiger."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: T /t/",
+            "Từ vựng: teddy bear, tiger, top, turtle.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "I can see a tiger."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 15,
+      "semester": 2,
+      "source_unit": 15,
+      "source_title": "At the football match",
+      "source_title_vi": "Ở trận bóng đá",
+      "theme": "At the football match",
+      "lesson_id": "TA1_U15",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "F",
+            "sound": "/f/",
+            "words": [
+              "face",
+              "father",
+              "foot",
+              "football"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "face",
+              "meaning": "khuôn mặt",
+              "ipa": ""
+            },
+            {
+              "word": "father",
+              "meaning": "bố",
+              "ipa": ""
+            },
+            {
+              "word": "foot",
+              "meaning": "bàn chân",
+              "ipa": ""
+            },
+            {
+              "word": "football",
+              "meaning": "bóng đá",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "Point to your hand.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "F",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "father",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "Point to your hand.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "face, father, foot, football"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Point to your hand."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: F /f/",
+            "Words: face, father, foot, football.",
+            "Sentence: Point to your hand."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: F /f/",
+            "Từ vựng: face, father, foot, football.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "Point to your hand."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    },
+    {
+      "bai": 16,
+      "semester": 2,
+      "source_unit": 16,
+      "source_title": "At home",
+      "source_title_vi": "Ở nhà",
+      "theme": "At home",
+      "lesson_id": "TA1_U16",
+      "estimated_minutes": 15,
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ],
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "title_vi": "Bài học",
+          "intro": "Look, listen and say.",
+          "intro_vi": "Nhìn, nghe và nói theo.",
+          "image": "",
+          "phonics": {
+            "letter": "W",
+            "sound": "/w/",
+            "words": [
+              "wash",
+              "water",
+              "window"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "wash",
+              "meaning": "rửa",
+              "ipa": ""
+            },
+            {
+              "word": "water",
+              "meaning": "nước",
+              "ipa": ""
+            },
+            {
+              "word": "window",
+              "meaning": "cửa sổ",
+              "ipa": ""
+            }
+          ],
+          "sentence_pattern": "How many windows can you see? — I can see six.",
+          "mini_dialogue": [],
+          "mini_dialogue_vi": [],
+          "learning_goal": "Listen, notice and say the key sound, words and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm."
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "title_vi": "Luyện tập",
+          "recall": "Look and answer.",
+          "recall_vi": "Nhìn và trả lời.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which letter/sound is in this Unit?",
+              "prompt_vi": "Chữ/âm trọng tâm của Unit này là gì?",
+              "options": [
+                "W",
+                "M",
+                "B"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word belongs to this Unit?",
+              "prompt_vi": "Từ nào thuộc Unit này?",
+              "options": [
+                "water",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the sentence pattern from this Unit.",
+              "prompt_vi": "Chọn mẫu câu của Unit này.",
+              "options": [
+                "How many windows can you see? — I can see six.",
+                "How are you? — I’m fine.",
+                "This is my school bag."
+              ],
+              "answer": 0
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the key words.",
+              "prompt_vi": "Đọc các từ trọng tâm.",
+              "speak_text": "wash, water, window"
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence pattern.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "How many windows can you see? — I can see six."
+            }
+          ]
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "title_vi": "Tổng kết",
+          "key_points": [
+            "Sound: W /w/",
+            "Words: wash, water, window.",
+            "Sentence: How many windows can you see? — I can see six."
+          ],
+          "key_points_vi": [
+            "Chữ/âm trọng tâm: W /w/",
+            "Từ vựng: wash, water, window.",
+            "Mẫu câu: nghe và nói lại câu tiếng Anh phía trên."
+          ],
+          "practice_lines": [
+            "How many windows can you see? — I can see six."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "finish_prompt_vi": "Nói một từ và mẫu câu."
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_structure_v1",
+      "copyright_note": "Cấu trúc và trọng tâm bám Tiếng Anh 1 Global Success; phần hiển thị trong app được biên soạn theo dạng tương tác."
+    }
+  ],
+  "bai_tap": [
+    {
+      "bai": 1,
+      "semester": 1,
+      "exercise_id": "TA1_BT01",
+      "title": "In the school playground",
+      "title_vi": "Ở sân chơi của trường",
+      "lesson_id": "TA1_U01",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "ball",
+        "bike",
+        "book",
+        "bill",
+        "hi, i'm",
+        "bye"
+      ],
+      "extended_keywords": [
+        "school playground",
+        "playground",
+        "hello",
+        "greet",
+        "goodbye"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 2,
+      "semester": 1,
+      "exercise_id": "TA1_BT02",
+      "title": "In the dining room",
+      "title_vi": "Trong phòng ăn",
+      "lesson_id": "TA1_U02",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "cake",
+        "car",
+        "cat",
+        "cup",
+        "i have a"
+      ],
+      "extended_keywords": [
+        "dining room",
+        "have",
+        "possession",
+        "breakfast"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 3,
+      "semester": 1,
+      "exercise_id": "TA1_BT03",
+      "title": "At the street market",
+      "title_vi": "Ở chợ đường phố",
+      "lesson_id": "TA1_U03",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "apple",
+        "bag",
+        "can",
+        "hat",
+        "this is my"
+      ],
+      "extended_keywords": [
+        "street market",
+        "market",
+        "my bag",
+        "this is"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 4,
+      "semester": 1,
+      "exercise_id": "TA1_BT04",
+      "title": "In the bedroom",
+      "title_vi": "Trong phòng ngủ",
+      "lesson_id": "TA1_U04",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "desk",
+        "dog",
+        "door",
+        "duck",
+        "this is a"
+      ],
+      "extended_keywords": [
+        "bedroom",
+        "near the door",
+        "near the window"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 5,
+      "semester": 1,
+      "exercise_id": "TA1_BT05",
+      "title": "At the fish and chip shop",
+      "title_vi": "Ở cửa hàng cá và khoai tây chiên",
+      "lesson_id": "TA1_U05",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "chicken",
+        "chips",
+        "fish",
+        "milk",
+        "i like"
+      ],
+      "extended_keywords": [
+        "food",
+        "drink",
+        "fish and chips",
+        "like"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 6,
+      "semester": 1,
+      "exercise_id": "TA1_BT06",
+      "title": "In the classroom",
+      "title_vi": "Trong lớp học",
+      "lesson_id": "TA1_U06",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "bell",
+        "pen",
+        "pencil",
+        "red",
+        "it's a red"
+      ],
+      "extended_keywords": [
+        "classroom",
+        "school",
+        "red pen",
+        "desk"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 7,
+      "semester": 1,
+      "exercise_id": "TA1_BT07",
+      "title": "In the garden",
+      "title_vi": "Trong vườn",
+      "lesson_id": "TA1_U07",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "garden",
+        "gate",
+        "girl",
+        "goat",
+        "there's a"
+      ],
+      "extended_keywords": [
+        "there is",
+        "in the garden",
+        "flower",
+        "yard"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 8,
+      "semester": 1,
+      "exercise_id": "TA1_BT08",
+      "title": "In the park",
+      "title_vi": "Trong công viên",
+      "lesson_id": "TA1_U08",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "hair",
+        "hand",
+        "head",
+        "horse",
+        "touch your"
+      ],
+      "extended_keywords": [
+        "park",
+        "body",
+        "touch",
+        "point to"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 9,
+      "semester": 2,
+      "exercise_id": "TA1_BT09",
+      "title": "In the shop",
+      "title_vi": "Trong cửa hàng",
+      "lesson_id": "TA1_U09",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "clock",
+        "clocks",
+        "lock",
+        "locks",
+        "mop",
+        "mops",
+        "pot",
+        "pots",
+        "how many"
+      ],
+      "extended_keywords": [
+        "shop",
+        "count",
+        "two",
+        "number"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 10,
+      "semester": 2,
+      "exercise_id": "TA1_BT10",
+      "title": "At the zoo",
+      "title_vi": "Ở sở thú",
+      "lesson_id": "TA1_U10",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "mango",
+        "monkey",
+        "mother",
+        "mouse",
+        "that's a"
+      ],
+      "extended_keywords": [
+        "zoo",
+        "animal",
+        "that is",
+        "this is"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 11,
+      "semester": 2,
+      "exercise_id": "TA1_BT11",
+      "title": "At the bus stop",
+      "title_vi": "Ở trạm xe buýt",
+      "lesson_id": "TA1_U11",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "bus",
+        "run",
+        "running",
+        "sun",
+        "truck",
+        "she's running",
+        "he's running"
+      ],
+      "extended_keywords": [
+        "bus stop",
+        "action",
+        "vehicle",
+        "running"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 12,
+      "semester": 2,
+      "exercise_id": "TA1_BT12",
+      "title": "At the lake",
+      "title_vi": "Ở hồ",
+      "lesson_id": "TA1_U12",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "lake",
+        "leaf",
+        "lemon",
+        "lemons",
+        "look at"
+      ],
+      "extended_keywords": [
+        "nature",
+        "water",
+        "tree",
+        "yellow"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 13,
+      "semester": 2,
+      "exercise_id": "TA1_BT13",
+      "title": "In the school canteen",
+      "title_vi": "Trong căng tin trường",
+      "lesson_id": "TA1_U13",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "banana",
+        "bananas",
+        "noodle",
+        "noodles",
+        "nut",
+        "nuts",
+        "she's having"
+      ],
+      "extended_keywords": [
+        "school canteen",
+        "canteen",
+        "food",
+        "having"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 14,
+      "semester": 2,
+      "exercise_id": "TA1_BT14",
+      "title": "In the toy shop",
+      "title_vi": "Trong cửa hàng đồ chơi",
+      "lesson_id": "TA1_U14",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "teddy bear",
+        "tiger",
+        "top",
+        "turtle",
+        "i can see"
+      ],
+      "extended_keywords": [
+        "toy shop",
+        "toy",
+        "animal",
+        "can see"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 15,
+      "semester": 2,
+      "exercise_id": "TA1_BT15",
+      "title": "At the football match",
+      "title_vi": "Ở trận bóng đá",
+      "lesson_id": "TA1_U15",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "face",
+        "father",
+        "foot",
+        "football",
+        "point to your"
+      ],
+      "extended_keywords": [
+        "football match",
+        "body",
+        "hand",
+        "point to"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    },
+    {
+      "bai": 16,
+      "semester": 2,
+      "exercise_id": "TA1_BT16",
+      "title": "At home",
+      "title_vi": "Ở nhà",
+      "lesson_id": "TA1_U16",
+      "draw_count": 20,
+      "candidate_pool_target": 30,
+      "unlock_percent": 80,
+      "keywords": [
+        "wash",
+        "water",
+        "window",
+        "windows",
+        "how many windows",
+        "i can see six"
+      ],
+      "extended_keywords": [
+        "at home",
+        "home",
+        "see",
+        "six",
+        "clean"
+      ],
+      "skill_tags": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_GRA",
+        "ENG_SYN",
+        "ENG_READ"
+      ],
+      "selection_rule": "Ưu tiên câu có từ khóa/mẫu câu đúng Unit; mở rộng bằng từ khóa liên quan khi pool chưa đủ; không lấy ngẫu nhiên toàn kho.",
+      "instruction": "Answer 20 short questions.",
+      "instruction_vi": "Trả lời 20 câu hỏi ngắn."
+    }
+  ]
+}
