@@ -1541,11 +1541,35 @@ function hideAuthError() {
     if (el) el.classList.add('hidden'); 
 }
 
-async function callAppsScript(action, payload) {
+const TA1_SESSION_TOKEN_KEY = 'ta1_session_token';
+
+function getStoredSessionToken() {
+    return String(currentUser?.token || localStorage.getItem(TA1_SESSION_TOKEN_KEY) || '').trim();
+}
+
+function saveSessionToken(token) {
+    const value = String(token || '').trim();
+    if (value) localStorage.setItem(TA1_SESSION_TOKEN_KEY, value);
+    else localStorage.removeItem(TA1_SESSION_TOKEN_KEY);
+}
+
+function clearLegacyStoredCredentials() {
+    // Dọn dữ liệu đăng nhập kiểu cũ. Từ phiên bản này client chỉ lưu session token, không lưu PIN.
+    localStorage.removeItem('tv1_mahs');
+    localStorage.removeItem('tv1_mapin');
+}
+
+async function callAppsScript(action, payload = {}) {
+    const requestPayload = { ...(payload || {}) };
+    const token = getStoredSessionToken();
+    // Backend mới tự xác thực mọi API riêng tư bằng session token.
+    // Gắn token tập trung tại đây để Admin / lịch sử / lưu kết quả không thể bị sót từng action.
+    if (token && !requestPayload.token) requestPayload.token = token;
+
     const res = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ action, payload })
+        body: JSON.stringify({ action, payload: requestPayload })
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const rawText = await res.text();
@@ -1736,16 +1760,75 @@ function returnToGuestHome() {
     goHome();
 }
 
-function getAdminCredentials() {
-    return {
-        adminMaHS: currentUser?.maHS || localStorage.getItem('tv1_mahs') || '',
-        adminPin: localStorage.getItem('tv1_mapin') || ''
-    };
-}
-
 async function callAdminAction(action, extraPayload = {}) {
     if (!isAdminUser()) throw new Error('Tài khoản hiện tại không có quyền Admin.');
-    return callAppsScript(action, { ...getAdminCredentials(), ...extraPayload });
+    const token = getStoredSessionToken();
+    if (!token) throw new Error('Phiên đăng nhập Admin không hợp lệ. Vui lòng đăng nhập lại.');
+    return callAppsScript(action, { token, ...extraPayload });
+}
+
+// ===== THÔNG BÁO TÀI KHOẢN ĐĂNG KÝ MỚI CHO ADMIN =====
+// Backend giữ mốc "đã xem" riêng cho Admin. Client chỉ hiển thị badge và định kỳ hỏi số lượng mới.
+let adminNewRegistrationCount = 0;
+let adminRegistrationPollTimer = null;
+
+function renderAdminNewRegistrationBadge() {
+    const badge = document.getElementById('admin-new-registration-badge');
+    if (!badge) return;
+    const count = Math.max(0, Number(adminNewRegistrationCount) || 0);
+    if (count <= 0) {
+        badge.textContent = '';
+        badge.classList.add('hidden');
+        return;
+    }
+    badge.textContent = count > 99 ? '99+' : String(count);
+    badge.classList.remove('hidden');
+}
+
+async function refreshAdminNewRegistrationCount() {
+    if (!isAdminUser()) {
+        adminNewRegistrationCount = 0;
+        renderAdminNewRegistrationBadge();
+        return;
+    }
+    try {
+        const result = await callAdminAction('getNewRegistrationCount', {
+            adminMaHS: currentUser?.maHS || ''
+        });
+        if (!result?.ok) return;
+        adminNewRegistrationCount = Math.max(0, Number(result.count) || 0);
+        renderAdminNewRegistrationBadge();
+    } catch (e) {
+        // Lỗi mạng tạm thời không làm ảnh hưởng phiên đăng nhập hay UI chính.
+    }
+}
+
+async function markAdminRegistrationsSeen() {
+    if (!isAdminUser()) return;
+    try {
+        const result = await callAdminAction('markRegistrationsSeen', {
+            adminMaHS: currentUser?.maHS || ''
+        });
+        if (!result?.ok) return;
+        adminNewRegistrationCount = 0;
+        renderAdminNewRegistrationBadge();
+    } catch (e) {
+        // Nếu đánh dấu thất bại thì giữ badge hiện tại để Admin không bỏ lỡ thông báo.
+    }
+}
+
+function startAdminRegistrationPolling() {
+    if (adminRegistrationPollTimer) {
+        clearInterval(adminRegistrationPollTimer);
+        adminRegistrationPollTimer = null;
+    }
+    if (!isAdminUser()) {
+        adminNewRegistrationCount = 0;
+        renderAdminNewRegistrationBadge();
+        return;
+    }
+    refreshAdminNewRegistrationCount();
+    adminRegistrationPollTimer = setInterval(refreshAdminNewRegistrationCount, 60000);
 }
 
 function formatAdminDate(value) {
@@ -1847,7 +1930,8 @@ async function openAdminAccountsModal() {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     }
-    await loadAdminAccounts();
+    const loaded = await loadAdminAccounts();
+    if (loaded) await markAdminRegistrationsSeen();
 }
 
 function closeAdminAccountsModal() {
@@ -1869,8 +1953,10 @@ async function loadAdminAccounts() {
         renderAdminAccountsTable();
         if (loading) loading.classList.add('hidden');
         if (wrap) wrap.classList.remove('hidden');
+        return true;
     } catch (err) {
         if (loading) loading.textContent = '❌ ' + err.message;
+        return false;
     }
 }
 
@@ -1955,9 +2041,12 @@ async function doLogin() {
             alert(errMsg);
             return;
         }
-        currentUser = { ...result.student, isGuest: false };
-        localStorage.setItem('tv1_mahs', maHS);
-        localStorage.setItem('tv1_mapin', maPin);
+        if (!result.token) {
+            throw new Error('Máy chủ chưa trả về session token. Hãy Deploy lại Apps Script phiên bản mới.');
+        }
+        saveSessionToken(result.token);
+        clearLegacyStoredCredentials();
+        currentUser = { ...result.student, token: result.token, isGuest: false };
         enterDashboard();
     } catch (err) {
         const connErr = 'Lỗi kết nối máy chủ: ' + err.message;
@@ -2017,37 +2106,82 @@ async function doRegister() {
 }
 
 async function tryAutoLogin() {
-    const maHS = localStorage.getItem('tv1_mahs');
-    const maPin = localStorage.getItem('tv1_mapin');
+    const token = String(localStorage.getItem(TA1_SESSION_TOKEN_KEY) || '').trim();
 
-    // Không có phiên đăng nhập đã lưu => vào thẳng trang chủ ở chế độ Guest.
-    // Mục 1-10 luôn mở; Sign in / Sign up hiển thị trên header.
-    if (!maHS || !maPin) {
+    // Chuyển đổi một lần từ phiên bản cũ: nếu máy còn lưu maHS + PIN thì dùng chúng
+    // đăng nhập đúng một lần để lấy token, sau đó xóa PIN khỏi client.
+    if (!token) {
+        const legacyMaHS = String(localStorage.getItem('tv1_mahs') || '').trim();
+        const legacyPin = String(localStorage.getItem('tv1_mapin') || '').trim();
+        if (legacyMaHS && legacyPin) {
+            showLoadingOverlay('Đang nâng cấp phiên đăng nhập...');
+            try {
+                const legacyRes = await callAppsScript('login', { maHS: legacyMaHS.toUpperCase(), maPin: legacyPin });
+                if (legacyRes.ok && legacyRes.token) {
+                    saveSessionToken(legacyRes.token);
+                    clearLegacyStoredCredentials();
+                    currentUser = { ...legacyRes.student, token: legacyRes.token, isGuest: false };
+                    enterDashboard(true);
+                    return;
+                }
+                clearLegacyStoredCredentials();
+                handleGuestMode(true);
+                return;
+            } catch (e) {
+                // Lỗi mạng tạm thời: không xóa phiên cũ để lần sau còn có thể migrate.
+                showAuthError('Lỗi kết nối máy chủ. Phiên đăng nhập vẫn được giữ lại, bé thử mở lại sau nhé!');
+                return;
+            } finally {
+                hideLoadingOverlay();
+            }
+        }
+
+        // Không có bất kỳ phiên đăng nhập nào => vào Guest theo đúng thiết kế.
         handleGuestMode(true);
         return;
     }
 
-    showLoadingOverlay('Đang đăng nhập lại cho bé...');
+    showLoadingOverlay('Đang khôi phục phiên đăng nhập...');
     try {
-        const res = await callAppsScript('login', { maHS: maHS.toUpperCase(), maPin });
+        const res = await callAppsScript('restoreSession', { token });
         if (res.ok) {
-            currentUser = { ...res.student, isGuest: false };
+            currentUser = { ...res.student, token, isGuest: false };
             enterDashboard(true);
-        } else {
-            localStorage.removeItem('tv1_mahs');
-            localStorage.removeItem('tv1_mapin');
-            handleGuestMode(true);
+            return;
         }
+
+        // Chỉ xóa token khi backend xác nhận phiên thực sự không còn hợp lệ.
+        if (res.code === 'INVALID_SESSION') {
+            saveSessionToken('');
+            clearLegacyStoredCredentials();
+            handleGuestMode(true);
+            return;
+        }
+
+        showAuthError(res.error || 'Không thể khôi phục phiên đăng nhập.');
     } catch (e) {
-        handleGuestMode(true);
+        // Lỗi mạng tạm thời: giữ nguyên token và không hạ người dùng về Guest.
+        showAuthError('Lỗi kết nối máy chủ. Phiên đăng nhập vẫn được giữ lại, bé thử mở lại sau nhé!');
     } finally {
         hideLoadingOverlay();
     }
 }
 
-function logout() {
-    localStorage.removeItem('tv1_mahs');
-    localStorage.removeItem('tv1_mapin');
+async function logout() {
+    if (adminRegistrationPollTimer) {
+        clearInterval(adminRegistrationPollTimer);
+        adminRegistrationPollTimer = null;
+    }
+    adminNewRegistrationCount = 0;
+    const token = getStoredSessionToken();
+    try {
+        if (token) await callAppsScript('logout', { token });
+    } catch (e) {
+        // Người dùng đã chủ động logout: vẫn xóa token cục bộ kể cả khi mạng đang lỗi.
+    }
+    saveSessionToken('');
+    clearLegacyStoredCredentials();
+    currentUser = null;
     const mahsInput = document.getElementById('login-mahs');
     const mapinInput = document.getElementById('login-mapin');
     if (mahsInput) mahsInput.value = '';
@@ -2065,6 +2199,7 @@ function enterDashboard(isSilent = false) {
     document.getElementById('screen-login').classList.add('hidden');
     document.getElementById('screen-dashboard').classList.remove('hidden');
     updateUserInfoBox();
+    startAdminRegistrationPolling();
     resetStars();
     renderDashboardGrid();
     renderExamHubGrid();
@@ -2092,7 +2227,8 @@ function updateUserInfoBox() {
         const adminBtn = isAdminUser() ? `
             <button onclick="openAdminAccountsModal()" title="Quản lý tài khoản"
                 class="relative h-8 px-2.5 flex items-center gap-1.5 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-xl border border-purple-200 text-[10px] md:text-xs font-extrabold transition-shadow duration-200 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)]">
-                <i class="fa-solid fa-users-gear"></i><span class="hidden lg:inline">Quản lý</span>
+                <i class="fa-solid fa-users-gear"></i><span class="admin-manage-label hidden lg:inline">Quản lý</span>
+                <span id="admin-new-registration-badge" class="hidden absolute -top-2 -right-2 min-w-[18px] h-[18px] px-1 items-center justify-center rounded-full bg-rose-500 text-white text-[9px] leading-[14px] text-center font-black border-2 border-white shadow-md"></span>
             </button>` : '';
         const roleLine = isAdminUser()
             ? `<div class="text-purple-600 font-semibold text-[10px]">ADMIN</div>`
@@ -3222,6 +3358,7 @@ async function saveExamResultToSheet() {
 
     const payload = {
         maHS: currentUser.maHS,
+        token: getStoredSessionToken(),
         hoTen: currentUser.hoTen,
         lop: currentUser.lop,
         examCategory: categoryKey,
@@ -3257,6 +3394,7 @@ async function saveWeeklyProgressToSheet(percent, starCount, scoreVal) {
     const payload = {
         student_id: currentUser.maHS,
         maHS: currentUser.maHS,
+        token: getStoredSessionToken(),
         hoTen: currentUser.hoTen,
         lop: currentUser.lop,
         sheetName: 'LichSuTienTrinhTuan',
@@ -3313,7 +3451,7 @@ async function openHistoryModal(sheetName = 'LichSuTienTrinhTuan') {
 
     showLoadingOverlay('Đang trích xuất dữ liệu và vẽ biểu đồ năng lực...');
     try {
-        const res = await callAppsScript('getHistory', { maHS: currentUser.maHS, sheetName });
+        const res = await callAppsScript('getHistory', { maHS: currentUser.maHS, sheetName, token: getStoredSessionToken() });
         hideLoadingOverlay();
         const rows = (res && res.history) ? res.history : [];
         renderHistoryReport(rows, sheetName);
