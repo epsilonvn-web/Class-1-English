@@ -257,7 +257,7 @@
               "id": 6109,
               "sub": "6.1",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu đơn sau: 'I can see a aunt 👩.'. Bé có thể nhìn thấy cái gì?",
+              "q": "Đọc câu đơn sau: 'I can see an aunt 👩.'. Bé có thể nhìn thấy cái gì?",
               "o": [
                 "aunt",
                 "father",
@@ -284,7 +284,7 @@
               "id": 6110,
               "sub": "6.1",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu đơn sau: 'I can see a uncle 👨.'. Bé có thể nhìn thấy cái gì?",
+              "q": "Đọc câu đơn sau: 'I can see an uncle 👨.'. Bé có thể nhìn thấy cái gì?",
               "o": [
                 "uncle",
                 "horse",
@@ -376,13 +376,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 đọc cùng bé: Câu mô tả bé có thể nhìn thấy 'teacher 👩‍🏫' đó!",
               "img": "assets/images/co_giao_tho_hong.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "liːf",
                 "ˈtiːtʃə",
                 "ɡɜːl"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "liːf",
                 "ˈtiːtʃə",
                 "ɡɜːl"
@@ -824,7 +824,7 @@
               "id": 6130,
               "sub": "6.1",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu đơn sau: 'I can see a eraser 🧹.'. Bé có thể nhìn thấy cái gì?",
+              "q": "Đọc câu đơn sau: 'I can see an eraser 🧹.'. Bé có thể nhìn thấy cái gì?",
               "o": [
                 "brother",
                 "swim",
@@ -1094,7 +1094,7 @@
               "id": 6140,
               "sub": "6.1",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu đơn sau: 'I can see a clock ⏰ ⏰.'. Bé có thể nhìn thấy cái gì?",
+              "q": "Đọc câu đơn sau: 'I can see a clock ⏰.'. Bé có thể nhìn thấy cái gì?",
               "o": [
                 "mango",
                 "plane",
@@ -1107,13 +1107,13 @@
               "o_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "klɒk"
               ],
               "options_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "klɒk"
               ]
             },
@@ -1189,13 +1189,13 @@
                 "ˈrəʊbɒt",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ],
               "options_ipa": [
                 "ˈrəʊbɒt",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ]
             },
             {
@@ -1216,13 +1216,13 @@
                 "triː",
                 "blæk",
                 "ˈmæŋɡəʊ",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ],
               "options_ipa": [
                 "triː",
                 "blæk",
                 "ˈmæŋɡəʊ",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ]
             },
             {
@@ -1402,13 +1402,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 đọc cùng bé: Câu mô tả bé có thể nhìn thấy 'swing 🎠' đó!",
               "img": "",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "sʌn",
                 "ˈɒrɪndʒ",
                 "swɪŋ"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "sʌn",
                 "ˈɒrɪndʒ",
                 "swɪŋ"
@@ -1732,13 +1732,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a dad 👨'!",
               "img": "assets/images/happy_father.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "liːf",
                 "dæd",
                 "bɔɪ"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "liːf",
                 "dæd",
                 "bɔɪ"
@@ -1883,7 +1883,7 @@
               "id": 6209,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a aunt 👩. My sister likes the house 🏠.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an aunt 👩. My sister likes the house 🏠.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
               "o": [
                 "house",
                 "mango",
@@ -1891,7 +1891,7 @@
                 "three"
               ],
               "a": "aunt",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a aunt 👩'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see an aunt 👩'!",
               "img": "assets/images/little_sister.png",
               "o_ipa": [
                 "haʊs",
@@ -1910,7 +1910,7 @@
               "id": 6210,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a uncle 👨. My sister likes the bedroom 🛏️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an uncle 👨. My sister likes the bedroom 🛏️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
               "o": [
                 "seven",
                 "uncle",
@@ -1918,7 +1918,7 @@
                 "clock"
               ],
               "a": "uncle",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a uncle 👨'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see an uncle 👨'!",
               "img": "",
               "o_ipa": [
                 "ˈsevn",
@@ -2450,7 +2450,7 @@
               "id": 6230,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a eraser 🧹. My sister likes the water bottle 🍾.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an eraser 🧹. My sister likes the water bottle 🍾.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
               "o": [
                 "mango",
                 "plane",
@@ -2458,18 +2458,18 @@
                 "eraser"
               ],
               "a": "eraser",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a eraser 🧹'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see an eraser 🧹'!",
               "img": "assets/images/little_sister.png",
               "o_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɪˈreɪzə"
               ],
               "options_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɪˈreɪzə"
               ]
             },
@@ -2545,13 +2545,13 @@
                 "ˈpeɪpə",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ],
               "options_ipa": [
                 "ˈpeɪpə",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ]
             },
             {
@@ -2839,13 +2839,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a teddy bear 🧸'!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "hænd",
                 "",
                 "naɪn"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "hænd",
                 "",
                 "naɪn"
@@ -3320,7 +3320,7 @@
               "id": 6302,
               "sub": "6.3",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a mom 👩. Bill 👦 has a aunt 👩. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a mom 👩. Bill 👦 has an aunt 👩. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "pig",
                 "star",
@@ -3347,7 +3347,7 @@
               "id": 6303,
               "sub": "6.3",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a dad 👨. Bill 👦 has a uncle 👨. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a dad 👨. Bill 👦 has an uncle 👨. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "house",
                 "milk",
@@ -3509,7 +3509,7 @@
               "id": 6309,
               "sub": "6.3",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a aunt 👩. Bill 👦 has a living room 🛋️. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has an aunt 👩. Bill 👦 has a living room 🛋️. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "lollipop",
                 "car",
@@ -3517,7 +3517,7 @@
                 "aunt"
               ],
               "a": "aunt",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has a aunt 👩'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has an aunt 👩'!",
               "img": "",
               "o_ipa": [
                 "ˈlɒlɪpɒp",
@@ -3536,7 +3536,7 @@
               "id": 6310,
               "sub": "6.3",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a uncle 👨. Bill 👦 has a kitchen 🍳. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has an uncle 👨. Bill 👦 has a kitchen 🍳. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "brother",
                 "swim",
@@ -3544,7 +3544,7 @@
                 "kite"
               ],
               "a": "uncle",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has a uncle 👨'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has an uncle 👨'!",
               "img": "",
               "o_ipa": [
                 "ˈbrʌðə",
@@ -3819,13 +3819,13 @@
               "o_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɡeɪt"
               ],
               "options_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɡeɪt"
               ]
             },
@@ -3887,7 +3887,7 @@
               "id": 6323,
               "sub": "6.3",
               "topic": "Me, My Family & Home",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a cup 🥛. Bill 👦 has a eraser 🧹. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a cup 🥛. Bill 👦 has an eraser 🧹. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "cup",
                 "four",
@@ -3901,13 +3901,13 @@
                 "kʌp",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ],
               "options_ipa": [
                 "kʌp",
                 "fɔː",
                 "hænd",
-                "ˈtedi beə beə"
+                "ˈtedi beə"
               ]
             },
             {
@@ -4076,7 +4076,7 @@
               "id": 6330,
               "sub": "6.3",
               "topic": "My School & Playtime",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a eraser 🧹. Bill 👦 has a chair 🪑. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has an eraser 🧹. Bill 👦 has a chair 🪑. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "eraser",
                 "flower",
@@ -4084,7 +4084,7 @@
                 "brother"
               ],
               "a": "eraser",
-              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has a eraser 🧹'!",
+              "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has an eraser 🧹'!",
               "img": "",
               "o_ipa": [
                 "ɪˈreɪzə",
@@ -4465,13 +4465,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 cùng bé đọc kỹ: Đoạn văn nêu rõ 'Lucy 👧 has a teddy bear 🧸'!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "dɔː",
                 "ɡeɪt",
                 "pleɪn"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "dɔː",
                 "ɡeɪt",
                 "pleɪn"
@@ -4832,7 +4832,7 @@
               "id": 6358,
               "sub": "6.3",
               "topic": "The Animal Kingdom",
-              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a horse 🐴. Bill 👦 has a elephant 🐘. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
+              "q": "Đọc câu chuyện ngắn sau:\n\"We are at the park 🏞️. It is a sunny day ☀️. Lucy 👧 has a horse 🐴. Bill 👦 has an elephant 🐘. They are very happy 😀.\"\n\nHỏi: Bạn Lucy 👧 đang có món đồ/con vật nào?",
               "o": [
                 "lemon",
                 "horse",
@@ -6098,16 +6098,16 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 nhắc cấu trúc: 'This is my...' đứng đầu câu bé nhé!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "ðɪs ɪz maɪ ˈtedi beə beə",
-                "ðɪs maɪ ɪz ˈtedi beə beə",
-                "ɪz ðɪs maɪ ˈtedi beə beə",
-                "maɪ ˈtedi beə beə ɪz ðɪs"
+                "ðɪs ɪz maɪ ˈtedi beə",
+                "ðɪs maɪ ɪz ˈtedi beə",
+                "ɪz ðɪs maɪ ˈtedi beə",
+                "maɪ ˈtedi beə ɪz ðɪs"
               ],
               "options_ipa": [
-                "ðɪs ɪz maɪ ˈtedi beə beə",
-                "ðɪs maɪ ɪz ˈtedi beə beə",
-                "ɪz ðɪs maɪ ˈtedi beə beə",
-                "maɪ ˈtedi beə beə ɪz ðɪs"
+                "ðɪs ɪz maɪ ˈtedi beə",
+                "ðɪs maɪ ɪz ˈtedi beə",
+                "ɪz ðɪs maɪ ˈtedi beə",
+                "maɪ ˈtedi beə ɪz ðɪs"
               ]
             },
             {
@@ -6770,12 +6770,12 @@
               "topic": "Me, My Family & Home",
               "q": "Sắp xếp lại các khối từ để tạo thành câu hỏi đúng: Is / it / a / aunt 👩",
               "o": [
-                "Is a aunt it?",
-                "Is it a aunt ?",
-                "It is a aunt ?",
-                "A aunt it is?"
+                "Is an aunt it?",
+                "Is it an aunt ?",
+                "It is an aunt ?",
+                "an aunt it is?"
               ],
-              "a": "Is it a aunt ?",
+              "a": "Is it an aunt ?",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 gợi ý: Câu hỏi bắt đầu bằng 'Is it a...' đó con!",
               "img": "",
               "o_ipa": [
@@ -6797,12 +6797,12 @@
               "topic": "Me, My Family & Home",
               "q": "Sắp xếp lại các khối từ để tạo thành câu hỏi đúng: Is / it / a / uncle 👨",
               "o": [
-                "Is a uncle it?",
-                "It is a uncle ?",
-                "Is it a uncle ?",
-                "A uncle it is?"
+                "Is an uncle it?",
+                "It is an uncle ?",
+                "Is it an uncle ?",
+                "an uncle it is?"
               ],
-              "a": "Is it a uncle ?",
+              "a": "Is it an uncle ?",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 gợi ý: Câu hỏi bắt đầu bằng 'Is it a...' đó con!",
               "img": "",
               "o_ipa": [
@@ -7337,12 +7337,12 @@
               "topic": "My School & Playtime",
               "q": "Sắp xếp lại các khối từ để tạo thành câu hỏi đúng: Is / it / a / eraser 🧽",
               "o": [
-                "Is a eraser it?",
-                "Is it a eraser ?",
-                "It is a eraser ?",
-                "A eraser it is?"
+                "Is an eraser it?",
+                "Is it an eraser ?",
+                "It is an eraser ?",
+                "an eraser it is?"
               ],
-              "a": "Is it a eraser ?",
+              "a": "Is it an eraser ?",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 gợi ý: Câu hỏi bắt đầu bằng 'Is it a...' đó con!",
               "img": "",
               "o_ipa": [
@@ -7724,16 +7724,16 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 gợi ý: Câu hỏi bắt đầu bằng 'Is it a...' đó con!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "eɪ ˈtedi beə beə ɪz",
-                "ɪz eɪ ˈtedi beə beə",
-                "ɪz eɪ ˈtedi beə beə",
-                "ɪz eɪ ˈtedi beə beə"
+                "eɪ ˈtedi beə ɪz",
+                "ɪz eɪ ˈtedi beə",
+                "ɪz eɪ ˈtedi beə",
+                "ɪz eɪ ˈtedi beə"
               ],
               "options_ipa": [
-                "eɪ ˈtedi beə beə ɪz",
-                "ɪz eɪ ˈtedi beə beə",
-                "ɪz eɪ ˈtedi beə beə",
-                "ɪz eɪ ˈtedi beə beə"
+                "eɪ ˈtedi beə ɪz",
+                "ɪz eɪ ˈtedi beə",
+                "ɪz eɪ ˈtedi beə",
+                "ɪz eɪ ˈtedi beə"
               ]
             },
             {
@@ -10984,13 +10984,13 @@
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
                 "bred",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "sɪks",
                 "ˈnuːdlz"
               ],
               "options_ipa": [
                 "bred",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "sɪks",
                 "ˈnuːdlz"
               ]
@@ -12490,7 +12490,7 @@
               "id": 8240,
               "sub": "8.2",
               "topic": "My School & Playtime",
-              "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ clock ⏰ ⏰.'",
+              "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ clock ⏰.'",
               "o": [
                 "two",
                 "the",
@@ -14235,13 +14235,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 hỏi 'Đây là cái gì?', bé chọn đúng từ 'teddy bear 🧸' nhé!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ten",
                 "ˈnuːdlz",
                 "ˈrəʊbɒt"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ten",
                 "ˈnuːdlz",
                 "ˈrəʊbɒt"
@@ -14317,13 +14317,13 @@
               "img": "",
               "o_ipa": [
                 "baɪk",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɡəʊt",
                 "pɑːk"
               ],
               "options_ipa": [
                 "baɪk",
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɡəʊt",
                 "pɑːk"
               ]
@@ -17921,7 +17921,7 @@
               "id": 9300,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the mother 👩?' (Quyển/Con mẹ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the mother 👩?' (mẹ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "Yes, I do.",
                 "My name is mother.",
@@ -17948,7 +17948,7 @@
               "id": 9301,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the father 👨?' (Quyển/Con bố ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the father 👨?' (bố ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "It's in the box .",
                 "My name is father.",
@@ -17975,7 +17975,7 @@
               "id": 9302,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the mom 👩?' (Quyển/Con mẹ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the mom 👩?' (mẹ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "Yes, I do.",
                 "I like mom .",
@@ -18002,7 +18002,7 @@
               "id": 9303,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the dad 👨?' (Quyển/Con bố ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the dad 👨?' (bố ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "It's next to the door .",
@@ -18029,7 +18029,7 @@
               "id": 9304,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the brother 👦?' (Quyển/Con anh/em trai ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the brother 👦?' (anh/em trai ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "I like brother .",
                 "My name is brother.",
@@ -18056,7 +18056,7 @@
               "id": 9305,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the sister 👧?' (Quyển/Con chị/em gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the sister 👧?' (chị/em gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "My name is sister.",
                 "It's in the box .",
@@ -18083,7 +18083,7 @@
               "id": 9306,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the baby 👶?' (Quyển/Con em bé ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the baby 👶?' (em bé ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "My name is baby.",
                 "It's under the chair .",
@@ -18110,7 +18110,7 @@
               "id": 9307,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the grandmother 👵?' (Quyển/Con bà ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the grandmother 👵?' (bà ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "It's next to the door .",
@@ -18137,7 +18137,7 @@
               "id": 9308,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the grandfather 👴?' (Quyển/Con ông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the grandfather 👴?' (ông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "It's on the desk .",
                 "My name is grandfather.",
@@ -18164,7 +18164,7 @@
               "id": 9309,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the aunt 👩?' (Quyển/Con cô/dì/bác gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the aunt 👩?' (cô/dì/bác gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like aunt .",
                 "My name is aunt.",
@@ -18191,7 +18191,7 @@
               "id": 9310,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the uncle 👨?' (Quyển/Con chú/bác/cậu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the uncle 👨?' (chú/bác/cậu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "Yes, I do.",
                 "It's under the chair .",
@@ -18218,7 +18218,7 @@
               "id": 9311,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the girl 👧?' (Quyển/Con bé gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the girl 👧?' (bé gái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "It's next to the door .",
                 "I like girl .",
@@ -18245,7 +18245,7 @@
               "id": 9312,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the boy 👦?' (Quyển/Con bé trai ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the boy 👦?' (bé trai ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "I like boy .",
                 "My name is boy.",
@@ -18272,7 +18272,7 @@
               "id": 9313,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the teacher 👩‍🏫?' (Quyển/Con giáo viên ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the teacher 👩‍🏫?' (giáo viên ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "Yes, I do.",
                 "It's in the box .",
@@ -18299,7 +18299,7 @@
               "id": 9314,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the house 🏠?' (Quyển/Con ngôi nhà ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the house 🏠?' (ngôi nhà ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "Yes, I do.",
                 "My name is house.",
@@ -18326,7 +18326,7 @@
               "id": 9315,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bedroom 🛏️?' (Quyển/Con phòng ngủ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bedroom 🛏️?' (phòng ngủ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "My name is bedroom.",
                 "It's next to the door .",
@@ -18353,7 +18353,7 @@
               "id": 9316,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the living room 🛋️?' (Quyển/Con phòng khách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the living room 🛋️?' (phòng khách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "Yes, I do.",
                 "I like living room .",
@@ -18380,7 +18380,7 @@
               "id": 9317,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the kitchen 🍳?' (Quyển/Con phòng bếp ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the kitchen 🍳?' (phòng bếp ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "It's in the box .",
                 "Yes, I do.",
@@ -18407,7 +18407,7 @@
               "id": 9318,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bathroom 🛁?' (Quyển/Con phòng tắm ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bathroom 🛁?' (phòng tắm ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like bathroom .",
                 "Yes, I do.",
@@ -18434,7 +18434,7 @@
               "id": 9319,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the garden 🏡?' (Quyển/Con khu vườn ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the garden 🏡?' (khu vườn ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "It's next to the door .",
                 "I like garden .",
@@ -18461,7 +18461,7 @@
               "id": 9320,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the gate 🚪?' (Quyển/Con cổng ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the gate 🚪?' (cổng ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "My name is gate.",
                 "Yes, I do.",
@@ -18488,7 +18488,7 @@
               "id": 9321,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the door 🚪?' (Quyển/Con cửa ra vào ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the door 🚪?' (cửa ra vào ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "It's in the box .",
                 "My name is door.",
@@ -18515,7 +18515,7 @@
               "id": 9322,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the window 🪟?' (Quyển/Con cửa sổ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the window 🪟?' (cửa sổ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like window .",
                 "Yes, I do.",
@@ -18542,7 +18542,7 @@
               "id": 9323,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the cup 🥛?' (Quyển/Con cái cốc ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the cup 🥛?' (cái cốc ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "My name is cup.",
                 "I like cup .",
@@ -18569,7 +18569,7 @@
               "id": 9324,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the can 🥫?' (Quyển/Con cái lon ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the can 🥫?' (cái lon ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "Yes, I do.",
                 "It's on the desk .",
@@ -18596,7 +18596,7 @@
               "id": 9325,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pot 🍲?' (Quyển/Con cái nồi ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pot 🍲?' (cái nồi ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "It's in the box .",
                 "My name is pot.",
@@ -18623,7 +18623,7 @@
               "id": 9326,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the book 📖?' (Quyển/Con quyển sách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the book 📖?' (quyển sách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "My name is book.",
                 "I like book .",
@@ -18650,7 +18650,7 @@
               "id": 9327,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pen 🖊️?' (Quyển/Con bút mực ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pen 🖊️?' (bút mực ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "I like pen .",
                 "My name is pen.",
@@ -18677,7 +18677,7 @@
               "id": 9328,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pencil ✏️?' (Quyển/Con bút chì ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the pencil ✏️?' (bút chì ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "It's on the desk .",
                 "I like pencil .",
@@ -18704,7 +18704,7 @@
               "id": 9329,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the ruler 📏?' (Quyển/Con thước kẻ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the ruler 📏?' (thước kẻ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like ruler .",
                 "My name is ruler.",
@@ -18731,7 +18731,7 @@
               "id": 9330,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the eraser 🧹?' (Quyển/Con cục tẩy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the eraser 🧹?' (cục tẩy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like eraser .",
                 "It's under the chair .",
@@ -18758,7 +18758,7 @@
               "id": 9331,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the crayon 🖍️?' (Quyển/Con bút sáp màu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the crayon 🖍️?' (bút sáp màu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "My name is crayon.",
                 "I like crayon .",
@@ -18785,7 +18785,7 @@
               "id": 9332,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the notebook 📓?' (Quyển/Con vở viết ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the notebook 📓?' (vở viết ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "It's on the desk .",
                 "I like notebook .",
@@ -18812,7 +18812,7 @@
               "id": 9333,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the paper 📄?' (Quyển/Con tờ giấy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the paper 📄?' (tờ giấy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like paper .",
                 "Yes, I do.",
@@ -18839,7 +18839,7 @@
               "id": 9334,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the lunchbox 🍱?' (Quyển/Con hộp cơm trưa ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the lunchbox 🍱?' (hộp cơm trưa ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like lunchbox .",
                 "It's under the chair .",
@@ -18866,7 +18866,7 @@
               "id": 9335,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the water bottle 🍾?' (Quyển/Con bình nước ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the water bottle 🍾?' (bình nước ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "It's next to the door .",
                 "My name is water.",
@@ -18893,7 +18893,7 @@
               "id": 9336,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the desk 🪑?' (Quyển/Con bàn học ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the desk 🪑?' (bàn học ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "Yes, I do.",
                 "My name is desk.",
@@ -18920,7 +18920,7 @@
               "id": 9337,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the chair 🪑?' (Quyển/Con cái ghế ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the chair 🪑?' (cái ghế ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "My name is chair.",
                 "I like chair .",
@@ -18947,7 +18947,7 @@
               "id": 9338,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the school bag 🎒?' (Quyển/Con cặp sách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the school bag 🎒?' (cặp sách ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "My name is school.",
                 "Yes, I do.",
@@ -18974,7 +18974,7 @@
               "id": 9339,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bell 🔔?' (Quyển/Con cái chuông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bell 🔔?' (cái chuông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "I like bell .",
                 "It's next to the door .",
@@ -19001,7 +19001,7 @@
               "id": 9340,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the clock ⏰?' (Quyển/Con đồng hồ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the clock ⏰?' (đồng hồ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "I like clock .",
                 "It's on the desk .",
@@ -19028,7 +19028,7 @@
               "id": 9341,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the puppet 🧸?' (Quyển/Con con múa rối ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the puppet 🧸?' (con múa rối ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "Yes, I do.",
                 "I like puppet .",
@@ -19055,7 +19055,7 @@
               "id": 9342,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the doll 🪆?' (Quyển/Con búp bê ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the doll 🪆?' (búp bê ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "Yes, I do.",
                 "I like doll .",
@@ -19082,7 +19082,7 @@
               "id": 9343,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the robot 🤖?' (Quyển/Con người máy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the robot 🤖?' (người máy ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "It's next to the door .",
@@ -19109,7 +19109,7 @@
               "id": 9344,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the teddy bear 🧸?' (Quyển/Con gấu bông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the teddy bear 🧸?' (Con gấu bông ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "I like teddy bear .",
                 "It's on the desk .",
@@ -19120,13 +19120,13 @@
               "h": "Cô giáo Thỏ Hồng 🐰🌸 chỉ vị trí: Trả lời 'Where is...?' bằng 'It's on the desk 🪑.'!",
               "img": "assets/images/teddy_bear.png",
               "o_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɒn ðə desk",
                 "jes duː",
                 "maɪ ɪz ˈtedi beə"
               ],
               "options_ipa": [
-                "ˈtedi beə beə",
+                "ˈtedi beə",
                 "ɒn ðə desk",
                 "jes duː",
                 "maɪ ɪz ˈtedi beə"
@@ -19136,7 +19136,7 @@
               "id": 9345,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the ball ⚽?' (Quyển/Con quả bóng ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the ball ⚽?' (quả bóng ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like ball .",
                 "It's in the box .",
@@ -19163,7 +19163,7 @@
               "id": 9346,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the kite 🪁?' (Quyển/Con con diều ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the kite 🪁?' (con diều ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like kite .",
                 "It's under the chair .",
@@ -19190,7 +19190,7 @@
               "id": 9347,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bike 🚲?' (Quyển/Con xe đạp ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bike 🚲?' (xe đạp ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "I like bike .",
@@ -19217,7 +19217,7 @@
               "id": 9348,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the top 🪀?' (Quyển/Con con quay ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the top 🪀?' (con quay ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "My name is top.",
                 "Yes, I do.",
@@ -19244,7 +19244,7 @@
               "id": 9349,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the yo-yo 🪀?' (Quyển/Con con quay yo-yo ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the yo-yo 🪀?' (con quay yo-yo ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like yo-yo .",
                 "My name is yo-yo.",
@@ -19271,7 +19271,7 @@
               "id": 9350,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the slide 🛝?' (Quyển/Con cầu trượt ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the slide 🛝?' (cầu trượt ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "My name is slide.",
                 "It's under the chair .",
@@ -19298,7 +19298,7 @@
               "id": 9351,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the swing 🎠?' (Quyển/Con xích đu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the swing 🎠?' (xích đu ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "My name is swing.",
@@ -19325,7 +19325,7 @@
               "id": 9352,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the cat 🐱?' (Quyển/Con con mèo ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the cat 🐱?' (con mèo ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "My name is cat.",
                 "Yes, I do.",
@@ -19352,7 +19352,7 @@
               "id": 9353,
               "sub": "9.3",
               "topic": "The Animal Kingdom",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the dog 🐶?' (Quyển/Con con chó ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the dog 🐶?' (con chó ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "It's in the box .",
                 "I like dog .",
@@ -19379,7 +19379,7 @@
               "id": 9354,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the duck 🦆?' (Quyển/Con con vịt ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the duck 🦆?' (con vịt ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "My name is duck.",
                 "Yes, I do.",
@@ -19406,7 +19406,7 @@
               "id": 9355,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bird 🐦?' (Quyển/Con con chim ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the bird 🐦?' (con chim ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "Yes, I do.",
                 "I like bird .",
@@ -19433,7 +19433,7 @@
               "id": 9356,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the rabbit 🐰?' (Quyển/Con con thỏ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the rabbit 🐰?' (con thỏ ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (on the desk 🪑):",
               "o": [
                 "My name is rabbit.",
                 "I like rabbit .",
@@ -19460,7 +19460,7 @@
               "id": 9357,
               "sub": "9.3",
               "topic": "The Animal Kingdom",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the goat 🐐?' (Quyển/Con con dê ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the goat 🐐?' (con dê ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (in the box 📦):",
               "o": [
                 "I like goat .",
                 "My name is goat.",
@@ -19487,7 +19487,7 @@
               "id": 9358,
               "sub": "9.3",
               "topic": "My School & Playtime",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the horse 🐴?' (Quyển/Con con ngựa ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the horse 🐴?' (con ngựa ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (under the chair 🪑):",
               "o": [
                 "I like horse .",
                 "It's under the chair .",
@@ -19514,7 +19514,7 @@
               "id": 9359,
               "sub": "9.3",
               "topic": "Me, My Family & Home",
-              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the hen 🐔?' (Quyển/Con con gà mái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
+              "q": "Cô giáo Thỏ Hồng 🐰🌸 hỏi: 'Where is the hen 🐔?' (con gà mái ở đâu thế con?) - Bé chọn câu trả lời bám sát vị trí (next to the door 🚪):",
               "o": [
                 "My name is hen.",
                 "I like hen .",
@@ -19552,7 +19552,7 @@
           "qs": [
             {
               "id": 240060,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ mother 👩.'",
               "o": [
@@ -19579,7 +19579,7 @@
             },
             {
               "id": 240061,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ father 👨.'",
               "o": [
@@ -19606,7 +19606,7 @@
             },
             {
               "id": 240062,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ mom 👩.'",
               "o": [
@@ -19633,7 +19633,7 @@
             },
             {
               "id": 240063,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ dad 👨.'",
               "o": [
@@ -19660,7 +19660,7 @@
             },
             {
               "id": 240064,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ brother 👦.'",
               "o": [
@@ -19687,7 +19687,7 @@
             },
             {
               "id": 240065,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ sister 👧.'",
               "o": [
@@ -19714,7 +19714,7 @@
             },
             {
               "id": 240066,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ baby 👶.'",
               "o": [
@@ -19741,7 +19741,7 @@
             },
             {
               "id": 240067,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ grandmother 👵.'",
               "o": [
@@ -19768,7 +19768,7 @@
             },
             {
               "id": 240068,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ grandfather 👴.'",
               "o": [
@@ -19795,7 +19795,7 @@
             },
             {
               "id": 240069,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ aunt 👩.'",
               "o": [
@@ -19822,7 +19822,7 @@
             },
             {
               "id": 240070,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ uncle 👨.'",
               "o": [
@@ -19849,7 +19849,7 @@
             },
             {
               "id": 240071,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ girl 👧.'",
               "o": [
@@ -19876,7 +19876,7 @@
             },
             {
               "id": 240072,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ boy 👦.'",
               "o": [
@@ -19903,7 +19903,7 @@
             },
             {
               "id": 240073,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ teacher 👩‍🏫.'",
               "o": [
@@ -19930,7 +19930,7 @@
             },
             {
               "id": 240074,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ house 🏠.'",
               "o": [
@@ -19957,7 +19957,7 @@
             },
             {
               "id": 240075,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ bedroom 🛏️.'",
               "o": [
@@ -19984,7 +19984,7 @@
             },
             {
               "id": 240076,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ living room 🛋️.'",
               "o": [
@@ -20011,7 +20011,7 @@
             },
             {
               "id": 240077,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ kitchen 🍳.'",
               "o": [
@@ -20038,7 +20038,7 @@
             },
             {
               "id": 240078,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ bathroom 🛁.'",
               "o": [
@@ -20065,7 +20065,7 @@
             },
             {
               "id": 240079,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ garden 🏡.'",
               "o": [
@@ -20092,7 +20092,7 @@
             },
             {
               "id": 240080,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ gate 🚪.'",
               "o": [
@@ -20119,7 +20119,7 @@
             },
             {
               "id": 240081,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ door 🚪.'",
               "o": [
@@ -20146,7 +20146,7 @@
             },
             {
               "id": 240082,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ window 🪟.'",
               "o": [
@@ -20173,7 +20173,7 @@
             },
             {
               "id": 240083,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ cup 🥛.'",
               "o": [
@@ -20200,7 +20200,7 @@
             },
             {
               "id": 240084,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ can 🥫.'",
               "o": [
@@ -20227,7 +20227,7 @@
             },
             {
               "id": 240085,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "Me, My Family & Home",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ pot 🍲.'",
               "o": [
@@ -20254,7 +20254,7 @@
             },
             {
               "id": 240086,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ book 📖.'",
               "o": [
@@ -20281,7 +20281,7 @@
             },
             {
               "id": 240087,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ pen 🖊️.'",
               "o": [
@@ -20308,7 +20308,7 @@
             },
             {
               "id": 240088,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ pencil ✏️.'",
               "o": [
@@ -20335,7 +20335,7 @@
             },
             {
               "id": 240089,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ ruler 📏.'",
               "o": [
@@ -20362,7 +20362,7 @@
             },
             {
               "id": 240090,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ eraser 🧹.'",
               "o": [
@@ -20389,7 +20389,7 @@
             },
             {
               "id": 240091,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ crayon 🖍️.'",
               "o": [
@@ -20416,7 +20416,7 @@
             },
             {
               "id": 240092,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ notebook 📓.'",
               "o": [
@@ -20443,7 +20443,7 @@
             },
             {
               "id": 240093,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ paper 📄.'",
               "o": [
@@ -20470,7 +20470,7 @@
             },
             {
               "id": 240094,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ lunchbox 🍱.'",
               "o": [
@@ -20497,7 +20497,7 @@
             },
             {
               "id": 240095,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ water bottle 🍾.'",
               "o": [
@@ -20524,7 +20524,7 @@
             },
             {
               "id": 240096,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ desk 🪑.'",
               "o": [
@@ -20551,7 +20551,7 @@
             },
             {
               "id": 240097,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ chair 🪑.'",
               "o": [
@@ -20578,7 +20578,7 @@
             },
             {
               "id": 240098,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ school bag 🎒.'",
               "o": [
@@ -20605,7 +20605,7 @@
             },
             {
               "id": 240099,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ bell 🔔.'",
               "o": [
@@ -20632,9 +20632,9 @@
             },
             {
               "id": 240100,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
-              "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ clock ⏰ ⏰.'",
+              "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ clock ⏰.'",
               "o": [
                 "two",
                 "the",
@@ -20659,7 +20659,7 @@
             },
             {
               "id": 240101,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ puppet 🧸.'",
               "o": [
@@ -20686,7 +20686,7 @@
             },
             {
               "id": 240102,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ doll 🪆.'",
               "o": [
@@ -20713,7 +20713,7 @@
             },
             {
               "id": 240103,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ robot 🤖.'",
               "o": [
@@ -20740,7 +20740,7 @@
             },
             {
               "id": 240104,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ teddy bear 🧸.'",
               "o": [
@@ -20767,7 +20767,7 @@
             },
             {
               "id": 240105,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ ball ⚽.'",
               "o": [
@@ -20794,7 +20794,7 @@
             },
             {
               "id": 240106,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ kite 🪁.'",
               "o": [
@@ -20821,7 +20821,7 @@
             },
             {
               "id": 240107,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ bike 🚲.'",
               "o": [
@@ -20848,7 +20848,7 @@
             },
             {
               "id": 240108,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ top 🪀.'",
               "o": [
@@ -20875,7 +20875,7 @@
             },
             {
               "id": 240109,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ yo-yo 🪀.'",
               "o": [
@@ -20902,7 +20902,7 @@
             },
             {
               "id": 240110,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ slide 🛝.'",
               "o": [
@@ -20929,7 +20929,7 @@
             },
             {
               "id": 240111,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "My School & Playtime",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ swing 🎠.'",
               "o": [
@@ -20956,7 +20956,7 @@
             },
             {
               "id": 240112,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ cat 🐱.'",
               "o": [
@@ -20983,7 +20983,7 @@
             },
             {
               "id": 240113,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ dog 🐶.'",
               "o": [
@@ -21010,7 +21010,7 @@
             },
             {
               "id": 240114,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ duck 🦆.'",
               "o": [
@@ -21037,7 +21037,7 @@
             },
             {
               "id": 240115,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ bird 🐦.'",
               "o": [
@@ -21064,7 +21064,7 @@
             },
             {
               "id": 240116,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ rabbit 🐰.'",
               "o": [
@@ -21091,7 +21091,7 @@
             },
             {
               "id": 240117,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ goat 🐐.'",
               "o": [
@@ -21118,7 +21118,7 @@
             },
             {
               "id": 240118,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ horse 🐴.'",
               "o": [
@@ -21145,7 +21145,7 @@
             },
             {
               "id": 240119,
-              "sub": "8.2",
+              "sub": "10.1",
               "topic": "The Animal Kingdom",
               "q": "Chọn mạo từ ngữ pháp (a/an) đúng nhất điền vào ô trống: 'This is ___ hen 🐔.'",
               "o": [
@@ -22260,7 +22260,7 @@
               "id": 10240,
               "sub": "10.2",
               "topic": "My School & Playtime",
-              "q": "Quan sát vị trí của đồng hồ (trong hộp), bé chọn giới từ không gian đúng: 'The clock ⏰ ⏰ is ____ the table/box.'",
+              "q": "Quan sát vị trí của đồng hồ (trong hộp), bé chọn giới từ không gian đúng: 'The clock ⏰ is ____ the table/box.'",
               "o": [
                 "next to",
                 "under",
@@ -27684,7 +27684,7 @@
           ]
         },
         {
-          "id": 112,
+          "id": "11.2",
           "name": "Semester 2 Review (Ôn tập học kỳ II)",
           "qs": [
             {
@@ -27745,7 +27745,7 @@
               "id": 11202,
               "sub": "11.2",
               "topic": "Me, My Family & Home",
-              "q": "Ôn tập Học kỳ 2: Từ tiếng Anh nào có nghĩa là 'mẹ'? 👩",
+              "q": "Ôn tập Học kỳ 2: Từ tiếng Anh nào có nghĩa là 'mẹ' theo cách gọi thân mật? 👩",
               "o": [
                 "mom",
                 "bedroom",
@@ -27772,7 +27772,7 @@
               "id": 11203,
               "sub": "11.2",
               "topic": "Me, My Family & Home",
-              "q": "Ôn tập Học kỳ 2: Từ tiếng Anh nào có nghĩa là 'bố'? 👨",
+              "q": "Ôn tập Học kỳ 2: Từ tiếng Anh nào có nghĩa là 'bố' theo cách gọi thân mật? 👨",
               "o": [
                 "baby",
                 "house",
@@ -32840,7 +32840,7 @@
           "topic": "My School & Playtime",
           "q": "Chọn câu đúng theo mẫu vừa học: ☂️",
           "o": [
-            "I can see a umbrella.",
+            "I can see an umbrella.",
             "This is my umbrella.",
             "Are these my shoes?",
             "This is my hat."
@@ -34191,7 +34191,7 @@
           "topic": "Numbers, Shapes & Colors",
           "q": "Chọn câu đúng theo mẫu vừa học: 🟠",
           "o": [
-            "I can see a orange.",
+            "I can see an orange.",
             "This is my orange.",
             "He's wearing a blue t-shirt.",
             "She has a pink dress."
@@ -34415,7 +34415,7 @@
           "topic": "Numbers, Shapes & Colors",
           "q": "Chọn câu đúng theo mẫu vừa học: 🟠",
           "o": [
-            "I can see a orange.",
+            "I can see an orange.",
             "This is my orange.",
             "I have a red hat.",
             "He's wearing a blue t-shirt."
@@ -34639,7 +34639,7 @@
           "topic": "Numbers, Shapes & Colors",
           "q": "Chọn câu đúng theo mẫu vừa học: 🟠",
           "o": [
-            "I can see a orange.",
+            "I can see an orange.",
             "This is my orange.",
             "She has a pink dress.",
             "I have a red hat."
@@ -37789,7 +37789,7 @@
           "topic": "Yummy Food & Garden",
           "q": "Chọn câu đúng theo mẫu vừa học: 🍎",
           "o": [
-            "I can see a apple.",
+            "I can see an apple.",
             "This is my apple.",
             "Do you want some milk? Yes, please.",
             "I want an apple."
@@ -38183,7 +38183,7 @@
           "o": [
             "Yummy!",
             "Do you want some milk? Yes, please.",
-            "I can see a apple.",
+            "I can see an apple.",
             "This is my apple."
           ],
           "a": "Yummy!",
@@ -44371,7 +44371,7 @@
           "o": [
             "This is my book.",
             "Give me a pencil, please.",
-            "I can see a eraser.",
+            "I can see an eraser.",
             "This is my eraser."
           ],
           "a": "This is my book.",
@@ -44761,7 +44761,7 @@
           "topic": "My School & Playtime",
           "q": "Chọn câu đúng theo mẫu vừa học: 🧽",
           "o": [
-            "I can see a eraser.",
+            "I can see an eraser.",
             "This is my eraser.",
             "This is my book.",
             "Give me a pencil, please."

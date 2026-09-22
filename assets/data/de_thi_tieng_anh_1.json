@@ -4533,7 +4533,7 @@
           "options": [
             "p",
             "w",
-            "p",
+            "a",
             "t"
           ],
           "answer": "p",
@@ -4544,7 +4544,7 @@
           "options_ipa": [
             "piː",
             "ˈdʌbəl.juː",
-            "piː",
+            "eɪ",
             "tiː"
           ]
         },
@@ -4827,7 +4827,7 @@
           "options": [
             "t",
             "p",
-            "p",
+            "a",
             "w"
           ],
           "answer": "p",
@@ -4838,7 +4838,7 @@
           "options_ipa": [
             "tiː",
             "piː",
-            "piː",
+            "eɪ",
             "ˈdʌbəl.juː"
           ]
         },
@@ -8355,7 +8355,7 @@
           "options": [
             "w",
             "p",
-            "p",
+            "a",
             "t"
           ],
           "answer": "p",
@@ -8366,7 +8366,7 @@
           "options_ipa": [
             "ˈdʌbəl.juː",
             "piː",
-            "piː",
+            "eɪ",
             "tiː"
           ]
         },
@@ -8944,7 +8944,7 @@
             "f",
             "l",
             "r",
-            "f"
+            "a"
           ],
           "answer": "f",
           "hint": "Hãy lắng nghe thật kỹ phát âm từ Cô giáo Thỏ Hồng nào, một chữ cái rất quen thuộc đấy!",
@@ -8955,7 +8955,7 @@
             "ef",
             "el",
             "ɑː",
-            "ef"
+            "eɪ"
           ]
         },
         {
@@ -9237,7 +9237,7 @@
           "options": [
             "f",
             "l",
-            "f",
+            "a",
             "r"
           ],
           "answer": "f",
@@ -9248,7 +9248,7 @@
           "options_ipa": [
             "ef",
             "el",
-            "ef",
+            "eɪ",
             "ɑː"
           ]
         },
@@ -9531,7 +9531,7 @@
           "options": [
             "r",
             "f",
-            "f",
+            "a",
             "l"
           ],
           "answer": "f",
@@ -9542,7 +9542,7 @@
           "options_ipa": [
             "ɑː",
             "ef",
-            "ef",
+            "eɪ",
             "el"
           ]
         },
@@ -11002,7 +11002,7 @@
             "l",
             "f",
             "r",
-            "r"
+            "a"
           ],
           "answer": "r",
           "hint": "Bé yêu ơi, hãy quan sát kỹ tranh vẽ nhé! Cô giáo Thỏ Hồng tin bé làm được!",
@@ -11013,7 +11013,7 @@
             "el",
             "ef",
             "ɑː",
-            "ɑː"
+            "eɪ"
           ]
         },
         {
@@ -11381,12 +11381,12 @@
           "topic": "Me, My Family & Home",
           "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / a / orange 🟠 / I / can",
           "options": [
-            "A orange I can see.",
+            "an orange I can see.",
             "I see a can orange.",
-            "I can see a orange.",
+            "I can see an orange.",
             "I can orange see a."
           ],
-          "answer": "I can see a orange.",
+          "answer": "I can see an orange.",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
@@ -12764,7 +12764,7 @@
           "question_text": "Lắng nghe âm đầu và chọn chữ cái tương ứng bám sát phát âm của từ 'lake 🏞️':",
           "options": [
             "l",
-            "l",
+            "a",
             "r",
             "f"
           ],
@@ -12775,7 +12775,7 @@
           "diem": 0.5,
           "options_ipa": [
             "el",
-            "el",
+            "eɪ",
             "ɑː",
             "ef"
           ]
@@ -13058,7 +13058,7 @@
           "question_text": "Lắng nghe âm đầu và chọn chữ cái tương ứng bám sát phát âm của từ 'leaf 🍃':",
           "options": [
             "l",
-            "l",
+            "a",
             "f",
             "r"
           ],
@@ -13069,7 +13069,7 @@
           "diem": 0.5,
           "options_ipa": [
             "el",
-            "el",
+            "eɪ",
             "ef",
             "ɑː"
           ]
@@ -13353,7 +13353,7 @@
           "options": [
             "l",
             "r",
-            "l",
+            "a",
             "f"
           ],
           "answer": "l",
@@ -13364,7 +13364,7 @@
           "options_ipa": [
             "el",
             "ɑː",
-            "el",
+            "eɪ",
             "ef"
           ]
         },
@@ -13648,7 +13648,7 @@
             "l",
             "f",
             "r",
-            "l"
+            "a"
           ],
           "answer": "l",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
@@ -13659,7 +13659,7 @@
             "el",
             "ef",
             "ɑː",
-            "el"
+            "eɪ"
           ]
         },
         {
@@ -15998,7 +15998,7 @@
           "question_text": "Lắng nghe âm đầu và chọn chữ cái tương ứng bám sát phát âm của từ 'face 🙂':",
           "options": [
             "f",
-            "f",
+            "a",
             "l",
             "r"
           ],
@@ -16009,7 +16009,7 @@
           "diem": 0.5,
           "options_ipa": [
             "ef",
-            "ef",
+            "eɪ",
             "el",
             "ɑː"
           ]
@@ -16294,7 +16294,7 @@
             "f",
             "r",
             "l",
-            "f"
+            "a"
           ],
           "answer": "f",
           "hint": "Bạn Thỏ Hồng đang đợi đáp án chính xác của bé để cùng thám hiểm khu vườn đấy!",
@@ -16305,7 +16305,7 @@
             "ef",
             "ɑː",
             "el",
-            "ef"
+            "eɪ"
           ]
         },
         {
@@ -16588,7 +16588,7 @@
             "f",
             "r",
             "l",
-            "f"
+            "a"
           ],
           "answer": "f",
           "hint": "Bé yêu ơi, hãy quan sát kỹ tranh vẽ nhé! Cô giáo Thỏ Hồng tin bé làm được!",
@@ -16599,7 +16599,7 @@
             "ef",
             "ɑː",
             "el",
-            "ef"
+            "eɪ"
           ]
         },
         {
@@ -16882,7 +16882,7 @@
             "f",
             "r",
             "l",
-            "f"
+            "a"
           ],
           "answer": "f",
           "hint": "Bé yêu ơi, hãy quan sát kỹ tranh vẽ nhé! Cô giáo Thỏ Hồng tin bé làm được!",
@@ -16893,7 +16893,7 @@
             "ef",
             "ɑː",
             "el",
-            "ef"
+            "eɪ"
           ]
         },
         {
@@ -17676,7 +17676,7 @@
             "x",
             "y",
             "z",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
@@ -17687,7 +17687,7 @@
             "eks",
             "waɪ",
             "zed",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -17968,7 +17968,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'twox'",
           "options": [
             "x",
-            "x",
+            "a",
             "y",
             "z"
           ],
@@ -17979,7 +17979,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "waɪ",
             "zed"
           ]
@@ -18264,7 +18264,7 @@
             "x",
             "z",
             "y",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Bé ngoan hãy chọn đáp án đúng nhất để nhận được một ngôi sao lấp lánh từ Cô giáo Thỏ Hồng nha!",
@@ -18275,7 +18275,7 @@
             "eks",
             "zed",
             "waɪ",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -18557,7 +18557,7 @@
           "options": [
             "y",
             "x",
-            "x",
+            "a",
             "z"
           ],
           "answer": "x",
@@ -18568,7 +18568,7 @@
           "options_ipa": [
             "waɪ",
             "eks",
-            "eks",
+            "eɪ",
             "zed"
           ]
         },
@@ -18852,7 +18852,7 @@
             "x",
             "y",
             "z",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Bạn Thỏ Hồng đang đợi đáp án chính xác của bé để cùng thám hiểm khu vườn đấy!",
@@ -18863,7 +18863,7 @@
             "eks",
             "waɪ",
             "zed",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -19145,7 +19145,7 @@
           "options": [
             "z",
             "x",
-            "x",
+            "a",
             "y"
           ],
           "answer": "x",
@@ -19156,7 +19156,7 @@
           "options_ipa": [
             "zed",
             "eks",
-            "eks",
+            "eɪ",
             "waɪ"
           ]
         },
@@ -19439,7 +19439,7 @@
           "options": [
             "z",
             "x",
-            "x",
+            "a",
             "y"
           ],
           "answer": "x",
@@ -19450,7 +19450,7 @@
           "options_ipa": [
             "zed",
             "eks",
-            "eks",
+            "eɪ",
             "waɪ"
           ]
         },
@@ -19734,7 +19734,7 @@
             "y",
             "x",
             "z",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Ôi, câu này dễ lắm nè! Bé hãy ghép các chữ cái lại thật cẩn thận để giúp bạn Thỏ Hồng nhé!",
@@ -19745,7 +19745,7 @@
             "waɪ",
             "eks",
             "zed",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -20028,7 +20028,7 @@
             "z",
             "x",
             "y",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
@@ -20039,7 +20039,7 @@
             "zed",
             "eks",
             "waɪ",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -20320,7 +20320,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'tenx'",
           "options": [
             "x",
-            "x",
+            "a",
             "y",
             "z"
           ],
@@ -20331,7 +20331,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "waɪ",
             "zed"
           ]
@@ -20409,7 +20409,7 @@
           "options": [
             "k",
             "g",
-            "g",
+            "a",
             "h"
           ],
           "answer": "g",
@@ -20420,7 +20420,7 @@
           "options_ipa": [
             "keɪ",
             "dʒiː",
-            "dʒiː",
+            "eɪ",
             "eɪtʃ"
           ]
         },
@@ -20614,7 +20614,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'redx'",
           "options": [
             "x",
-            "x",
+            "a",
             "z",
             "y"
           ],
@@ -20625,7 +20625,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "zed",
             "waɪ"
           ]
@@ -20910,7 +20910,7 @@
             "y",
             "z",
             "x",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Bé ngoan hãy chọn đáp án đúng nhất để nhận được một ngôi sao lấp lánh từ Cô giáo Thỏ Hồng nha!",
@@ -20921,7 +20921,7 @@
             "waɪ",
             "zed",
             "eks",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -21202,7 +21202,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'yellowx'",
           "options": [
             "x",
-            "x",
+            "a",
             "z",
             "y"
           ],
@@ -21213,7 +21213,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "zed",
             "waɪ"
           ]
@@ -21498,7 +21498,7 @@
             "y",
             "z",
             "x",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Ôi, câu này dễ lắm nè! Bé hãy ghép các chữ cái lại thật cẩn thận để giúp bạn Thỏ Hồng nhé!",
@@ -21509,7 +21509,7 @@
             "waɪ",
             "zed",
             "eks",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -21792,7 +21792,7 @@
             "x",
             "y",
             "z",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Ôi, câu này dễ lắm nè! Bé hãy ghép các chữ cái lại thật cẩn thận để giúp bạn Thỏ Hồng nhé!",
@@ -21803,7 +21803,7 @@
             "eks",
             "waɪ",
             "zed",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -22085,7 +22085,7 @@
           "options": [
             "x",
             "z",
-            "x",
+            "a",
             "y"
           ],
           "answer": "x",
@@ -22096,7 +22096,7 @@
           "options_ipa": [
             "eks",
             "zed",
-            "eks",
+            "eɪ",
             "waɪ"
           ]
         },
@@ -22380,7 +22380,7 @@
             "x",
             "y",
             "z",
-            "x"
+            "a"
           ],
           "answer": "x",
           "hint": "Bé yêu ơi, hãy quan sát kỹ tranh vẽ nhé! Cô giáo Thỏ Hồng tin bé làm được!",
@@ -22391,7 +22391,7 @@
             "eks",
             "waɪ",
             "zed",
-            "eks"
+            "eɪ"
           ]
         },
         {
@@ -22672,7 +22672,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'circlex'",
           "options": [
             "x",
-            "x",
+            "a",
             "y",
             "z"
           ],
@@ -22683,7 +22683,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "waɪ",
             "zed"
           ]
@@ -22966,7 +22966,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'squarex'",
           "options": [
             "x",
-            "x",
+            "a",
             "z",
             "y"
           ],
@@ -22977,7 +22977,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "zed",
             "waɪ"
           ]
@@ -23260,7 +23260,7 @@
           "question_text": "Tìm chữ cái bị thừa trong từ lỗi chính tả sau: 'trianglex'",
           "options": [
             "x",
-            "x",
+            "a",
             "z",
             "y"
           ],
@@ -23271,7 +23271,7 @@
           "diem": 0.5,
           "options_ipa": [
             "eks",
-            "eks",
+            "eɪ",
             "zed",
             "waɪ"
           ]
