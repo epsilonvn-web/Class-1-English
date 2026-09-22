@@ -935,7 +935,7 @@
         {
           "question_id": 403,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: ca_e (bánh ngọt 🎂)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: ca_e (bánh ngọt 🎂)",
           "options": [
             "o",
             "e",
@@ -1449,7 +1449,7 @@
         {
           "question_id": 513,
           "topic": "Me, My Family & Home",
-          "question_text": "Đọc câu chuyện ngắn sau:\n\"Ba and Lucy are in the garden 🌳. Ba can see a chips. Lucy can see a horse.\"\nHỏi Ba nhìn thấy cái gì?",
+          "question_text": "Đọc câu chuyện ngắn sau:\n\"Ba and Lucy are in the garden 🌳. Ba can see some chips. Lucy can see a horse.\"\nHỏi Ba nhìn thấy cái gì?",
           "options": [
             "tóc",
             "khoai tây chiên",
@@ -1523,7 +1523,7 @@
         {
           "question_id": 603,
           "topic": "Yummy Food & Garden",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: app_e (quả táo) 🍎",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: app_e (quả táo) 🍎",
           "options": [
             "o",
             "l",
@@ -1743,7 +1743,7 @@
         {
           "question_id": 613,
           "topic": "Me, My Family & Home",
-          "question_text": "Đọc câu chuyện ngắn sau:\n\"Ba and Lucy are in the garden. Ba can see a milk 🥛. Lucy can see a horse.\"\nHỏi Ba nhìn thấy cái gì?",
+          "question_text": "Đọc câu chuyện ngắn sau:\n\"Ba and Lucy are in the garden. Ba can see some milk 🥛. Lucy can see a horse.\"\nHỏi Ba nhìn thấy cái gì?",
           "options": [
             "sữa",
             "quả bóng đá",
@@ -2265,23 +2265,23 @@
         {
           "question_id": 810,
           "topic": "Yummy Food & Garden",
-          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: a / is / chips 🍟 / This",
+          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: chips 🍟 / are / These",
           "options": [
-            "A chips is this.",
-            "Is this a chips.",
-            "This chips is a.",
-            "This is a chips."
+            "Are these chips.",
+            "These chips are.",
+            "These are chips.",
+            "Chips these are."
           ],
-          "answer": "This is a chips.",
+          "answer": "These are chips.",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "ə tʃɪps ɪz ðɪs",
-            "ɪz ðɪs ə tʃɪps",
-            "ðɪs tʃɪps ɪz ə",
-            "ðɪs ɪz ə tʃɪps"
+            "ɑː ðiːz tʃɪps",
+            "ðiːz tʃɪps ɑː",
+            "ðiːz ɑː tʃɪps",
+            "tʃɪps ðiːz ɑː"
           ]
         },
         {
@@ -2559,23 +2559,23 @@
         {
           "question_id": 910,
           "topic": "Yummy Food & Garden",
-          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: a / is / milk 🥛 / This",
+          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: is / milk 🥛 / This",
           "options": [
-            "A milk is this.",
-            "Is this a milk.",
-            "This milk is a.",
-            "This is a milk."
+            "Milk is this.",
+            "This milk is.",
+            "This is milk.",
+            "Is this milk."
           ],
-          "answer": "This is a milk.",
+          "answer": "This is milk.",
           "hint": "Bé yêu ơi, hãy quan sát kỹ tranh vẽ nhé! Cô giáo Thỏ Hồng tin bé làm được!",
           "image_url": "assets/images/milk_glass.png",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "ə mɪlk ɪz ðɪs",
-            "ɪz ðɪs ə mɪlk",
-            "ðɪs mɪlk ɪz ə",
-            "ðɪs ɪz ə mɪlk"
+            "mɪlk ɪz ðɪs",
+            "ðɪs mɪlk ɪz",
+            "ðɪs ɪz mɪlk",
+            "ɪz ðɪs mɪlk"
           ]
         },
         {
@@ -2853,23 +2853,23 @@
         {
           "question_id": 1010,
           "topic": "Yummy Food & Garden",
-          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: a / is / chicken 🍗 / This",
+          "question_text": "Sắp xếp các từ sau để tạo thành câu hoàn chỉnh đúng chính tả: is / chicken 🍗 / This",
           "options": [
-            "A chicken is this.",
-            "This chicken is a.",
-            "This is a chicken.",
-            "Is this a chicken."
+            "Chicken is this.",
+            "This chicken is.",
+            "This is chicken.",
+            "Is this chicken."
           ],
-          "answer": "This is a chicken.",
+          "answer": "This is chicken.",
           "hint": "Hãy lắng nghe thật kỹ phát âm từ Cô giáo Thỏ Hồng nào, một chữ cái rất quen thuộc đấy!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "ə ˈtʃɪkɪn ɪz ðɪs",
-            "ðɪs ˈtʃɪkɪn ɪz ə",
-            "ðɪs ɪz ə ˈtʃɪkɪn",
-            "ɪz ðɪs ə ˈtʃɪkɪn"
+            "ˈtʃɪkɪn ɪz ðɪs",
+            "ðɪs ˈtʃɪkɪn ɪz",
+            "ðɪs ɪz ˈtʃɪkɪn",
+            "ɪz ðɪs ˈtʃɪkɪn"
           ]
         },
         {
@@ -2993,7 +2993,7 @@
         {
           "question_id": 1103,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: de_k (bàn học)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: de_k (bàn học)",
           "options": [
             "s",
             "o",
@@ -3581,7 +3581,7 @@
         {
           "question_id": 1303,
           "topic": "The Animal Kingdom",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: du_k (con vịt) 🦆",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: du_k (con vịt) 🦆",
           "options": [
             "e",
             "c",
@@ -3875,7 +3875,7 @@
         {
           "question_id": 1403,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: fi_h (con cá)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: fi_h (con cá)",
           "options": [
             "e",
             "o",
@@ -4169,7 +4169,7 @@
         {
           "question_id": 1503,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: chi_s (khoai tây chiên)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: chi_s (khoai tây chiên)",
           "options": [
             "i",
             "e",
@@ -4463,7 +4463,7 @@
         {
           "question_id": 1603,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: mi_k (sữa 🥛)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: mi_k (sữa 🥛)",
           "options": [
             "e",
             "l",
@@ -5051,7 +5051,7 @@
         {
           "question_id": 1803,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: be_l (cái chuông)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: be_l (cái chuông)",
           "options": [
             "e",
             "o",
@@ -6227,7 +6227,7 @@
         {
           "question_id": 2203,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: ga_e (cổng)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: ga_e (cổng)",
           "options": [
             "t",
             "e",
@@ -6521,7 +6521,7 @@
         {
           "question_id": 2303,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: gi_l (bé gái)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: gi_l (bé gái)",
           "options": [
             "i",
             "e",
@@ -7697,7 +7697,7 @@
         {
           "question_id": 2703,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: ha_d (bàn tay)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: ha_d (bàn tay)",
           "options": [
             "i",
             "e",
@@ -7991,7 +7991,7 @@
         {
           "question_id": 2803,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: hor_e (con ngựa)",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: hor_e (con ngựa)",
           "options": [
             "s",
             "i",
@@ -8285,7 +8285,7 @@
         {
           "question_id": 2903,
           "topic": "Phonics & Spelling",
-          "question_text": "Điền nguyên âm khuyết vào ô trống sau: clo_k (đồng hồ) ⏰",
+          "question_text": "Điền chữ cái còn thiếu vào ô trống sau: clo_k (đồng hồ) ⏰",
           "options": [
             "i",
             "e",
@@ -9321,23 +9321,23 @@
         {
           "question_id": 3210,
           "topic": "Me, My Family & Home",
-          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / a / water 💧 / I / can",
+          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / some / water 💧 / I / can",
           "options": [
-            "A water I can see.",
-            "I can water see a.",
-            "I see a can water.",
-            "I can see a water."
+            "Some water I can see.",
+            "I can water see some.",
+            "I see some can water.",
+            "I can see some water."
           ],
-          "answer": "I can see a water.",
+          "answer": "I can see some water.",
           "hint": "Ôi, câu này dễ lắm nè! Bé hãy ghép các chữ cái lại thật cẩn thận để giúp bạn Thỏ Hồng nhé!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "ə ˈwɔːtə aɪ kæn siː",
-            "aɪ kæn ˈwɔːtə siː ə",
-            "aɪ siː ə kæn ˈwɔːtə",
-            "aɪ kæn siː ə ˈwɔːtə"
+            "sʌm ˈwɔːtə aɪ kæn siː",
+            "aɪ kæn ˈwɔːtə siː sʌm",
+            "aɪ siː sʌm kæn ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə"
           ]
         },
         {
@@ -12849,23 +12849,23 @@
         {
           "question_id": 4410,
           "topic": "Me, My Family & Home",
-          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / a / noodles 🍜 / I / can",
+          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / some / noodles 🍜 / I / can",
           "options": [
-            "I can noodles see a.",
-            "I see a can noodles.",
-            "A noodles I can see.",
-            "I can see a noodles."
+            "I can noodles see some.",
+            "I see some can noodles.",
+            "Some noodles I can see.",
+            "I can see some noodles."
           ],
-          "answer": "I can see a noodles.",
+          "answer": "I can see some noodles.",
           "hint": "Bạn Thỏ Hồng đang đợi đáp án chính xác của bé để cùng thám hiểm khu vườn đấy!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "aɪ kæn ˈnuːdlz siː ə",
-            "aɪ siː ə kæn ˈnuːdlz",
-            "ə ˈnuːdlz aɪ kæn siː",
-            "aɪ kæn siː ə ˈnuːdlz"
+            "aɪ kæn ˈnuːdlz siː sʌm",
+            "aɪ siː sʌm kæn ˈnuːdlz",
+            "sʌm ˈnuːdlz aɪ kæn siː",
+            "aɪ kæn siː sʌm ˈnuːdlz"
           ]
         },
         {
@@ -16671,23 +16671,23 @@
         {
           "question_id": 5710,
           "topic": "Me, My Family & Home",
-          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / a / water 💧 / I / can",
+          "question_text": "Sắp xếp các từ để tạo thành câu hoàn chỉnh: see / some / water 💧 / I / can",
           "options": [
-            "A water I can see.",
-            "I can see a water.",
-            "I see a can water.",
-            "I can water see a."
+            "Some water I can see.",
+            "I can water see some.",
+            "I see some can water.",
+            "I can see some water."
           ],
-          "answer": "I can see a water.",
+          "answer": "I can see some water.",
           "hint": "Cô giáo Thỏ Hồng gợi ý bé chú ý nguyên âm ở giữa từ nha, hãy cố gắng lên nào!",
           "image_url": "",
           "skill_tag": "ENG_SYN",
           "diem": 1.0,
           "options_ipa": [
-            "ə ˈwɔːtə aɪ kæn siː",
-            "aɪ kæn siː ə ˈwɔːtə",
-            "aɪ siː ə kæn ˈwɔːtə",
-            "aɪ kæn ˈwɔːtə siː ə"
+            "sʌm ˈwɔːtə aɪ kæn siː",
+            "aɪ kæn ˈwɔːtə siː sʌm",
+            "aɪ siː sʌm kæn ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə"
           ]
         },
         {

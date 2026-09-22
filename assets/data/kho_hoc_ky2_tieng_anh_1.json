@@ -1640,7 +1640,7 @@
               "id": 6200,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a mother 👩. My sister likes the sister 👧.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a mother 👩. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "mother",
                 "horse",
@@ -1667,7 +1667,7 @@
               "id": 6201,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a father 👨. My sister likes the baby 👶.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a father 👨. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "nut",
                 "mango",
@@ -1694,7 +1694,7 @@
               "id": 6202,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a mom 👩. My sister likes the grandmother 👵.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a mom 👩. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "living room",
                 "four",
@@ -1721,7 +1721,7 @@
               "id": 6203,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a dad 👨. My sister likes the grandfather 👴.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a dad 👨. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "teddy bear",
                 "leaf",
@@ -1748,7 +1748,7 @@
               "id": 6204,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a brother 👦. My sister likes the aunt 👩.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a brother 👦. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "aunt",
                 "brother",
@@ -1775,7 +1775,7 @@
               "id": 6205,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a sister 👧. My sister likes the uncle 👨.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a sister 👧. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "train",
                 "can",
@@ -1802,7 +1802,7 @@
               "id": 6206,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a baby 👶. My sister likes the girl 👧.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a baby 👶. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "juice",
                 "baby",
@@ -1811,7 +1811,7 @@
               ],
               "a": "baby",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a baby 👶'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "dʒuːs",
                 "ˈbeɪbi",
@@ -1829,7 +1829,7 @@
               "id": 6207,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a grandmother 👵. My sister likes the boy 👦.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a grandmother 👵. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "elephant",
                 "sad",
@@ -1856,7 +1856,7 @@
               "id": 6208,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a grandfather 👴. My sister likes the teacher 👩‍🏫.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a grandfather 👴. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "blue",
                 "can",
@@ -1883,7 +1883,7 @@
               "id": 6209,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an aunt 👩. My sister likes the house 🏠.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an aunt 👩. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "house",
                 "mango",
@@ -1892,7 +1892,7 @@
               ],
               "a": "aunt",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see an aunt 👩'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "haʊs",
                 "ˈmæŋɡəʊ",
@@ -1910,7 +1910,7 @@
               "id": 6210,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an uncle 👨. My sister likes the bedroom 🛏️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an uncle 👨. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "seven",
                 "uncle",
@@ -1937,7 +1937,7 @@
               "id": 6211,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a girl 👧. My sister likes the living room 🛋️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a girl 👧. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "crocodile",
                 "duck",
@@ -1964,7 +1964,7 @@
               "id": 6212,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a boy 👦. My sister likes the kitchen 🍳.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a boy 👦. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "pig",
                 "star",
@@ -1991,7 +1991,7 @@
               "id": 6213,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a teacher 👩‍🏫. My sister likes the bathroom 🛁.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a teacher 👩‍🏫. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "house",
                 "milk",
@@ -2018,7 +2018,7 @@
               "id": 6214,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a house 🏠. My sister likes the garden 🏡.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a house 🏠. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "house",
                 "dad",
@@ -2045,7 +2045,7 @@
               "id": 6215,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bedroom 🛏️. My sister likes the gate 🚪.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bedroom 🛏️. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "cap",
                 "sad",
@@ -2072,7 +2072,7 @@
               "id": 6216,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a living room 🛋️. My sister likes the door 🚪.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a living room 🛋️. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "father",
                 "cat",
@@ -2099,7 +2099,7 @@
               "id": 6217,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a kitchen 🍳. My sister likes the window 🪟.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a kitchen 🍳. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "kitchen",
                 "swing",
@@ -2126,7 +2126,7 @@
               "id": 6218,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bathroom 🛁. My sister likes the cup 🥛.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bathroom 🛁. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "pig",
                 "bathroom",
@@ -2153,7 +2153,7 @@
               "id": 6219,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a garden 🏡. My sister likes the can 🥫.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a garden 🏡. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "lollipop",
                 "car",
@@ -2162,7 +2162,7 @@
               ],
               "a": "garden",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a garden 🏡'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈlɒlɪpɒp",
                 "kɑː",
@@ -2180,7 +2180,7 @@
               "id": 6220,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a gate 🚪. My sister likes the pot 🍲.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a gate 🚪. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "brother",
                 "swim",
@@ -2189,7 +2189,7 @@
               ],
               "a": "gate",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a gate 🚪'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈbrʌðə",
                 "swɪm",
@@ -2207,7 +2207,7 @@
               "id": 6221,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a door 🚪. My sister likes the book 📖.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a door 🚪. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "door",
                 "happy",
@@ -2216,7 +2216,7 @@
               ],
               "a": "door",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a door 🚪'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "dɔː",
                 "ˈhæpi",
@@ -2234,7 +2234,7 @@
               "id": 6222,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a window 🪟. My sister likes the pen 🖊️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a window 🪟. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "window",
                 "elephant",
@@ -2261,7 +2261,7 @@
               "id": 6223,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a cup 🥛. My sister likes the pencil ✏️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a cup 🥛. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "cup",
                 "mop",
@@ -2270,7 +2270,7 @@
               ],
               "a": "cup",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a cup 🥛'!",
-              "img": "assets/images/pencil_crayon.png",
+              "img": "",
               "o_ipa": [
                 "kʌp",
                 "mɒp",
@@ -2288,7 +2288,7 @@
               "id": 6224,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a can 🥫. My sister likes the ruler 📏.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a can 🥫. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "park",
                 "can",
@@ -2297,7 +2297,7 @@
               ],
               "a": "can",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a can 🥫'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "pɑːk",
                 "kæn",
@@ -2315,7 +2315,7 @@
               "id": 6225,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pot 🍲. My sister likes the eraser 🧹.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pot 🍲. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "swing",
                 "pot",
@@ -2324,7 +2324,7 @@
               ],
               "a": "pot",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a pot 🍲'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "swɪŋ",
                 "pɒt",
@@ -2342,7 +2342,7 @@
               "id": 6226,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a book 📖. My sister likes the crayon 🖍️.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a book 📖. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "head",
                 "book",
@@ -2369,7 +2369,7 @@
               "id": 6227,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pen 🖊️. My sister likes the notebook 📓.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pen 🖊️. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "pen",
                 "kitchen",
@@ -2396,7 +2396,7 @@
               "id": 6228,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pencil ✏️. My sister likes the paper 📄.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a pencil ✏️. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "pear",
                 "kite",
@@ -2423,7 +2423,7 @@
               "id": 6229,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a ruler 📏. My sister likes the lunchbox 🍱.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a ruler 📏. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "nut",
                 "ruler",
@@ -2432,7 +2432,7 @@
               ],
               "a": "ruler",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a ruler 📏'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "nʌt",
                 "ˈruːlə",
@@ -2450,7 +2450,7 @@
               "id": 6230,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an eraser 🧹. My sister likes the water bottle 🍾.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see an eraser 🧹. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "mango",
                 "plane",
@@ -2459,7 +2459,7 @@
               ],
               "a": "eraser",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see an eraser 🧹'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈmæŋɡəʊ",
                 "pleɪn",
@@ -2477,7 +2477,7 @@
               "id": 6231,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a crayon 🖍️. My sister likes the desk 🪑.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a crayon 🖍️. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "crayon",
                 "lunchbox",
@@ -2504,7 +2504,7 @@
               "id": 6232,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a notebook 📓. My sister likes the chair 🪑.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a notebook 📓. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "chair",
                 "notebook",
@@ -2531,7 +2531,7 @@
               "id": 6233,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a paper 📄. My sister likes the school bag 🎒.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a paper 📄. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "paper",
                 "four",
@@ -2540,7 +2540,7 @@
               ],
               "a": "paper",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a paper 📄'!",
-              "img": "assets/images/school_bag.png",
+              "img": "",
               "o_ipa": [
                 "ˈpeɪpə",
                 "fɔː",
@@ -2558,7 +2558,7 @@
               "id": 6234,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a lunchbox 🍱. My sister likes the bell 🔔.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a lunchbox 🍱. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "tree",
                 "black",
@@ -2567,7 +2567,7 @@
               ],
               "a": "lunchbox",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a lunchbox 🍱'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "triː",
                 "blæk",
@@ -2585,7 +2585,7 @@
               "id": 6235,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a water bottle 🍾. My sister likes the clock ⏰.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a water bottle 🍾. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "aunt",
                 "water bottle",
@@ -2594,7 +2594,7 @@
               ],
               "a": "water bottle",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a water bottle 🍾'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ɑːnt",
                 "ˈwɔːtə ˈbɒtl",
@@ -2612,7 +2612,7 @@
               "id": 6236,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a desk 🪑. My sister likes the puppet 🧸.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a desk 🪑. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "desk",
                 "pen",
@@ -2621,7 +2621,7 @@
               ],
               "a": "desk",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a desk 🪑'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "desk",
                 "pen",
@@ -2639,7 +2639,7 @@
               "id": 6237,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a chair 🪑. My sister likes the doll 🪆.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a chair 🪑. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "elephant",
                 "chair",
@@ -2648,7 +2648,7 @@
               ],
               "a": "chair",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a chair 🪑'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈelɪfənt",
                 "tʃeə",
@@ -2666,7 +2666,7 @@
               "id": 6238,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a school bag 🎒. My sister likes the robot 🤖.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a school bag 🎒. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "living room",
                 "school bag",
@@ -2693,7 +2693,7 @@
               "id": 6239,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bell 🔔. My sister likes the teddy bear 🧸.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bell 🔔. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "slide",
                 "ladybug",
@@ -2702,7 +2702,7 @@
               ],
               "a": "bell",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a bell 🔔'!",
-              "img": "assets/images/teddy_bear.png",
+              "img": "",
               "o_ipa": [
                 "slaɪd",
                 "ˈleɪdibɜːɡ",
@@ -2720,7 +2720,7 @@
               "id": 6240,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a clock ⏰. My sister likes the ball ⚽.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a clock ⏰. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "clock",
                 "flower",
@@ -2747,7 +2747,7 @@
               "id": 6241,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a puppet 🧸. My sister likes the kite 🪁.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a puppet 🧸. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "ball",
                 "sun",
@@ -2756,7 +2756,7 @@
               ],
               "a": "puppet",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a puppet 🧸'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "bɔːl",
                 "sʌn",
@@ -2774,7 +2774,7 @@
               "id": 6242,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a doll 🪆. My sister likes the bike 🚲.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a doll 🪆. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "baby",
                 "sheep",
@@ -2783,7 +2783,7 @@
               ],
               "a": "doll",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a doll 🪆'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈbeɪbi",
                 "ʃiːp",
@@ -2801,7 +2801,7 @@
               "id": 6243,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a robot 🤖. My sister likes the top 🪀.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a robot 🤖. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "crayon",
                 "robot",
@@ -2828,7 +2828,7 @@
               "id": 6244,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a teddy bear 🧸. My sister likes the yo-yo 🪀.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a teddy bear 🧸. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "teddy bear",
                 "hand",
@@ -2855,7 +2855,7 @@
               "id": 6245,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a ball ⚽. My sister likes the slide 🛝.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a ball ⚽. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "ball",
                 "hen",
@@ -2882,7 +2882,7 @@
               "id": 6246,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a kite 🪁. My sister likes the swing 🎠.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a kite 🪁. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "zoo",
                 "swim",
@@ -2891,7 +2891,7 @@
               ],
               "a": "kite",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a kite 🪁'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "zuː",
                 "swɪm",
@@ -2909,7 +2909,7 @@
               "id": 6247,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bike 🚲. My sister likes the cat 🐱.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bike 🚲. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "book",
                 "purple",
@@ -2918,7 +2918,7 @@
               ],
               "a": "bike",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a bike 🚲'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "bʊk",
                 "ˈpɜːpl",
@@ -2936,7 +2936,7 @@
               "id": 6248,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a top 🪀. My sister likes the dog 🐶.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a top 🪀. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "top",
                 "hat",
@@ -2945,7 +2945,7 @@
               ],
               "a": "top",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a top 🪀'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "tɒp",
                 "hæt",
@@ -2963,7 +2963,7 @@
               "id": 6249,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a yo-yo 🪀. My sister likes the duck 🦆.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a yo-yo 🪀. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "apple",
                 "yo-yo",
@@ -2972,7 +2972,7 @@
               ],
               "a": "yo-yo",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a yo-yo 🪀'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈæpl",
                 "",
@@ -2990,7 +2990,7 @@
               "id": 6250,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a slide 🛝. My sister likes the bird 🐦.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a slide 🛝. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "slide",
                 "noodles",
@@ -2999,7 +2999,7 @@
               ],
               "a": "slide",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a slide 🛝'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "slaɪd",
                 "ˈnuːdlz",
@@ -3017,7 +3017,7 @@
               "id": 6251,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a swing 🎠. My sister likes the rabbit 🐰.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a swing 🎠. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "sad",
                 "lunchbox",
@@ -3026,7 +3026,7 @@
               ],
               "a": "swing",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a swing 🎠'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "sæd",
                 "ˈlʌntʃbɒks",
@@ -3044,7 +3044,7 @@
               "id": 6252,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a cat 🐱. My sister likes the goat 🐐.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a cat 🐱. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "cat",
                 "bird",
@@ -3071,7 +3071,7 @@
               "id": 6253,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a dog 🐶. My sister likes the horse 🐴.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a dog 🐶. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "triangle",
                 "nut",
@@ -3098,7 +3098,7 @@
               "id": 6254,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a duck 🦆. My sister likes the hen 🐔.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a duck 🦆. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "duck",
                 "door",
@@ -3125,7 +3125,7 @@
               "id": 6255,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bird 🐦. My sister likes the pig 🐷.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a bird 🐦. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "plane",
                 "cat",
@@ -3152,7 +3152,7 @@
               "id": 6256,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a rabbit 🐰. My sister likes the cow 🐮.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a rabbit 🐰. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "grandmother",
                 "brown",
@@ -3179,7 +3179,7 @@
               "id": 6257,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a goat 🐐. My sister likes the sheep 🐑.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a goat 🐐. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "living room",
                 "notebook",
@@ -3188,7 +3188,7 @@
               ],
               "a": "goat",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a goat 🐐'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "ˈlɪvɪŋ ruːm",
                 "ˈnəʊtbʊk",
@@ -3206,7 +3206,7 @@
               "id": 6258,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a horse 🐴. My sister likes the monkey 🐒.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a horse 🐴. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "pear",
                 "horse",
@@ -3215,7 +3215,7 @@
               ],
               "a": "horse",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a horse 🐴'!",
-              "img": "assets/images/cute_monkey.png",
+              "img": "",
               "o_ipa": [
                 "peə",
                 "hɔːs",
@@ -3233,7 +3233,7 @@
               "id": 6259,
               "sub": "6.2",
               "topic": "Me, My Family & Home",
-              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a hen 🐔. My sister likes the tiger 🐯.\"\n\nHỏi: Bạn Ba 👨 có thể nhìn thấy đồ vật/con vật nào trong vườn?",
+              "q": "Đọc đoạn văn ngắn sau:\n\"Hello, I am Ba 👨. I am in the garden 🏡. I can see a hen 🐔. My sister is in the garden too.\"\n\nHỏi: Bạn Ba 👨 nhìn thấy gì trong vườn?",
               "o": [
                 "star",
                 "hen",
@@ -3242,7 +3242,7 @@
               ],
               "a": "hen",
               "h": "Cô giáo Thỏ Hồng 🐰🌸 giúp bé dò thông tin: Đoạn văn viết 'I can see a hen 🐔'!",
-              "img": "assets/images/little_sister.png",
+              "img": "",
               "o_ipa": [
                 "stɑː",
                 "hen",
@@ -35936,7 +35936,7 @@
           "o": [
             "I like fish.",
             "I don't like chicken.",
-            "I can see a milk.",
+            "I can see some milk.",
             "This is my milk."
           ],
           "a": "I like fish.",
@@ -36102,7 +36102,7 @@
           "topic": "Yummy Food & Garden",
           "q": "Chọn câu đúng theo mẫu vừa học: 🍟",
           "o": [
-            "I can see a chips.",
+            "I can see some chips.",
             "This is my chips.",
             "I like fish.",
             "I don't like chicken."
@@ -36326,7 +36326,7 @@
           "topic": "Yummy Food & Garden",
           "q": "Chọn câu đúng theo mẫu vừa học: 🥛",
           "o": [
-            "I can see a milk.",
+            "I can see some milk.",
             "This is my milk.",
             "I like milk.",
             "I like fish."
@@ -36496,7 +36496,7 @@
           "o": [
             "I like milk.",
             "I like fish.",
-            "I can see a chips.",
+            "I can see some chips.",
             "This is my chips."
           ],
           "a": "I like milk.",
@@ -37735,7 +37735,7 @@
           "o": [
             "I want an apple.",
             "Yummy!",
-            "I can see a noodles.",
+            "I can see some noodles.",
             "This is my noodles."
           ],
           "a": "I want an apple.",
@@ -37746,13 +37746,13 @@
           "o_ipa": [
             "",
             "",
-            "aɪ kæn siː ə ˈnuːdlz",
+            "aɪ kæn siː sʌm ˈnuːdlz",
             "ðɪs ɪz maɪ ˈnuːdlz"
           ],
           "options_ipa": [
             "",
             "",
-            "aɪ kæn siː ə ˈnuːdlz",
+            "aɪ kæn siː sʌm ˈnuːdlz",
             "ðɪs ɪz maɪ ˈnuːdlz"
           ]
         },
@@ -37901,7 +37901,7 @@
           "topic": "Yummy Food & Garden",
           "q": "Chọn câu đúng theo mẫu vừa học: 🥛",
           "o": [
-            "I can see a milk.",
+            "I can see some milk.",
             "This is my milk.",
             "I want an apple.",
             "Yummy!"
@@ -38125,7 +38125,7 @@
           "topic": "Yummy Food & Garden",
           "q": "Chọn câu đúng theo mẫu vừa học: 🍜",
           "o": [
-            "I can see a noodles.",
+            "I can see some noodles.",
             "This is my noodles.",
             "Do you want some milk? Yes, please.",
             "I want an apple."
@@ -38136,13 +38136,13 @@
           "tag": "ENG_GRA",
           "difficulty": "Medium",
           "o_ipa": [
-            "aɪ kæn siː ə ˈnuːdlz",
+            "aɪ kæn siː sʌm ˈnuːdlz",
             "ðɪs ɪz maɪ ˈnuːdlz",
             "",
             ""
           ],
           "options_ipa": [
-            "aɪ kæn siː ə ˈnuːdlz",
+            "aɪ kæn siː sʌm ˈnuːdlz",
             "ðɪs ɪz maɪ ˈnuːdlz",
             "",
             ""
@@ -47799,7 +47799,7 @@
           "topic": "Cool Vehicles, Action & Nature",
           "q": "Chọn câu đúng theo mẫu vừa học: 💧",
           "o": [
-            "I can see a water.",
+            "I can see some water.",
             "This is my water.",
             "This is the garden.",
             "What can you see? I can see a leaf."
@@ -47810,13 +47810,13 @@
           "tag": "ENG_GRA",
           "difficulty": "Medium",
           "o_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
           ],
           "options_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
@@ -48023,7 +48023,7 @@
           "topic": "Cool Vehicles, Action & Nature",
           "q": "Chọn câu đúng theo mẫu vừa học: 💧",
           "o": [
-            "I can see a water.",
+            "I can see some water.",
             "This is my water.",
             "I can see the sun.",
             "This is the garden."
@@ -48034,13 +48034,13 @@
           "tag": "ENG_GRA",
           "difficulty": "Medium",
           "o_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
           ],
           "options_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
@@ -48247,7 +48247,7 @@
           "topic": "Cool Vehicles, Action & Nature",
           "q": "Chọn câu đúng theo mẫu vừa học: 💧",
           "o": [
-            "I can see a water.",
+            "I can see some water.",
             "This is my water.",
             "What can you see? I can see a leaf.",
             "I can see the sun."
@@ -48258,13 +48258,13 @@
           "tag": "ENG_GRA",
           "difficulty": "Medium",
           "o_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
           ],
           "options_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
@@ -49374,7 +49374,7 @@
           "topic": "Cool Vehicles, Action & Nature",
           "q": "Chọn câu đúng theo mẫu vừa học: 💧",
           "o": [
-            "I can see a water.",
+            "I can see some water.",
             "This is my water.",
             "Wash your hands, please.",
             "Clean your face."
@@ -49385,13 +49385,13 @@
           "tag": "ENG_GRA",
           "difficulty": "Medium",
           "o_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
           ],
           "options_ipa": [
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             "",
             "",
             ""
@@ -49768,7 +49768,7 @@
           "o": [
             "Look at the lake.",
             "Wash your hands, please.",
-            "I can see a water.",
+            "I can see some water.",
             "This is my water."
           ],
           "a": "Look at the lake.",
@@ -49779,13 +49779,13 @@
           "o_ipa": [
             "",
             "",
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             ""
           ],
           "options_ipa": [
             "",
             "",
-            "aɪ kæn siː ə ˈwɔːtə",
+            "aɪ kæn siː sʌm ˈwɔːtə",
             ""
           ]
         },
