@@ -2842,7 +2842,8 @@ function lookupVocabEmoji(text) {
     updateNavButtons();
     updateQuizPalletUI();
 
-    if (autoSpeechEnabled) speakCurrentQuestion();
+    // Đề thi chính thức: chỉ tự phát âm câu NGHE có audio_text; không đọc hộ câu đọc hiểu/ngữ pháp/từ vựng.
+    if (autoSpeechEnabled && (!activeExamContext || q.audio_text)) speakCurrentQuestion();
 }
 
 function restoreQuestionState(q) {
@@ -3275,9 +3276,28 @@ function renderReportTopicsBreakdown() {
     let html = '';
     skillKeys.forEach(k => {
         const data = skillStats[k];
+
+        // Không có câu hỏi đo năng lực này = chưa đánh giá, tuyệt đối không quy thành 0%/yếu.
+        if (data.total <= 0 || data.maxScore <= 0) {
+            html += `
+                <div class="bg-slate-50/70 border border-slate-200 rounded-2xl p-3 flex flex-col justify-between space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="font-black text-slate-700 text-xs sm:text-sm">${SKILL_TAXONOMY[k].name}</span>
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-slate-100 text-slate-500 border border-slate-200">Chưa đánh giá</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-bold text-slate-400">
+                        <span>Chưa có câu hỏi phù hợp trong phạm vi đề</span>
+                        <span class="font-math font-black">--</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden"></div>
+                </div>
+            `;
+            return;
+        }
+
         const pct = isRoadmap
-            ? (data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0)
-            : (data.maxScore > 0 ? Math.round((data.earnedScore / data.maxScore) * 100) : 0);
+            ? Math.round((data.correct / data.total) * 100)
+            : Math.round((data.earnedScore / data.maxScore) * 100);
         const isPassed = pct >= 50;
         const badgeClass = isPassed ? 'bg-amber-100 text-amber-800 border border-amber-200' : 'bg-rose-50 text-rose-700 border border-rose-200';
         const badgeText = isPassed ? 'Đạt yêu cầu' : 'Cần luyện tập thêm';
@@ -3349,10 +3369,13 @@ async function saveExamResultToSheet() {
     const { categoryKey, examIndex } = activeExamContext;
     const thoiGianLamBai = quizStartTime ? formatDuration(Date.now() - quizStartTime) : '';
 
-    const skillScores = {}; SKILL_KEYS.forEach(k => skillScores[k] = 0);
+    const skillScores = {};
+    const skillTotals = {};
+    SKILL_KEYS.forEach(k => { skillScores[k] = 0; skillTotals[k] = 0; });
     quizAnsweredLog.forEach(item => {
         let tag = String(item.skill_tag || 'ENG_VOC').toUpperCase();
         if (!SKILL_KEYS.includes(tag)) tag = 'ENG_VOC';
+        skillTotals[tag]++;
         if (item.isCorrect) skillScores[tag] += (item.diem || 0.5);
     });
 
@@ -3372,7 +3395,10 @@ async function saveExamResultToSheet() {
     };
     // Ghi điểm từng nhóm năng lực vào ĐÚNG tên cột "diem" + mã kỹ năng (diemENG_PHO, diemENG_VOC...)
     // — không hard-code tên cột, tránh lệch dữ liệu nếu sau này đổi lại taxonomy.
-    SKILL_KEYS.forEach(k => { payload['diem' + k] = skillScores[k].toFixed(1); });
+    // Năng lực không xuất hiện trong đề phải để trống, không ghi 0.0 vì 0.0 dễ bị hiểu sai là học sinh yếu.
+    SKILL_KEYS.forEach(k => {
+        payload['diem' + k] = skillTotals[k] > 0 ? skillScores[k].toFixed(1) : '';
+    });
     try { await callAppsScript('saveExamResult', payload); } catch (e) {}
 }
 
@@ -3545,7 +3571,7 @@ function renderHistoryReport(rows, sheetName) {
     });
 
     const skillKeys = SKILL_KEYS;
-    const skillAverages = { ENG_PHO: 0, ENG_VOC: 0, ENG_LIS: 0, ENG_GRA: 0, ENG_SYN: 0, ENG_READ: 0 };
+    const skillAverages = { ENG_PHO: null, ENG_VOC: null, ENG_LIS: null, ENG_GRA: null, ENG_SYN: null, ENG_READ: null };
     const touchedSkills = [];
 
     if (rows.length && isWeekly) {
@@ -3564,16 +3590,23 @@ function renderHistoryReport(rows, sheetName) {
             }
         });
     } else if (rows.length) {
-        // Điểm tối đa mỗi nhóm năng lực trên 1 đề thi chuẩn (đúng Ma trận đề thi V2, 13 câu/10đ)
-        const MAX_SKILL_POINTS = { ENG_PHO: 1.5, ENG_VOC: 1.0, ENG_LIS: 1.5, ENG_GRA: 2.0, ENG_SYN: 2.0, ENG_READ: 2.0 };
+        // Ma trận V3: HK1 chỉ đo 4 năng lực; HK2/HSG đo đủ 6. Dữ liệu trống được loại khỏi mẫu tính.
+        const MAX_BY_SHEET = {
+            LichSuBaiThiHK1: { ENG_PHO: 2.5, ENG_VOC: 2.5, ENG_LIS: 2.5, ENG_GRA: 0, ENG_SYN: 2.5, ENG_READ: 0 },
+            LichSuBaiThiHK2: { ENG_PHO: 1.25, ENG_VOC: 1.25, ENG_LIS: 1.5, ENG_GRA: 1.75, ENG_SYN: 1.75, ENG_READ: 2.5 },
+            LichSuBaiThiHSG: { ENG_PHO: 1.25, ENG_VOC: 1.25, ENG_LIS: 1.5, ENG_GRA: 1.75, ENG_SYN: 1.75, ENG_READ: 2.5 }
+        };
+        const maxMap = MAX_BY_SHEET[sheetName] || MAX_BY_SHEET.LichSuBaiThiHK2;
         skillKeys.forEach((k) => {
-            const maxPts = MAX_SKILL_POINTS[k] || 1.5;
+            const maxPts = Number(maxMap[k] || 0);
             const vals = rows.map(r => {
-                const val = r[`diem${k}`];
-                return (val !== undefined && val !== null && val !== '--' && val !== '') ? Number(val) : 0;
-            });
-            const sum = vals.reduce((a, b) => a + b, 0);
-            if (vals.length > 0) {
+                const raw = r[`diem${k}`];
+                if (raw === undefined || raw === null || raw === '--' || raw === '') return null;
+                const num = Number(raw);
+                return Number.isFinite(num) ? num : null;
+            }).filter(v => v !== null);
+            if (vals.length > 0 && maxPts > 0) {
+                const sum = vals.reduce((a, b) => a + b, 0);
                 skillAverages[k] = Math.min(100, Math.round((sum / (vals.length * maxPts)) * 100));
                 touchedSkills.push(k);
             }
@@ -3589,7 +3622,7 @@ function renderHistoryReport(rows, sheetName) {
             labels: skillKeys.map(k => SKILL_TAXONOMY[k].name),
             datasets: [{
                 label: 'Độ thành thạo (%)',
-                data: skillKeys.map(k => skillAverages[k]),
+                data: skillKeys.map(k => touchedSkills.includes(k) ? skillAverages[k] : null),
                 backgroundColor: ['#f472b6', '#fb7185', '#f59e0b', '#a855f7', '#ec4899', '#e11d48'],
                 borderRadius: 8,
                 borderSkipped: false,
@@ -3614,7 +3647,7 @@ function renderHistoryReport(rows, sheetName) {
             },
             plugins: {
                 legend: { display: false },
-                tooltip: { callbacks: { label: (ctx) => ` Độ thành thạo: ${ctx.raw}%` } }
+                tooltip: { callbacks: { label: (ctx) => ctx.raw == null ? ' Chưa đánh giá' : ` Độ thành thạo: ${ctx.raw}%` } }
             }
         },
         plugins: [{
@@ -3623,7 +3656,7 @@ function renderHistoryReport(rows, sheetName) {
                 const { ctx } = chart;
                 chart.data.datasets[0].data.forEach((val, i) => {
                     const meta = chart.getDatasetMeta(0).data[i];
-                    if (!meta) return;
+                    if (!meta || val == null) return;
                     ctx.save();
                     ctx.font = 'bold 12px Quicksand, sans-serif';
                     ctx.fillStyle = '#1e293b';
@@ -3731,7 +3764,9 @@ function renderHistoryTable(rows, sheetName) {
 
     const getScoreVal = (r, skillKey) => {
         const val = r['diem' + skillKey];
-        return (val !== undefined && val !== null && val !== '') ? Number(val) : 0;
+        if (val === undefined || val === null || val === '' || val === '--') return null;
+        const num = Number(val);
+        return Number.isFinite(num) ? num : null;
     };
 
     const totalRows = rows.length;
@@ -3784,9 +3819,14 @@ function renderHistoryTable(rows, sheetName) {
             `;
         });
     } else {
-        skillKeys.forEach((k, i) => {
-            const sum = rows.reduce((acc, r) => acc + getScoreVal(r, k), 0);
-            summaryCells += `<td class="py-2 px-1">${(sum / totalRows).toFixed(1)}</td>`;
+        skillKeys.forEach((k) => {
+            const vals = rows.map(r => getScoreVal(r, k)).filter(v => v !== null);
+            if (!vals.length) {
+                summaryCells += `<td class="py-2 px-1 text-gray-400">--</td>`;
+            } else {
+                const sum = vals.reduce((acc, v) => acc + v, 0);
+                summaryCells += `<td class="py-2 px-1">${(sum / vals.length).toFixed(1)}</td>`;
+            }
         });
 
         rows.forEach((r, idx) => {
@@ -3795,8 +3835,11 @@ function renderHistoryTable(rows, sheetName) {
             const durationStr = r.thoiGianLamBai || '--';
 
             let examSkillCells = '';
-            skillKeys.forEach((k, i) => {
-                examSkillCells += `<td class="py-2 px-1">${getScoreVal(r, k)}</td>`;
+            skillKeys.forEach((k) => {
+                const val = getScoreVal(r, k);
+                examSkillCells += val === null
+                    ? `<td class="py-2 px-1 text-gray-300">--</td>`
+                    : `<td class="py-2 px-1">${val}</td>`;
             });
 
             bodyRows += `
