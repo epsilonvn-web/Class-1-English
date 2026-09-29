@@ -797,7 +797,7 @@
                         <!-- HEADER TRONG CARD (CHỈ HIỆN KHI THI) -->
                         <div id="quiz-card-header" class="hidden items-center justify-between flex-wrap gap-2 border-b border-pink-100 pb-2">
                             <div class="flex items-center space-x-2">
-                                <span id="q-badge-index" class="px-2.5 py-1 bg-pink-100 text-pink-800 text-sm font-black rounded-lg">CÂU 1 / 13</span>
+                                <span id="q-badge-index" class="px-2.5 py-1 bg-pink-100 text-pink-800 text-sm font-black rounded-lg">CÂU 1 / --</span>
                                 <span id="q-badge-skill" class="px-2.5 py-1 bg-pink-50 text-pink-700 border border-pink-200 text-sm font-bold rounded-lg flex items-center space-x-1">
                                     <i class="fa-solid fa-tag text-xs"></i>
                                     <span id="q-skill-text">Kiến thức cơ bản</span>
@@ -905,7 +905,7 @@
                             <h2 class="font-extrabold text-amber-600 text-lg md:text-xl flex items-center justify-center space-x-2">
                                 <span>🏆</span><span class="bi-label"><span class="en">Test Arena</span><span class="vi">Đấu trường đề thi thử</span></span>
                             </h2>
-                            <p class="text-xs md:text-sm text-gray-500 font-bold mt-1">Try 13-question tests across 6 skills<br><span class="text-[10px] text-slate-400">Luyện đề 13 câu theo 6 nhóm năng lực</span></p>
+                            <p class="text-xs md:text-sm text-gray-500 font-bold mt-1">Semester-aligned tests · competency-based assessment<br><span class="text-[10px] text-slate-400">Đề thi bám đúng phạm vi từng học kỳ · đánh giá năng lực có dữ liệu</span></p>
                         </div>
                         <div id="exam-categories-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
                     </div>
@@ -932,7 +932,7 @@
                                 </div>
                                 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-2 text-center">
                                     <span class="text-[10px] uppercase tracking-wider text-pink-200 font-bold block mb-0.5">Độ chính xác</span>
-                                    <div class="text-2xl sm:text-3xl font-black font-math text-emerald-300" id="report-correct-ratio-val">0/13</div>
+                                    <div class="text-2xl sm:text-3xl font-black font-math text-emerald-300" id="report-correct-ratio-val">0/--</div>
                                     <span class="text-[9px] text-pink-200">Câu đúng</span>
                                 </div>
                             </div>
@@ -942,7 +942,7 @@
                     <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pink-100 soft-shadow-pink space-y-2.5">
                         <h3 class="text-sm sm:text-base font-black text-slate-800 tracking-tight flex items-center space-x-2">
                             <i class="fa-solid fa-chart-bar text-pink-600"></i>
-                            <span>Bóc tách điểm số & đánh giá năng lực 6 chủ đề</span>
+                            <span>Bóc tách điểm số & đánh giá năng lực</span>
                         </h3>
                         <div id="report-topics-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
                     </div>
@@ -1044,7 +1044,7 @@
                         <div class="w-full md:w-[40%] bg-pink-50/40 border border-pink-100 rounded-2xl p-4 flex flex-col justify-between shadow-xs">
                             <h4 class="text-xs sm:text-sm font-black text-slate-800 mb-2 flex items-center space-x-1.5">
                                 <i class="fa-solid fa-chart-bar text-rose-600"></i>
-                                <span>Năng lực trung bình 6 chủ đề (%)</span>
+                                <span>Năng lực trung bình (%)</span>
                             </h4>
                             <div class="h-64 w-full relative">
                                 <canvas id="topicRadarChartCanvas"></canvas>
