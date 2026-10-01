@@ -276,7 +276,8 @@
             background: #ffffff !important;
         }
         #screen-dashboard {
-            max-width:72rem !important;
+            width:100% !important;
+            max-width:none !important;
             background:transparent !important;
         }
         #dashboard-header{
@@ -392,7 +393,7 @@
         #header-level3-tab > span,#header-level4-tab > span{color:#c084fc !important;font-size:13px !important;}
 
         #app-footer{
-            width:100%; max-width:72rem; min-height:76px; margin:10px auto 0; padding:0 14px;
+            width:100%; max-width:none; min-height:76px; margin:10px auto 0; padding:0 14px;
             border-radius:0; background-image:url('footer-bg.jpg'); background-size:cover;
             background-position:center; background-repeat:no-repeat; display:flex; align-items:center;
             justify-content:center; text-align:center; color:#1827f2;
@@ -561,8 +562,8 @@
     
         /* TA1 2026-09-22 - Footer dung ti le artwork 8:1, dong bo TV2 */
         #app-footer {
-            width: calc(100% - 1rem) !important;
-            max-width: 71rem !important;
+            width: 100% !important;
+            max-width: none !important;
             aspect-ratio: 8 / 1 !important;
             min-height: 0 !important;
             height: auto !important;
@@ -573,7 +574,7 @@
         }
         @media (max-width: 767px) {
             #app-footer {
-                width: calc(100% - 0.5rem) !important;
+                width: 100% !important;
                 max-width: none !important;
                 aspect-ratio: 8 / 1 !important;
                 min-height: 0 !important;
@@ -658,7 +659,7 @@
         </div>
 
         <!-- 2. KHUNG CHÍNH CHUẨN TỶ LỆ 16:9 / 16:10 -->
-        <div id="screen-dashboard" class="w-full hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2" style="max-width: 72rem !important;">
+        <div id="screen-dashboard" class="w-full hidden flex flex-col space-y-1.5 md:space-y-2 p-1 md:p-2">
             
             <header id="dashboard-header" class="w-full">
                 <button id="btn-header-home" onclick="goHome()" title="Home" class="flex items-center justify-center bg-white border border-pink-300 shadow-sm shrink-0 overflow-hidden p-0 transition-shadow duration-200 hover:border-pink-400 hover:shadow-[0_0_18px_rgba(244,114,182,0.65)]">
